@@ -3,3 +3,4 @@ tmp
 RealJenius.com.iml
 application.log
 application.log*
+conf/log4j.properties
