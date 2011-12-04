@@ -1,0 +1,71 @@
+#{extends 'main.html'/}
+#{include 'Application/_brushes.html'/}
+#{set title:post.title /}
+<article class="post">
+	<header class="single-entry-header">
+		<h1 class="entry-title"><a href="@{Application.post(post.name)}">${post.title}</a></h1>
+		<p>
+			<span class="entry-date">${post.friendlyDate()}</span>
+			<span class="entry-author">by R.J.</span>
+		</p>
+	</header>
+
+	<div class="single-entry-content">
+		#{include 'app/views/posts/'+post.name+'.html' /}
+	</div>
+	<footer class="single-entry-meta">
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		    var disqus_shortname = 'realjenius';
+		    // var disqus_url = '${post.absoluteUrl()}';
+		    var disqus_url = '${post.absoluteUrl()}';
+		    var disqus_identifier = '${post.commentIdentifier()}';
+		    var disqus_developer = 1;
+		
+		    /* * * DON'T EDIT BELOW THIS LINE * * */
+		    (function() {
+		        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		    })();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		<p>
+		Categories:
+			#{if post.category != null}
+				<a href="@{Application.byCategory(post.category)}">${post.category}</a>
+			#{/if}
+			#{else}
+				<i>None</i>
+			#{/else}
+		|
+		Tags:
+			#{if post.hasTags()}
+				#{list items:post.tags, as:'tag'}
+					<a href="@{Application.byTag(tag)}">${tag}</a>
+				#{/list}
+			#{/if}
+			#{else}
+				<i>None</i>
+			#{/else}
+		|
+		<a href="${post.absoluteUrl()}">Permalink</a>  
+		
+</article>
+
+<div class="clear"></div>
+<nav id="nav-below">
+	<div class="nav-previous">
+		#{if post.previous() != null}
+			<a href="${post.previous().url()}">Previous Post</a>
+		#{/if}
+	</div>
+	<div class="nav-next">
+		#{if post.next() != null}
+			<a href="${post.next().url()}">Next Post</a>
+		#{/if}
+	</div>
+</nav>

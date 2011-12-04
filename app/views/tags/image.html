@@ -1,0 +1,15 @@
+#{if _align == null}
+	#{set '_align'}alignnone#{/set}
+#{/if}
+
+#{if _caption != null}
+<div class="picture ${_align}">
+	<img src="@{'/public/images/articles'}/${_src}"/>
+	<div class="caption">
+		${_caption}
+	</div>
+</div>
+#{/if}
+#{else}
+	<img src="@{'/public/images/articles'}/${_src}" class="article_image ${_align}"/>
+#{/else}

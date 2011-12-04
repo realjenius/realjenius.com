@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Home page
+GET		/page/{page}							Application.indexPage
+GET		/tag/{tag}								Application.byTag(format:'html')
+GET		/tag/{tag}/feed							Application.byTag(format:'xml')
+GET		/tag/{tag}/pg/{page}					Application.byTagPage
+GET		/category/{category}					Application.byCategory(format:'html')
+GET		/category/{category}/feed				Application.byCategory(format:'xml')
+GET		/category/{category}/pg/{page}			Application.byCategoryPage
+GET		/admin/reload							Admin.reload
+GET		/{year}/{month}/{date}/{slug}			Application.post
+GET     /	                                    Application.index(format:'html')
+GET     /feed	                                Application.index(format:'xml')
+GET     /sitemap.xml                            Application.sitemap
+GET		/{name}									Application.page
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

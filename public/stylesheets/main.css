@@ -1,0 +1,19 @@
+.picture {
+
+}
+.article_image {
+	padding: 3px;
+}
+.picture img, .article_image {
+	vertical-align: middle;
+	margin-bottom: 3px;
+}
+.picture .caption {
+	font-size: .8em;
+	padding: 7px 0 10px;
+}
+.alignnone { margin: 0.5em auto; width: auto; }
+.right { margin: 0.5em 0pt 0.5em 0.8em; float: right; }
+.left { margin: 0.5em 0.8em 0.5em 0; float: left; }
+
+/* TODO infoTable */

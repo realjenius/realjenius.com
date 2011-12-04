@@ -1,0 +1,12 @@
+#{extends 'main.html'/}
+#{set title:page.title /}
+<article class="page">
+<header class="single-entry-header">
+	<h1 class="entry-title"><a href="@{Application.page(page.name)}">${page.title}</a></h1>
+</header>
+
+<div class="single-entry-content">
+	#{include 'app/views/pages/'+page.name+'.html' /}
+</div>
+
+</article>

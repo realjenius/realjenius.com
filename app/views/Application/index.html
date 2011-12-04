@@ -1,0 +1,18 @@
+#{extends 'main.html'/}
+
+#{include 'Application/_postList.html' /}
+
+<nav id="nav-below">
+	<div class="nav-previous">
+		#{if posts.older()}
+			#{set 'previousPage'}${page+1}#{/set}
+			<a href="@{Application.indexPage(previousPage)}"><span class="meta-nav">&larr;</span> Older posts</a>
+		#{/if}
+	</div>
+	<div class="nav-next">
+		#{if posts.newer()}
+			#{set 'nextPage'}${page-1}#{/set}
+			<a href="@{Application.indexPage(nextPage)}">Newer posts <span class="meta-nav">&rarr;</span></a>
+		#{/if}
+	</div>
+</nav> 

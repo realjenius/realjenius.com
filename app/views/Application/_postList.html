@@ -1,0 +1,37 @@
+
+#{list items:posts.posts, as:'post'}
+	<article class="post type-post">
+	<header class="single-entry-header">
+		<h1 class="entry-title"><a href="${post.url()}">${post.title}</a></h1>
+		<p>
+			<span class="entry-date">${post.friendlyDate()}</span>
+			<span class="entry-author">by R.J.</span>
+		</p>
+	</header>
+	<div>${post.summary}</div>
+	<p><a href="${post.url()}">Continue Reading <span class="meta-nav">&rarr;</span></a></p>
+	<footer class="entry-meta">
+		<p>
+		Categories:
+			#{if post.category != null}
+				<a href="@{Application.byCategory(post.category)}">${post.category}</a>
+			#{/if}
+			#{else}
+				<i>None</i>
+			#{/else}
+		|
+		Tags:
+			#{if post.hasTags()}
+				#{list items:post.tags, as:'tag'}
+					<a href="@{Application.byTag(tag)}">${tag}</a>
+				#{/list}
+			#{/if}
+			#{else}
+				<i>None</i>
+			#{/else}
+		|
+		<a href="${post.absoluteUrl()}">Permalink</a>  
+	</footer>
+	</article> 
+#{/list}
+

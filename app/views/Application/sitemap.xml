@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- generator="realjenius.com/4.0.0" -->
+<!-- sitemap-generator-url="http://www.realjenius.com" sitemap-generator-version="1.0.0" -->
+<!-- generated-on="${formattedOn}" -->
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    #{list items:sitemap.urls, as:'url'}
+    <url>
+            <loc>${url.path}</loc>
+            <lastmod>${url.lastMod}</lastmod>
+            <changefreq>${url.changeFrequency}</changefreq>
+            <priority>${url.priority}</priority>
+    </url>
+    #{/list}
+</urlset>

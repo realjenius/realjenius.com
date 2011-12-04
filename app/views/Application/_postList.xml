@@ -1,0 +1,10 @@
+#{list items:posts.posts, as:'post'}
+   <item>
+      <title>${post.title}</title>
+      <link>${post.absoluteUrl()}</link>
+      <author>R.J. Lorimer</author>
+      <pubDate>${post.rfc822Date()}</pubDate>
+      <guid>${post.absoluteUrl()}</guid>
+      <description><![CDATA[#{include 'app/views/posts/'+post.name+'.html' /}]]></description>
+   </item>
+#{/list}
