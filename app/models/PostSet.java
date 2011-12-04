@@ -26,11 +26,12 @@ public class PostSet {
 	public void reload(SiteMap m) throws IOException {
 		Index<Post> postIndex = new Index<Post>();
 		List<Post> postList = new ArrayList<Post>(); 
-		List<MetaInfo> meta = MetaLoader.loadMeta(Config.getPosts());
+		List<MetaInfo> meta = MetaLoader.loadMeta(Config.getPostsFile());
 		for(MetaInfo post : meta) {
 			Post p = new Post();
 			p.title = post.vars.get("title").toString();
 			p.name = post.name;
+            p.path = post.path;
 			p.summary = post.vars.get("summary").toString();
 			p.category = post.vars.get("category").toString().toLowerCase();
 			p.tags = lowerCase(split(post.vars.get("tags")));

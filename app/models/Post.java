@@ -10,16 +10,16 @@ import org.joda.time.format.DateTimeFormat;
 
 import play.mvc.Router;
 import play.mvc.Router.ActionDefinition;
+import util.Config;
 
 public class Post extends Content implements Comparable<Post> {
 	public DateTime created;
-	public DateTime updated;
 	public List<String> tags;
 	public List<String> brushes;
 	public String category;
 	public Integer legacyId;
 	public String seriesName;
-    
+
 	@Override
 	public int compareTo(Post o) {
 		return o.updated.compareTo(updated);
@@ -42,7 +42,7 @@ public class Post extends Content implements Comparable<Post> {
 		def.absolute();
 		return def.url;
 	}
-	
+    
 	public Post previous() {
 		return DataSet.posts().previous(this);
 	}
@@ -71,7 +71,12 @@ public class Post extends Content implements Comparable<Post> {
 			return legacyId + " http://www.realjenius.com/?p=" + legacyId;
 		}
 	}
-	
+
+
+    protected String getTemplatePrefix() {
+        return Config.getPostsPath();
+    }
+
 	private ActionDefinition defn() {
 		Map<String,Object> actionArgs = new HashMap<String,Object>();
 		actionArgs.put("year", String.valueOf(updated.getYear()));

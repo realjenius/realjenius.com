@@ -17,13 +17,14 @@ public class PageSet {
 	
 	public void reload(SiteMap m) throws IOException {
 		Map<String,Page> pages = new HashMap<String,Page>();
-		List<MetaInfo> meta = MetaLoader.loadMeta(Config.getPages());
+		List<MetaInfo> meta = MetaLoader.loadMeta(Config.getPagesFile());
 		for(MetaInfo page : meta) {
 			Page p = new Page();
 			p.title = page.vars.get("title").toString();
             p.updated = new DateTime(page.updated);
 			p.name = page.name;
 			p.summary = page.vars.get("summary").toString();
+            p.path = page.path;
 			pages.put(p.name, p);
             m.addPage(p);
 		}

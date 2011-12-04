@@ -11,7 +11,7 @@
 	</header>
 
 	<div class="single-entry-content">
-		#{include '/app/views/posts/'+post.name+'.html' /}
+		#{include post.includePath /}
 	</div>
 	<footer class="single-entry-meta">
 		<div id="disqus_thread"></div>

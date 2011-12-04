@@ -16,13 +16,14 @@ public class MetaLoader {
 	
 	public static List<MetaInfo> loadMeta(File f) throws IOException {
 		List<MetaInfo> result = new ArrayList<MetaInfo>();
+        String subPath = "/";
 		for( File content : f.listFiles() ) {
-			result.addAll(parseFiles(content));
+			result.addAll(parseFiles(content, subPath));
 		}
 		return result;
 	}
     
-    private static List<MetaInfo> parseFiles(File content) throws IOException {
+    private static List<MetaInfo> parseFiles(File content, String subPath) throws IOException {
         List<MetaInfo> result = new ArrayList<MetaInfo>();
         if(content.isFile()) {
             BufferedReader r = new BufferedReader(new FileReader(content));
@@ -46,6 +47,7 @@ public class MetaLoader {
                 Map<String,Object> data = (Map<String,Object>)new Yaml().load(meta.toString());
                 MetaInfo m = new MetaInfo();
                 m.vars = data;
+                m.path = subPath;
                 m.name = content.getName().substring(0, content.getName().length()-5);
                 m.updated = content.lastModified();
                 result.add(m);
@@ -56,7 +58,7 @@ public class MetaLoader {
         }
         else {
             for(File f : content.listFiles()) {
-                result.addAll(parseFiles(f));
+                result.addAll(parseFiles(f, subPath + content.getName() + "/"));
             }
         }
         return result;
