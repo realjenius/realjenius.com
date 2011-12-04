@@ -5,6 +5,6 @@
       <author>R.J. Lorimer</author>
       <pubDate>${post.rfc822Date()}</pubDate>
       <guid>${post.absoluteUrl()}</guid>
-      <description><![CDATA[#{include 'app/views/posts/'+post.name+'.html' /}]]></description>
+      <description><![CDATA[#{include '/app/views/posts/'+post.name+'.html' /}]]></description>
    </item>
 #{/list}
