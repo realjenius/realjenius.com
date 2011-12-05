@@ -11,12 +11,14 @@ import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
 
 import play.Logger;
+import play.Play;
 
 public class MetaLoader {
 	
 	public static List<MetaInfo> loadMeta(File f) throws IOException {
 		List<MetaInfo> result = new ArrayList<MetaInfo>();
         String subPath = "/";
+        Logger.debug("Meta file path: {}", f.getAbsolutePath());
 		for( File content : f.listFiles() ) {
 			result.addAll(parseFiles(content, subPath));
 		}
