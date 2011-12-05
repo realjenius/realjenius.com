@@ -18,7 +18,7 @@ public class MetaLoader {
 	public static List<MetaInfo> loadMeta(File f) throws IOException {
 		List<MetaInfo> result = new ArrayList<MetaInfo>();
         String subPath = "/";
-        Logger.debug("Meta file path: {}", f.getAbsolutePath());
+        Logger.debug("Meta file path: " + f.getPath() + ", " + f.getAbsolutePath());
 		for( File content : f.listFiles() ) {
 			result.addAll(parseFiles(content, subPath));
 		}
