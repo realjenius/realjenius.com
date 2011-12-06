@@ -28,7 +28,7 @@ public class MetaLoader {
     private static List<MetaInfo> parseFiles(File content, String subPath) throws IOException {
         List<MetaInfo> result = new ArrayList<MetaInfo>();
         if(content.isFile()) {
-            BufferedReader r = new BufferedReader(new FileReader(content));
+            BufferedReader r = new BufferedReader(new FileReader(content.getAbsoluteFile()));
             try {
                 StringBuilder meta = new StringBuilder();
                 int state = 0;
