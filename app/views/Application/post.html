@@ -16,13 +16,13 @@
 	<footer class="single-entry-meta">
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
-		    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 		    var disqus_shortname = 'realjenius';
-		    // var disqus_url = '${post.absoluteUrl()}';
-		    var disqus_url = '${post.absoluteUrl()}';
+		    var disqus_url = 'http://realjenius.com/${post.url()}';
 		    var disqus_identifier = '${post.commentIdentifier()}';
-		    var disqus_developer = 1;
-		
+		    #{if !prod}
+                var disqus_developer = 1;
+            #{/if}
+
 		    /* * * DON'T EDIT BELOW THIS LINE * * */
 		    (function() {
 		        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

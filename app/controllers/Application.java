@@ -6,6 +6,7 @@ import models.*;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import play.Logger;
+import play.Play;
 import play.mvc.After;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -18,6 +19,7 @@ public class Application extends Controller {
 	@Before
 	static void helpers() {
 		renderArgs.put("renderHelper", RenderHelper.INSTANCE);
+        renderArgs.put("prod", Play.mode.isProd());
 	}
     
     public static void sitemap() {
