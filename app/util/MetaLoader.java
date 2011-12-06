@@ -19,7 +19,7 @@ public class MetaLoader {
 		List<MetaInfo> result = new ArrayList<MetaInfo>();
         String subPath = "/";
         Logger.debug("Meta file path: " + f.getPath() + ", " + f.getAbsolutePath());
-		for( File content : f.listFiles() ) {
+		for( File content : f.getAbsoluteFile().listFiles() ) {
 			result.addAll(parseFiles(content, subPath));
 		}
 		return result;
