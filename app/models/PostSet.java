@@ -13,6 +13,8 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatterBuilder;
 
+import play.Logger;
+import play.Play;
 import util.Config;
 import util.Index;
 import util.MetaInfo;
@@ -28,35 +30,41 @@ public class PostSet {
 		List<Post> postList = new ArrayList<Post>(); 
 		List<MetaInfo> meta = MetaLoader.loadMeta(Config.getPostsFile());
 		for(MetaInfo post : meta) {
-			Post p = new Post();
-			p.title = post.vars.get("title").toString();
-			p.name = post.name;
-            p.path = post.path;
-			p.summary = post.vars.get("summary").toString();
-			p.category = post.vars.get("category").toString().toLowerCase();
-			p.tags = lowerCase(split(post.vars.get("tags")));
-			p.brushes = split(post.vars.get("brushes"));
-			String date = post.vars.get("date").toString();
-			if(date != null) {
-				p.updated = DateTimeFormat.forPattern("MM/dd/yyyy HH:mm").parseDateTime(date);
-			}
-			else {
-				p.updated = new DateTime(post.updated);
-			}
-			Integer legacyId = (Integer)post.vars.get("legacyId");
-			if(legacyId != null) {
-				p.legacyId = legacyId;
-			}
-            String series = (String)post.vars.get("series");
-            if(series != null) {
-                p.seriesName = series;
-                postIndex.add("series", p, p.seriesName);
+            try {
+                Post p = new Post();
+                p.title = post.vars.get("title").toString();
+                p.name = post.name;
+                p.path = post.path;
+                p.summary = post.vars.get("summary").toString();
+                p.category = post.vars.get("category").toString().toLowerCase();
+                p.tags = lowerCase(split(post.vars.get("tags")));
+                p.brushes = split(post.vars.get("brushes"));
+                String date = post.vars.get("date").toString();
+                if(date != null) {
+                    p.updated = DateTimeFormat.forPattern("MM/dd/yyyy HH:mm").parseDateTime(date);
+                }
+                else {
+                    p.updated = new DateTime(post.updated);
+                }
+                Integer legacyId = (Integer)post.vars.get("legacyId");
+                if(legacyId != null) {
+                    p.legacyId = legacyId;
+                }
+                String series = (String)post.vars.get("series");
+                if(series != null) {
+                    p.seriesName = series;
+                    postIndex.add("series", p, p.seriesName);
+                }
+                postList.add(p);
+                m.addPost(p);
+                postIndex.add("name", p, p.name);
+                postIndex.add("tag", p, p.tags);
+                postIndex.add("category", p, p.category);
             }
-			postList.add(p);
-            m.addPost(p);
-			postIndex.add("name", p, p.name);
-			postIndex.add("tag", p, p.tags);
-			postIndex.add("category", p, p.category);
+            catch(RuntimeException e) {
+                Logger.error("Error loading post: %s", post.name);
+                throw e;
+            }
 		}
 		postIndex.build();
 		Collections.sort(postList);
