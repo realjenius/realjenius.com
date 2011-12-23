@@ -1,0 +1,76 @@
+*{META
+title: 'Google Guava and Multimaps'
+summary: 'Multimaps are one of the many collections in Google Guava. I describe why you might want to use them.'
+tags: Java,Guava,Collections
+category: journal
+brushes: java
+date: 12/22/2011 22:00
+META}*
+
+<p>
+It's not uncommon in Java to build some sort of in-memory registry that contains a map with a list of items at each position. Often, these implementations look something like this (excluding concurrency details for brevity):
+</p>
+
+#{code 'java'}
+private Map<String,List<Something>> stuff = new HashMap<String,List<Something>>();
+
+// ...
+
+public void add(String key, Something item) {
+  if(!stuff.containsKey(key)) {
+    stuff.put(key, new ArrayList<Something>());
+  }
+  stuff.get(key).add(item);
+}
+
+public List<Something> get(String key) {
+  return new ArrayList<Something>(stuff.get(key));
+}
+#{/code}
+
+<p>
+<a href="http://guava-libraries.googlecode.com">Google's Guava Libraries</a> provide a few collections to help with this common case: <code>com.google.common.collect.Multimap</code>, and the more specific variants <code>ListMultimap</code>, <code>SetMultimap</code>, and <code>SortedSetMultimap</code>.
+
+The above code can be re-written with Guava like this:
+</p>
+
+#{code 'java'}
+private ListMultimap<String,Something> stuff = new ArrayListMultimap<String,Something>();
+
+// ...
+
+public void add(String key, Something item) {
+  stuff.put(key, item);
+}
+
+public List<Something> get(String key) {
+  // might as well use the Lists convenience API while we're at it.
+  return Lists.newArrayList(stuff.get(key));
+}
+#{/code}
+
+<p>
+The multi-map has a variety of fancy features that can be used as well. Here are just a few examples:
+</p>
+
+#{code 'java'}
+// returns a composite of all values from all entries.
+Collection<Something> allSomethings = stuff.values(); 
+
+// A more traditional map that can be edited.
+Map<String, Collection<Something>> mapView = stuff.asMap();
+
+// remove an individual entry for a key.
+boolean removed = stuff.remove(key, someVal);
+
+// remove all for a key
+List<Something> removedSomethings = stuff.remove(key);
+
+// One for each value in the map. Updating this collection updates the map.
+Collection<Map.Entry<String,Something>> allEntries = stuff.entries();
+#{/code}
+
+<p>
+All of the collections returned by the various API are views of the multimap. This can make it particularly easy to work with the map in a variety of ways. It does mean you should probably 
+perform defensive copying anywhere you might be exposing these APIs (generally good practice in most cases, anyway).
+</p>
