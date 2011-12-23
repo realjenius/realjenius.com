@@ -1,5 +1,8 @@
 package util;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,16 +12,16 @@ import java.util.Map;
 
 public class Index<T extends Comparable> {
 
-	private Map<String,Map<String,List<T>>> indexMap;
+	private Map<String,ListMultimap<String,T>> indexMap;
 	
 	public Index() {
-		indexMap = new HashMap<String,Map<String,List<T>>>();
+		indexMap = new HashMap<String,ListMultimap<String,T>>();
 	}
 	
 	public void add(String index, T item, List<String> indexVals) {
-		Map<String,List<T>> anIndex = indexMap.get(index);
+		ListMultimap<String,T> anIndex = indexMap.get(index);
 		if(anIndex == null) {
-			anIndex = new HashMap<String,List<T>>();
+			anIndex = ArrayListMultimap.create();
 			indexMap.put(index, anIndex);
 		}
 		for(String val : indexVals) {
@@ -26,17 +29,13 @@ public class Index<T extends Comparable> {
 				continue;
 			}
 			List<T> indexSet = anIndex.get(val);
-			if(indexSet == null) {
-				indexSet = new ArrayList<T>();
-				anIndex.put(val, indexSet);
-			}
 			indexSet.add(item);
 		}
 	}
 	
     public List<String> keysFor(String index) {
         List<String> result = Collections.emptyList();
-        Map<String,List<T>> map = indexMap.get(index);
+        ListMultimap<String,T> map = indexMap.get(index);
         if(map != null) {
             result = new ArrayList<String>(map.keySet());
         }
@@ -44,7 +43,7 @@ public class Index<T extends Comparable> {
     }
 	public List<T> find(String index, String value) {
 		List<T> result = Collections.emptyList();
-		Map<String,List<T>> map = indexMap.get(index);
+		ListMultimap<String,T> map = indexMap.get(index);
 		if(map != null) {
 			List<T> list = map.get(value);
 			if(list != null) {
@@ -62,9 +61,9 @@ public class Index<T extends Comparable> {
 	}
 	
 	public void build() {
-		for(Map<String,List<T>> indices : indexMap.values()) {
-			for(List<T> indexSet : indices.values()) {
-				Collections.sort(indexSet);
+		for(ListMultimap<String,T> indices : indexMap.values()) {
+			for(String indexKey : indices.keySet()) {
+				Collections.sort(indices.get(indexKey));
 			}
 		}
 	}
