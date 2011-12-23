@@ -1,5 +1,8 @@
 package util;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,16 +12,16 @@ import java.util.Map;
 
 public class Index<T extends Comparable> {
 
-	private Map<String,Map<String,List<T>>> indexMap;
+	private Map<String,ListMultimap<String,T>> indexMap;
 	
 	public Index() {
-		indexMap = new HashMap<String,Map<String,List<T>>>();
+		indexMap = new HashMap<String,ListMultimap<String,T>>();
 	}
 	
 	public void add(String index, T item, List<String> indexVals) {
-		Map<String,List<T>> anIndex = indexMap.get(index);
+		ListMultimap<String,T> anIndex = indexMap.get(index);
 		if(anIndex == null) {
-			anIndex = new HashMap<String,List<T>>();
+			anIndex = ArrayListMultimap.create();
 			indexMap.put(index, anIndex);
 		}
 		for(String val : indexVals) {
