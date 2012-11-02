@@ -2,16 +2,13 @@
 {% if align == null %}
 	{% assign align = 'alignnone' %}
 {% endif %}
-{% if caption %}
+
 <div class="picture {{align}}">
 	<img src="/images/articles{{src}}"/>
-	<div class="caption">{{caption}}</div>
+	{% if caption %}
+		<div class="caption">{{caption}}</div>
+	{% endif %}
 </div>
-{% else %}
-<img 
-  src="/images/articles{{src}}" 
-  class="article_image {{align}}"/>
-{% endif %}
 {% assign caption = nil %}
 {% assign align = nil %}
 {% assign src = nil %}

@@ -418,7 +418,6 @@ nav#subnav ul.menu li.menu-item ul.sub-menu li.menu-item a {
 	font-family: monospace;
 	font-size: 1.1em;
 	line-height: 1.3;
-	margin: -10px 0 20px 0;
 	padding: 10px;
 }
 #content .highlight {
@@ -430,6 +429,15 @@ nav#subnav ul.menu li.menu-item ul.sub-menu li.menu-item a {
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
+
+#content .picture img {
+	border: 1px solid #ccc;
+	padding: 4px;
+}
+#content .picture .caption {
+	text-align: center;
+	font-weight: bold;
+}
 /* --- Post Images and Video --- */
 #content img {
 	max-width:100%;
@@ -437,17 +445,18 @@ nav#subnav ul.menu li.menu-item ul.sub-menu li.menu-item a {
 	margin: 0;
 	padding: 0;
 }
-#content img.aligncenter {
+#content .aligncenter {
 	margin: 20px auto;
 }
-#content img.alignleft ,#content .wp-caption.alignleft, #content img.left {
+#content .alignleft ,#content .wp-caption.alignleft, #content img.left {
 	margin: 10px 20px 0 0;
 }
-#content img.alignright,#content .wp-caption.alignright, #content img.right {
+#content .alignright,#content .wp-caption.alignright, #content img.right {
 	margin: 10px 0 0 20px;
 }
-#content img.alignnone {
+#content .alignnone {
 	margin: 20px 0;
+	text-align: center;
 }
 #content .wp-caption.alignnone {
 	margin: 0 0 20px 0;
