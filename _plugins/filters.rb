@@ -13,6 +13,10 @@ module MyFilters
 			input
 		end
 	end
+
+	def trim_last(input)
+		input[0..-2]
+	end
 end
 
 Liquid::Template.register_filter MyFilters
