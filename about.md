@@ -4,8 +4,7 @@ summary: A short summary of what RealJenius.com is.
 layout: page
 ---
 
-{% assign align = 'left' %}
-{% assign caption = 'Get off my lawn!' %}
+{% assign align = 'right' %}
 {% assign src = 'headshot.png' %}
 {% include image.html %}
 
@@ -13,7 +12,7 @@ Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
 I am currently the **Director of Platform Engineering** for [Electrotank, Inc.](http://www.electrotank.com), which effectively boils down to me being technically responsible for the development of all of our products. My responsibilities include:
 
-* Server/Infrastructure technical lead
+* Lead server developer
 * Primary design and product direction
 * Mr. Fixit
 
