@@ -11,7 +11,7 @@ layout: page
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently the **Director of Platform Engineering* for [Electrotank, Inc.](http://www.electrotank.com), which effectively boils down to me being technically responsible for the development of all of our products. My responsibilities include:
+I am currently the **Director of Platform Engineering** for [Electrotank, Inc.](http://www.electrotank.com), which effectively boils down to me being technically responsible for the development of all of our products. My responsibilities include:
 
 * Server/Infrastructure technical lead
 * Primary design and product direction
