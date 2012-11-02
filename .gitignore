@@ -1,6 +1,2 @@
-test
-tmp
-RealJenius.com.iml
-application.log
-application.log*
-conf/log4j.properties
+sublime-project.sublime-workspace
+_site

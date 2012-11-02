@@ -1,0 +1,11 @@
+---
+layout: atom
+title: nil
+---
+{% for category in site.categories %}
+	{% if category[0] == page.category %}
+		{% assign theposts = category[1] %}
+		{% include atom_posts.xml %}
+	{% endif %}
+
+{% endfor %}

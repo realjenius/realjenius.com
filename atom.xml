@@ -1,0 +1,6 @@
+---
+layout: atom
+title: nil
+---
+{% assign theposts = site.posts %}
+{% include atom_posts.xml %}

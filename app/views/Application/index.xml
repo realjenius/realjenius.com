@@ -1,2 +1,0 @@
-#{extends 'main.xml'/}
-#{include 'Application/_postList.xml' /}

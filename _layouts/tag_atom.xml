@@ -1,0 +1,11 @@
+---
+layout: atom
+title: nil
+---
+{% for tag in site.tags %}
+	{% if tag[0] == page.tag %}
+		{% assign theposts = tag[1] %}
+		{% include atom_posts.xml %}
+	{% endif %}
+
+{% endfor %}

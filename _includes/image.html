@@ -1,0 +1,18 @@
+{% capture src %}{{ src | prepend_if: '/' }}{% endcapture %}
+{% if align == null %}
+	{% assign align = 'alignnone' %}
+{% endif %}
+{% if caption %}
+<div class="picture {{align}}">
+	<img src="/images/articles{{src}}"/>
+	<div class="caption">{{caption}}</div>
+</div>
+{% else %}
+<img 
+  src="/images/articles{{src}}" 
+  class="article_image {{align}}"/>
+{% endif %}
+{% assign caption = nil %}
+{% assign align = nil %}
+{% assign src = nil %}
+{% assign firstchar = nil %}

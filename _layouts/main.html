@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{page.title}}</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" media="screen" href="/stylesheets/main.css">
+        <link rel="stylesheet" media="screen" href="/stylesheets/theme/airy.css">
+        <link rel="stylesheet" media="screen" href="/stylesheets/syntax.css">
+        <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+        <script src="/javascripts/jquery-1.5.2.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27375996-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+    <body>
+    	<div id="page" class="clearfix">
+        	<header id="branding">
+        		<nav id="mainnav" class="clearfix">
+        			<div class="menu-primary-container">
+        				<ul id="menu-primary" class="menu">
+        					<li class="menu-item"><a href="/">Home</a></li>
+        					<li class="menu-item"><a href="/category/journal/">Journal</a></li>
+        					<li class="menu-item"><a href="/category/article/">Article</a></li>
+        					<li class="menu-item"><a href="/about.html">About</a></li>
+                            <li class="menu-item"><a href="/contact.html">Contact</a></li>
+        				<ul>
+        			</div>
+        		</nav>
+        		<hgroup id="site-title">
+        			<h1><a href="/" title="RealJenius.com">RealJenius.com</a></h1>
+        			<h2 id="site-description">Hold my beer; watch this.</h2>
+        		</hgroup>
+        		<div class="clear"></div>
+        	</header>
+        	<div id="wrap">
+        		<div id="main">
+        			<div id="content">
+        				{{ content }}
+        			</div>
+        			<div id="secondary" class="widget-area" role="complementary">
+						<aside class="widget">
+							<h3 class="widget-title">Elsewhere</h3>
+							<div class="textwidget">
+								<ul>
+									<li class="tube">
+										<a href="http://www.twitter.com/realjenius">Twitter</a>
+									</li>
+									<li class="tube">
+										<a href="http://www.linkedin.com/in/rjlorimer">LinkedIn</a>
+									</li>
+									<li class="tube">
+										<a href="https://github.com/realjenius">GitHub</a>
+									</li>
+									<li class="tube">
+										<a href="http://live.xbox.com/en-US/profile/profile.aspx?pp=0&GamerTag=Real+Jenius">XBox Live</a>
+									</li>
+									<li class="tube">
+										<a href="http://beeradvocate.com/user/profile/realjenius">BeerAdvocate</a>
+									</li>
+									<li class="tube">
+										<a href="http://draftsandbottles.com">First Round Drafts (and Bottles)</a>
+									</li>
+								</ul>
+							</div>
+						</aside>
+						<aside class="widget">
+							<h3 class="widget-title">RSS</h3>
+							<div class="textwidget">
+								<ul>
+									<li class="feed">
+										<a href="/atom.xml">Everything</a>
+									</li>
+									<li class="feed">
+										<a href="/category/journal/atom.xml">Journal</a>
+									</li>
+									<li class="feed">
+										<a href="/category/article/atom.xml">Articles</a>
+									</li>
+									<li class="feed">
+										<a href="/tag/java/atom.xml">Just Java</a>
+									</li>
+									<li class="feed">
+										<a href="/tag/tech/atom.xml">Just Tech</a>
+									</li>
+									<li class="feed">
+										<a href="/tag/android/atom.xml">Just Android</a>
+									</li>
+								</ul>
+							</div>
+						</aside>
+					</div>
+				</div>
+				<div id="tertiary" class="widget-area" role="complementary">
+					<aside class="widget widget_text">
+						<h3 class="widget-title">About</h3>
+						<div class="textwidget">
+							I'm R.J. Lorimer, and this is my personal site. I'm a software developer 
+							in the game industry, and have been (for better or worse) coding on the 
+							Java platform for the last decade. I also do all my own stunts.
+							<a class="more" href="{{site.baseurl}}/about.html">read more</a>
+						</div>
+					</aside>
+					<aside class="widget widget_text">
+						<h3 class="widget-title">Technical Bits</h3>
+						<div class="textwidget">
+							<p>RealJenius.com is hosted by (mt) <a href="http://mediatemple.net">MediaTemple.net</a>, 
+							on a (ve) server, running Ubuntu. Hard to find a better host. 
+							Check them out on <a href="http://www.twitter.com/mediatemple">Twitter</a>.</p>
+						</div>
+					</aside>
+					<aside class="widget widget_twitter">
+						<h3 class="widget-title"><a href="http://twitter.com/realjenius" class="twitter_title_link">#Twitter</a></h3>
+						<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+						<script>
+						new TWTR.Widget({
+						  version: 2,
+						  type: 'profile',
+						  rpp: 10,
+						  interval: 30000,
+						  width: 'auto',
+						  height: 300,
+						  theme: {
+						    shell: {
+						      background: '#e0e0e0',
+						      color: '#575757'
+						    },
+						    tweets: {
+						      background: '#ffffff',
+						      color: '#4a4a4a',
+						      links: '#009bc2'
+						    }
+						  },
+						  features: {
+						    scrollbar: true,
+						    loop: false,
+						    live: false,
+						    behavior: 'all'
+						  }
+						}).render().setUser('realjenius').start();
+						</script>
+					</aside>
+					<aside class="widget widget_text">
+						<h3 class="widget-title">Disclaimer</h3>
+						<div class="textwidget">
+							This is my personal site. What I say here is mine and mine alone. 
+							My opinions have no bearing on my employer, and likewise, my employer has no claim over 
+							the ownership of the content on this site.
+						</div>
+					</aside>
+				</div> 
+			</div> 
+			<footer id="colophon" class="clearfix">
+				<p>&copy 2009-2012 - R.J. Lorimer</p>
+				<a href="#page" class="top">Top</a>
+			</footer> 
+		</div>
+    </body>
+</html>
