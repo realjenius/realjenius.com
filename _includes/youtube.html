@@ -1,3 +1,15 @@
-<iframe id="ytplayer" type="text/html" width="560" height="315" src="http://www.youtube.com/embed/{{video}}?origin=http://realjenius.com" frameborder="0"><!--x--></iframe>
+<div markdown="0"><notextile>
+
+{% if time %}
+	{% capture time %}{{time | prepend: '&amp;t=' }}{% endcapture %}
+{% else %}
+	{% assign time='' %}
+{% endif %}
+
+<iframe id="ytplayer" type="text/html" width="560" height="315" 
+	src="http://www.youtube.com/embed/{{video}}?origin=http://realjenius.com{{time}}" frameborder="0"><!--x--></iframe>
 
 {% assign video=nil %}
+{% assign time=nil %}
+</notextile>
+</div>
