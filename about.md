@@ -16,7 +16,7 @@ I am currently the **Director of Platform Engineering** for [Electrotank, Inc.](
 * Primary design and product direction
 * Mr. Fixit
 
-I have recently presented at [QCon](http://qconnewyork.com/) and [GDC](http://www.gdcvault.com/play/1016590/Lag-Sucks-Making-Online-Gaming) *(requires GDC Vault access)* on our tech.
+I have recently presented at [QCon](http://qconnewyork.com/) and [GDC](http://www.gdcvault.com/play/1016590/Lag-Sucks-Making-Online-Gaming) on our tech *(requires GDC Vault access)*.
 
 Prior to Electrotank, I've worked on a variety of large projects, technically leading mid-size powerful teams.
 
