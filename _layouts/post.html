@@ -5,7 +5,7 @@ layout: main
 	<header class="single-entry-header">
 		<h1 class="entry-title"><a href="{{site.baseurl}}/{{page.slug}}">{{page.title}}</a></h1>
 		<p>
-			<span class="entry-date">{{page.date}}</span>
+			<span class="entry-date">{{page.date | date: '%m/%d/%Y'}}</span>
 			<span class="entry-author">by R.J.</span>
 		</p>
 	</header>
