@@ -107,7 +107,7 @@ Here is a big wall of hack-y liquid tags to achieve just that.
 
 *You can download or fork this source directly from [Github](https://github.com/realjenius/site-samples/blob/master/2012-11-03-jekyll-series-list/series.html).*
 
-Let's work through this. The script is roughly broken into two parts:
+Let's work through this. The script is roughly broken into three parts:
 
 1. The first part iterates over the total post list counting all entries that match the series key, and also finds the index of the post.
 2. The second part generates the series summary text, and then iterates over the total post list again, generating links for each post.
