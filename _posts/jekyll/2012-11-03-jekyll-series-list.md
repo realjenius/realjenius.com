@@ -6,7 +6,6 @@ category: article
 tags: jekyll ruby site hacks
 ---
 
-## Overview
 Jekyll is one of the most popular "static blogging" tools available right now, and is the foundation for a number of popular tools at a more sophisticated level, including [OctoPress](http://www.octopress.org), and [Jekyll Bootstrap](http://www.jekyllbootstrap.com). Since the end result of a built Jekyll site is plain, vanilla HTML, it allows for fairly complex sites to be built with a bare minimum of hosting requirements, and it's also pretty easy to secure and make perform in the process!
 
 That said, there are some features Jekyll just doesn't have that big dynamic content management systems do; but that doesn't mean they can't be built. For the more sophisticated enhancements, you will likely need to look at implementing custom Jekyll plugins, tags, and filters -- but for some features, you can get away with wrangling [Liquid](https://github.com/Shopify/liquid) scripts into the shape you need. Liquid is a templating engine, and like many templating engines, it has a little bit of programming support mixed in with its ability to generate dynamic markup, and sometimes you can leverage that to hit your goal.
