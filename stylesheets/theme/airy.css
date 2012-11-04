@@ -418,6 +418,7 @@ nav#subnav ul.menu li.menu-item ul.sub-menu li.menu-item a {
 	font-size: 1.1em;
 	line-height: 1.3;
 	padding: 10px;
+	overflow: auto;
 }
 #content code {
 	font-family: 'Ubuntu Mono', monospace;
