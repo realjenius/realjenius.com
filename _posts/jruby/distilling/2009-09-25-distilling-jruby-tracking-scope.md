@@ -25,8 +25,7 @@ And, of course, Ruby has closures, which means that you have to carry (aka captu
 
 So how does JRuby do it?
 
-{% assign series='distilling-jruby' %}
-{% include series.html %}
+{% series_list %}
 
 In my previous [Distilling JRuby article]({% post_url 2009-09-16-distilling-jruby-method-dispatching-101 %}) I briefly mentioned a class called 'DynamicScope'. I also hinted at another object called 'StaticScope'. Both play a central role in handling this difficult problem.
 

@@ -29,8 +29,7 @@ JRuby's JIT compiler is similar in nature, the primary difference being the sour
 
 Generating Java bytecode from interpreted Ruby code is no small feat, however; so, without further ado, let's start the tour of JRuby's JIT!
 
-{% assign series='distilling-jruby' %}
-{% include series.html %}
+{% series_list %}
 
 ## There's Compilers, and then there's *Compilers*
 

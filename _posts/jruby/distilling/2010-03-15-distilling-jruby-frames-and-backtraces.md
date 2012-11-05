@@ -23,8 +23,7 @@ In previous "distilling" articles, I discussed how methods are dispatched, and t
 
 This article is all about how JRuby implements those concepts.
 
-{% assign series='distilling-jruby' %}
-{% include series.html %}
+{% series_list %}
 
 ## Overview
 
