@@ -6,6 +6,10 @@ category: journal
 layout: post
 ---
 
+{% assign align='right' %}
+{% assign src='/linux/steam.png' %}
+{% include image.html %}
+
 Today, Valve released the [Steam for Linux beta client](http://www.pcmag.com/article2/0,2817,2411827,00.asp) ([more](http://www.zdnet.com/big-time-gaming-coming-to-linux-7000006997/), [and more](http://www.brightsideofnews.com/news/2012/11/6/valve-moves-to-change-pc-gaming-steam-goes-linux.aspx)) to 1000 lucky testers. It's an exciting official event (I [discussed this previously]({% post_url 2012-11-02-valve-steam-uds %})), and while the [supported game list is still quite small](http://store.steampowered.com/search/?snr=1_4_4__12&term=linux#os=linux&advanced=0&sort_order=ASC&page=1), there is no surprise that nearly all of the humble indie bundle games that went to Linux are also available on Steam.
 
 On another note, while there is a certain bit of "layman" reporting in this, I thought this was a surprising report from the Register on [Nvidia releasing 'double-speed' drivers](http://www.theregister.co.uk/2012/11/06/nvidia_heralds_steam_for_linux/). [Engadget has a more technical](http://www.engadget.com/2012/11/06/nvidia-valve-geforce-linux-drivers-r310/) walkthrough as well.
