@@ -1,0 +1,8 @@
+<div class="highlight"><pre><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">IRubyObject</span> <span class="nf">interpret</span><span class="o">(</span><span class="n">Ruby</span> <span class="n">runtime</span><span class="o">,</span> <span class="n">ThreadContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">IRubyObject</span> <span class="n">self</span><span class="o">,</span> <span class="n">Block</span> <span class="n">aBlock</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ISourcePosition</span> <span class="n">position</span> <span class="o">=</span> <span class="n">getPosition</span><span class="o">();</span>
+    <span class="n">context</span><span class="o">.</span><span class="na">setFile</span><span class="o">(</span><span class="n">position</span><span class="o">.</span><span class="na">getFile</span><span class="o">());</span>
+    <span class="n">context</span><span class="o">.</span><span class="na">setLine</span><span class="o">(</span><span class="n">position</span><span class="o">.</span><span class="na">getStartLine</span><span class="o">());</span>
+    <span class="c1">// ...</span>
+</pre>
+</div>

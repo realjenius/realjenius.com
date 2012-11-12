@@ -1,0 +1,27 @@
+<div class="highlight"><pre><span class="c"># Running with JRuby</span>
+realjenius:~/projects/jruby/bench<span class="nv">$ </span>jruby --server bench_io_foreach_wide.rb
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                63.970000   0.000000  63.970000 <span class="o">(</span> 63.764000<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                30.212000   0.000000  30.212000 <span class="o">(</span> 30.212000<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                30.973000   0.000000  30.973000 <span class="o">(</span> 30.973000<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                30.768000   0.000000  30.768000 <span class="o">(</span> 30.767000<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                32.813000   0.000000  32.813000 <span class="o">(</span> 32.813000<span class="o">)</span>
+
+<span class="c">#Running with MRI Ruby</span>
+realjenius:~/projects/jruby/bench<span class="nv">$ </span>ruby bench_io_foreach_wide.rb
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                 0.200000   9.500000   9.700000 <span class="o">(</span>  9.982682<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                 0.230000   9.430000   9.660000 <span class="o">(</span>  9.889992<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                 0.560000   9.340000   9.900000 <span class="o">(</span> 10.232858<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                 0.520000   9.270000   9.790000 <span class="o">(</span> 10.054699<span class="o">)</span>
+                                     user     system      total         real
+IO.foreach<span class="o">(</span>file<span class="o">)</span>                 0.600000   9.350000   9.950000 <span class="o">(</span> 10.348258<span class="o">)</span>
+</pre>
+</div>

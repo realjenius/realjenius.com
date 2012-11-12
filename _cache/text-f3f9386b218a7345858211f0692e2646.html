@@ -1,0 +1,7 @@
+<div class="highlight"><pre>    $ ruby -e &#39;&quot;&quot;.to_sym&#39;
+    -e:1:in &#39;to_sym&#39;: interning empty string (ArgumentError)
+    from -e:1
+    $ jruby -e &#39;&quot;&quot;.to_sym&#39;
+    -e:1: interning empty string (ArgumentError)
+</pre>
+</div>

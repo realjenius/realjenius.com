@@ -1,0 +1,49 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RootModule</span> <span class="kd">extends</span> <span class="n">AbstractModule</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">bind</span><span class="o">(</span><span class="n">AudioDecodingThingy</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+        
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AudioDecodingThingy</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">AudioDecoder</span><span class="o">&gt;</span> <span class="n">decoders</span><span class="o">;</span>
+    
+  <span class="nd">@Inject</span>
+  <span class="kd">public</span> <span class="nf">AudioDecodingThingy</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">AudioDecoder</span><span class="o">&gt;</span> <span class="n">decoders</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">decoders</span> <span class="o">=</span> <span class="n">decoders</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(</span><span class="n">String</span> <span class="n">inputFile</span><span class="o">,</span> <span class="n">String</span> <span class="n">outputFile</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Basic error handling.</span>
+    <span class="n">File</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">inputFile</span><span class="o">);</span>
+    <span class="n">File</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">outputFile</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">extension</span> <span class="o">=</span> <span class="n">getExtension</span><span class="o">(</span><span class="n">inputFile</span><span class="o">);</span>
+
+    <span class="k">if</span><span class="o">(!</span><span class="n">in</span><span class="o">.</span><span class="na">exists</span><span class="o">())</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;File &quot;</span> <span class="o">+</span> <span class="n">inputFile</span> <span class="o">+</span> <span class="s">&quot; not found.&quot;</span><span class="o">);</span>
+    <span class="k">if</span><span class="o">(!</span><span class="n">decoders</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">extension</span><span class="o">))</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;No decoder found for extension: &quot;</span> <span class="o">+</span> <span class="n">extension</span><span class="o">);</span>
+    <span class="k">if</span><span class="o">(!</span><span class="n">out</span><span class="o">.</span><span class="na">exists</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">out</span><span class="o">.</span><span class="na">createNewFile</span><span class="o">())</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;Unable to create output file: &quot;</span> <span class="o">+</span> <span class="n">outputFile</span><span class="o">);</span>
+
+    <span class="n">AudioDecoder</span> <span class="n">decoder</span> <span class="o">=</span> <span class="n">decoders</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">extension</span><span class="o">);</span>
+
+    <span class="c1">// Do the decoding.</span>
+    <span class="k">try</span><span class="o">(</span>
+      <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+      <span class="n">OutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">out</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">decoder</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">in</span><span class="o">,</span> <span class="n">out</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+        
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Injector</span> <span class="n">i</span> <span class="o">=</span> <span class="n">Guice</span><span class="o">.</span><span class="na">createInjector</span><span class="o">(</span>
+      <span class="k">new</span> <span class="nf">RootModule</span><span class="o">(),</span> <span class="k">new</span> <span class="n">Mp3Module</span><span class="o">(),</span> <span class="k">new</span> <span class="n">OggModule</span><span class="o">());</span>
+
+    <span class="n">AudioDecodingThingy</span> <span class="n">thingy</span>
+      <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">AudioDecodingThingy</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="n">thingy</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>

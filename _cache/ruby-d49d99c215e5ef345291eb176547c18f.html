@@ -1,0 +1,16 @@
+<div class="highlight"><pre><span class="k">module</span> <span class="nn">Jekyll</span>
+
+  <span class="k">class</span> <span class="nc">SeriesTag</span> <span class="o">&lt;</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">Tag</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">tokens</span><span class="p">)</span>
+      <span class="k">super</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+      <span class="s2">&quot;&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;series_list&#39;</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">SeriesTag</span><span class="p">)</span>
+</pre>
+</div>

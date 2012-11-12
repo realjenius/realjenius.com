@@ -1,0 +1,9 @@
+<div class="highlight"><pre><span class="n">site</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">]</span>
+<span class="n">page_data</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">environments</span><span class="o">.</span><span class="n">first</span><span class="o">[</span><span class="s2">&quot;page&quot;</span><span class="o">]</span>
+<span class="n">series_name</span> <span class="o">=</span> <span class="n">page_data</span><span class="o">[</span><span class="s1">&#39;series&#39;</span><span class="o">]</span>
+<span class="k">if</span> <span class="o">!</span><span class="n">series_name</span>
+	<span class="nb">puts</span> <span class="s2">&quot;Unable to find series name for page: </span><span class="si">#{</span><span class="n">page</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;&lt;!-- Error with series tag --&gt;&quot;</span>
+<span class="k">end</span>
+</pre>
+</div>

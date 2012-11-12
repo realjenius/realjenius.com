@@ -1,0 +1,39 @@
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">LocalDeclaration</span>
+  <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span>
+    <span class="n">type</span> <span class="o">=</span> <span class="vi">@type_node</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span>  <span class="c1">#type_node is the local assignment</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">type</span><span class="p">)</span>
+      <span class="n">typer</span><span class="o">.</span><span class="n">defer</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">type</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">LocalAssignment</span>
+  <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span>
+    <span class="n">type</span> <span class="o">=</span> <span class="vi">@value</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span> <span class="c1">#value is the &quot;functional&quot; call.</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">type</span><span class="p">)</span>
+      <span class="n">typer</span><span class="o">.</span><span class="n">defer</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">type</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">FunctionalCall</span>
+  <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span>
+    <span class="vi">@parameters</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">param</span><span class="o">|</span> <span class="n">param</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span> <span class="p">}</span>
+    <span class="k">if</span> <span class="c1">#all parameters inferred, and method with params and scope is known</span>
+      <span class="k">return</span> <span class="n">typer</span><span class="o">.</span><span class="n">method_type</span><span class="p">(</span><span class="vi">@method_name</span><span class="p">,</span> <span class="n">method_scope</span><span class="p">,</span> <span class="vi">@parameters</span><span class="p">)</span>
+    <span class="k">else</span>
+       <span class="n">typer</span><span class="o">.</span><span class="n">defer</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+       <span class="k">return</span> <span class="kp">nil</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">FixNum</span>
+  <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">typer</span><span class="o">.</span><span class="n">fixnum_type</span><span class="p">(</span><span class="vi">@literal</span><span class="p">)</span> <span class="c1">#literal is &#39;5&#39;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+</div>

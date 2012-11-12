@@ -1,0 +1,8 @@
+<div class="highlight"><pre><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">IRubyObject</span> <span class="nf">interpret</span><span class="o">(</span><span class="n">Ruby</span> <span class="n">runtime</span><span class="o">,</span> <span class="n">ThreadContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">IRubyObject</span> <span class="n">self</span><span class="o">,</span> <span class="n">Block</span> <span class="n">aBlock</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">IRubyObject</span> <span class="n">result</span> <span class="o">=</span> <span class="n">firstNode</span><span class="o">.</span><span class="na">interpret</span><span class="o">(</span><span class="n">runtime</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">self</span><span class="o">,</span> <span class="n">aBlock</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">result</span><span class="o">.</span><span class="na">isTrue</span><span class="o">())</span> <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">secondNode</span><span class="o">.</span><span class="na">interpret</span><span class="o">(</span><span class="n">runtime</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">self</span><span class="o">,</span> <span class="n">aBlock</span><span class="o">);</span>
+<span class="o">}</span>
+</pre>
+</div>

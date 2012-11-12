@@ -1,0 +1,14 @@
+<div class="highlight"><pre><span class="k">try</span> <span class="o">{</span>
+  <span class="n">File</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="s">&quot;myInput.txt&quot;</span><span class="o">,</span> <span class="o">{</span> <span class="n">in</span> <span class="o">-&gt;</span>
+    <span class="n">File</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">&quot;myOutput.txt&quot;</span><span class="o">,</span> <span class="o">{</span> <span class="n">out</span> <span class="o">-&gt;</span>
+      <span class="n">in</span><span class="o">.</span><span class="na">eachLine</span><span class="o">(</span> <span class="o">{</span> <span class="n">line</span> <span class="o">-&gt;</span>
+        <span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">);</span>
+      <span class="o">});</span>
+    <span class="o">});</span>
+  <span class="o">});</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// handle as appropriate. Can still have suppressed exceptions on it.</span>
+<span class="o">}</span>
+</pre>
+</div>

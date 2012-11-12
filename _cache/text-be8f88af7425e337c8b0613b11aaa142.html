@@ -1,0 +1,12 @@
+<div class="highlight"><pre>Exception in thread &quot;main&quot; javax.script.ScriptException: org.jruby.exceptions.RaiseException: undefined method &#39;call&#39; for nil:NilClass
+ at org.jruby.embed.jsr223.JRubyEngine.wrapException(JRubyEngine.java:112)
+ at org.jruby.embed.jsr223.JRubyEngine.eval(JRubyEngine.java:173)
+ at realjenius.SampleProgram.main(SampleProgram.java:13)
+Caused by: org.jruby.exceptions.RaiseException: undefined method &#39;call&#39; for nil:NilClass
+ at Kernel.call(./another.rb:7)
+ at Another.do_something_else(./another.rb:3)
+ at Another.do_something([script]:5)
+ at MyClass.run([script]:9)
+ at (unknown).(unknown)(:1)
+</pre>
+</div>

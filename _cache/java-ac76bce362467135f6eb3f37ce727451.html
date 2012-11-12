@@ -1,0 +1,7 @@
+<div class="highlight"><pre><span class="nd">@JRubyMethod</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;chop&quot;</span><span class="o">,</span> <span class="n">compat</span> <span class="o">=</span> <span class="n">CompatVersion</span><span class="o">.</span><span class="na">RUBY1_8</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">IRubyObject</span> <span class="nf">chop</span><span class="o">(</span><span class="n">ThreadContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">realSize</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">newEmptyString</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">(),</span> <span class="n">getMetaClass</span><span class="o">()).</span><span class="na">infectBy</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="k">return</span> <span class="nf">makeShared</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">(),</span> <span class="mi">0</span><span class="o">,</span> <span class="n">choppedLength</span><span class="o">());</span>
+<span class="o">}</span>
+</pre>
+</div>

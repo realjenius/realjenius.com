@@ -1,0 +1,16 @@
+<div class="highlight"><pre><span class="c1">// returns a composite of all values from all entries.</span>
+<span class="n">Collection</span><span class="o">&lt;</span><span class="n">Something</span><span class="o">&gt;</span> <span class="n">allSomethings</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="na">values</span><span class="o">();</span> 
+
+<span class="c1">// A more traditional map that can be edited.</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Something</span><span class="o">&gt;&gt;</span> <span class="n">mapView</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="na">asMap</span><span class="o">();</span>
+
+<span class="c1">// remove an individual entry for a key.</span>
+<span class="kt">boolean</span> <span class="n">removed</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">someVal</span><span class="o">);</span>
+
+<span class="c1">// remove all for a key</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Something</span><span class="o">&gt;</span> <span class="n">removedSomethings</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+
+<span class="c1">// One for each value in the map. Updating this collection updates the map.</span>
+<span class="n">Collection</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Something</span><span class="o">&gt;&gt;</span> <span class="n">allEntries</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="na">entries</span><span class="o">();</span>
+</pre>
+</div>

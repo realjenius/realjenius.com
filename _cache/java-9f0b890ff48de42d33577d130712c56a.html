@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span class="n">begin</span>
+  <span class="n">File</span><span class="o">.</span><span class="na">open</span><span class="o">(</span><span class="s">&quot;myInput.txt&quot;</span><span class="o">,</span> <span class="s">&quot;r&quot;</span><span class="o">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">in</span><span class="o">|</span>
+    <span class="n">File</span><span class="o">.</span><span class="na">open</span><span class="o">(</span><span class="s">&quot;myOutput.txt&quot;</span><span class="o">,</span> <span class="s">&quot;w&quot;</span><span class="o">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">out</span><span class="o">|</span>
+      <span class="n">in</span><span class="o">.</span><span class="na">each_line</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+        <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">line</span><span class="o">.</span><span class="na">upcase</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;\n&quot;</span>
+      <span class="n">end</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+<span class="n">rescue</span> <span class="n">exc</span>
+  <span class="err">#</span> <span class="n">Exception</span> <span class="n">occurred</span> <span class="n">reading</span><span class="o">/</span><span class="n">writing</span><span class="o">!</span>
+<span class="n">end</span>
+</pre>
+</div>

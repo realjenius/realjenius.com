@@ -1,0 +1,7 @@
+<div class="highlight"><pre><span class="kd">protected</span> <span class="n">DynamicMethod</span> <span class="nf">searchMethodInner</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">DynamicMethod</span> <span class="n">method</span> <span class="o">=</span> <span class="n">getMethods</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">method</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="n">method</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">superClass</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="n">superClass</span><span class="o">.</span><span class="na">searchMethodInner</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+<span class="o">}</span>
+</pre>
+</div>

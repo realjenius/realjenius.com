@@ -1,0 +1,21 @@
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Typer</span>
+  <span class="k">def</span> <span class="nf">resolve</span>
+    <span class="n">old_len</span> <span class="o">=</span> <span class="vi">@deferred_nodes</span><span class="o">.</span><span class="n">length</span>
+    <span class="k">while</span> <span class="kp">true</span>
+      <span class="vi">@deferred_nodes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">node</span><span class="o">|</span>
+        <span class="n">type</span> <span class="o">=</span> <span class="n">infer</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">type</span> <span class="o">!=</span> <span class="kp">nil</span>
+          <span class="vi">@deferred_nodes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    
+      <span class="k">if</span> <span class="vi">@deferred_nodes</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">break</span>
+      <span class="k">elsif</span> <span class="n">old_len</span> <span class="o">==</span> <span class="vi">@deferred_nodes</span><span class="o">.</span><span class="n">length</span>
+        <span class="k">raise</span> <span class="c1"># can&#39;t infer error!</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+</div>

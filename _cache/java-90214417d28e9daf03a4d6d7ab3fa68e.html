@@ -1,0 +1,35 @@
+<div class="highlight"><pre><span class="n">InputStream</span> <span class="n">in</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+  <span class="n">in</span> <span class="o">=</span> <span class="n">loadInput</span><span class="o">(...);</span>
+    <span class="n">OutputStream</span> <span class="n">out</span><span class="o">;</span>
+  <span class="k">try</span> <span class="o">{</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">createOutput</span><span class="o">(...);</span>
+    <span class="n">copy</span><span class="o">(</span><span class="n">in</span><span class="o">,</span> <span class="n">out</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="k">finally</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">out</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Problem closing the output stream.</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// Problem reading or writing with streams.</span>
+  <span class="c1">// Or problem opening one of them.</span>
+<span class="o">}</span>
+<span class="k">finally</span> <span class="o">{</span>
+  <span class="k">if</span><span class="o">(</span><span class="n">in</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Problem closing the input stream.</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>

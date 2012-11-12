@@ -1,0 +1,18 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mp3AudioDecoder</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAudioTypeName</span><span class="o">()</span> <span class="o">{</span> <span class="s">&quot;MP3&quot;</span><span class="o">;</span> <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decode</span><span class="o">(</span><span class="n">InputStream</span> <span class="n">mp3In</span><span class="o">,</span> <span class="n">OutputStream</span> <span class="n">pcmOut</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Run through LAME (or similar Fraunhofer) decoding here.</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// ...</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mp3AudioModule</span> <span class="kd">extends</span> <span class="n">AbstractModule</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Multibinder</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">AudioDecoder</span><span class="o">&gt;</span> <span class="n">decoderBinder</span>
+      <span class="o">=</span> <span class="n">MapBinder</span><span class="o">.</span><span class="na">newMapBinder</span><span class="o">(</span><span class="n">binder</span><span class="o">(),</span> <span class="n">AudioDecoder</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+      <span class="n">decoderBinder</span><span class="o">.</span><span class="na">addBinding</span><span class="o">(</span><span class="s">&quot;mp3&quot;</span><span class="o">).</span><span class="na">to</span><span class="o">(</span><span class="n">Mp3AudioDecoder</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>

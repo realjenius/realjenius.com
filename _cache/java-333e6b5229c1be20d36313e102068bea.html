@@ -1,0 +1,25 @@
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.jruby.Ruby</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.jruby.ast.Node</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NodeEmitter</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Node</span> <span class="n">n</span> <span class="o">=</span> <span class="n">Ruby</span><span class="o">.</span><span class="na">getGlobalRuntime</span><span class="o">().</span><span class="na">parseFromMain</span><span class="o">(</span><span class="n">ParserInterpreter</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&quot;test.rb&quot;</span><span class="o">),</span> <span class="s">&quot;test.rb&quot;</span><span class="o">);</span>
+        <span class="n">printNode</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printNode</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">depth</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\t&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">.</span><span class="na">getNodeType</span><span class="o">().</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; pos: &quot;</span> <span class="o">+</span> <span class="n">n</span><span class="o">.</span><span class="na">getPosition</span><span class="o">());</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">children</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="na">childNodes</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Node</span> <span class="n">child</span> <span class="o">:</span> <span class="n">children</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">printNode</span><span class="o">(</span><span class="n">child</span><span class="o">,</span> <span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>

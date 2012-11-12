@@ -1,0 +1,16 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">AssignableNode</span> <span class="nf">assign</span><span class="o">(</span><span class="n">ISourcePosition</span> <span class="n">position</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Node</span> <span class="n">value</span><span class="o">,</span> <span class="n">StaticScope</span> <span class="n">topScope</span><span class="o">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">slot</span> <span class="o">=</span> <span class="n">exists</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">slot</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// mark as captured if from containing scope</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">capture</span><span class="o">(</span><span class="n">slot</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">LocalAsgnNode</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="o">((</span><span class="n">depth</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="o">)</span> <span class="o">|</span> <span class="n">slot</span><span class="o">),</span> <span class="n">value</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">topScope</span> <span class="o">==</span> <span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">slot</span> <span class="o">=</span> <span class="n">addVariable</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">LocalAsgnNode</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">slot</span> <span class="o">,</span> <span class="n">value</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// We know this is a block scope because a local scope cannot be within a local scope</span>
+    <span class="c1">// If topScope was itself it would have created a LocalAsgnNode above.</span>
+    <span class="k">return</span> <span class="o">((</span><span class="n">BlockStaticScope</span><span class="o">)</span> <span class="n">topScope</span><span class="o">).</span><span class="na">addAssign</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
+<span class="o">}</span>
+</pre>
+</div>

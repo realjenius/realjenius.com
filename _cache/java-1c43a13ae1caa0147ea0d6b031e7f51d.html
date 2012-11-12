@@ -1,0 +1,20 @@
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * How many scopes should we burrow down to until we need to set the block variable value.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return 0 for current scope, 1 for one down, ...</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getDepth</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">location</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Gets the index within the scope construct that actually holds the eval&#39;d value</span>
+<span class="cm"> * of this local variable</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return Returns an int offset into storage structure</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getIndex</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">location</span> <span class="o">&amp;</span> <span class="mh">0xffff</span><span class="o">;</span>
+<span class="o">}</span>
+</pre>
+</div>

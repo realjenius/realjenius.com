@@ -1,0 +1,5 @@
+<div class="highlight"><pre><span class="n">MessageQueue</span> <span class="n">queue</span> <span class="o">=</span> <span class="c1">// ... get from somewhere.</span>
+<span class="n">MBeanServer</span> <span class="n">server</span> <span class="o">=</span> <span class="n">ManagementFactory</span><span class="o">.</span><span class="na">getPlatformMBeanServer</span><span class="o">();</span>
+<span class="n">server</span><span class="o">.</span><span class="na">registerMBean</span><span class="o">(</span><span class="n">queue</span><span class="o">,</span> <span class="k">new</span> <span class="n">ObjectName</span><span class="o">(</span><span class="s">&quot;com.realjenius:name=MessageQueue&quot;</span><span class="o">));</span>
+</pre>
+</div>

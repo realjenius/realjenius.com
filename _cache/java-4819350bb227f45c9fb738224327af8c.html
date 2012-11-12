@@ -1,0 +1,19 @@
+<div class="highlight"><pre><span class="c1">// With:</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SomeClass</span> <span class="kd">extends</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Object</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Map</span> <span class="nf">singleton_map</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">HashMap</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">HashMap</span><span class="o">();</span>
+    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">map</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Without:</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SomeClass</span> <span class="kd">extends</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Object</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">HashMap</span> <span class="nf">singleton_map</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">HashMap</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">HashMap</span><span class="o">();</span>
+    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">map</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>

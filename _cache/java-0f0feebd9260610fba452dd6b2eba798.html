@@ -1,0 +1,9 @@
+<div class="highlight"><pre><span class="k">try</span> <span class="o">{</span>
+  <span class="n">pre</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">self</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">block</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">jitCompiledScript</span><span class="o">.</span><span class="na">__file__</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">self</span><span class="o">,</span> <span class="o">[...]);</span>
+<span class="c1">// handle exceptions omitted.</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+  <span class="n">post</span><span class="o">(</span><span class="n">runtime</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+<span class="o">}</span>
+</pre>
+</div>

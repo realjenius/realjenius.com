@@ -66,21 +66,16 @@ body {
 	border-bottom: 1px solid #ddd;
 }
 #main {
-	width: 74.59%;
-	float: left;
+	width: 100%;
 	overflow: hidden;
 }
 #content {
-	width: 75.669%;
+	width: 75%;
 	float: left;
 }
 #secondary {
-	width: 17.275%;
-	margin-left:7.054%;
-	float: left;
-}
-#tertiary {
-	width: 23.775%;
+	width: 23%;
+	margin-left: 2%;
 	float: right;
 	overflow: hidden;
 }
@@ -92,6 +87,7 @@ body {
 	overflow: hidden;
 	font-size: 0.8em;
 }
+
 .aligncenter, div.aligncenter {
 	margin-left: auto;
 	margin-right: auto;
@@ -1129,7 +1125,9 @@ aside.widget ul li:last-child {
 --------------------------------------------- */
 #colophon p {
 	line-height: 1.5;
+	margin-bottom: 15px;
 }
+
 a.top {
 	margin: 3px 0 0 0;
 	font-weight: bold;

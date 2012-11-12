@@ -1,0 +1,14 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateFrame</span><span class="o">(</span><span class="n">RubyModule</span> <span class="n">klazz</span><span class="o">,</span> <span class="n">IRubyObject</span> <span class="n">self</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span>
+<span class="n">Block</span> <span class="n">block</span><span class="o">,</span> <span class="n">String</span> <span class="n">fileName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">line</span><span class="o">,</span> <span class="kt">int</span> <span class="n">jumpTarget</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">self</span> <span class="o">=</span> <span class="n">self</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">klazz</span> <span class="o">=</span> <span class="n">klazz</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">fileName</span> <span class="o">=</span> <span class="n">fileName</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">block</span> <span class="o">=</span> <span class="n">block</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">visibility</span> <span class="o">=</span> <span class="n">Visibility</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">isBindingFrame</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">jumpTarget</span> <span class="o">=</span> <span class="n">jumpTarget</span><span class="o">;</span>
+<span class="o">}</span>
+</pre>
+</div>

@@ -1,0 +1,18 @@
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MethodDefinition</span>
+  <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span>
+    <span class="n">forced_type</span> <span class="o">=</span> <span class="vi">@return_type</span>
+    <span class="n">inferred_type</span> <span class="o">=</span> <span class="vi">@body</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">typer</span><span class="p">)</span>
+    <span class="n">actual_type</span> <span class="o">=</span> <span class="k">if</span> <span class="n">forced_type</span><span class="o">.</span><span class="n">nil?</span>
+      <span class="n">inferred_type</span>
+    <span class="k">else</span>
+      <span class="n">forced_type</span>
+    <span class="k">end</span>
+
+    <span class="k">if</span> <span class="o">!</span><span class="n">actual_type</span><span class="o">.</span><span class="n">is_parent</span><span class="p">(</span><span class="n">inferred_type</span><span class="p">)</span>
+      <span class="k">raise</span> <span class="s2">&quot;inference error&quot;</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">actual_type</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+</div>

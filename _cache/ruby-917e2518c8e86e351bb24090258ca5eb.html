@@ -1,0 +1,10 @@
+<div class="highlight"><pre><span class="n">all_entries</span> <span class="o">=</span> <span class="o">[]</span>
+  <span class="n">site</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span>
+    <span class="k">if</span> <span class="nb">p</span><span class="o">.</span><span class="n">data</span><span class="o">[</span><span class="s1">&#39;series&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="n">series_name</span>
+      <span class="n">all_entries</span> <span class="o">&lt;&lt;</span> <span class="nb">p</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">all_entries</span><span class="o">.</span><span class="n">sort_by</span> <span class="p">{</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="nb">p</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">to_f</span> <span class="p">}</span>
+</pre>
+</div>

@@ -1,0 +1,12 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MessageQueueMBean</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="nf">getNumberOfWorkerThreads</span><span class="o">();</span>
+  <span class="kt">void</span> <span class="nf">setNumberOfWorkerThreads</span><span class="o">(</span><span class="kt">int</span> <span class="n">count</span><span class="o">);</span>
+  <span class="kt">int</span> <span class="nf">getListenerCount</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="nf">getQueuedMessageCount</span><span class="o">();</span>
+  <span class="kt">long</span> <span class="nf">getAverageDispatchDelay</span><span class="o">();</span>
+  <span class="kt">void</span> <span class="nf">suspend</span><span class="o">();</span>
+  <span class="kt">void</span> <span class="nf">resume</span><span class="o">();</span>
+  <span class="kt">boolean</span> <span class="nf">isSuspended</span><span class="o">();</span>
+<span class="o">}</span>
+</pre>
+</div>

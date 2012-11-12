@@ -1,0 +1,34 @@
+<div class="highlight"><pre>{% assign count = &#39;0&#39; %}
+{% assign idx = &#39;0&#39; %}
+{% for post in site.posts reversed %}
+	{% if post.series == series %}
+		{% capture count %}{{ count | plus: &#39;1&#39; }}{% endcapture %}
+		{% if post.url == page.url %}
+			{% capture idx %}{{count}}{% endcapture %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;seriesNote&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;p&gt;</span>This article is <span class="nt">&lt;strong&gt;</span>Part {{ idx }}<span class="nt">&lt;/strong&gt;</span> in a <span class="nt">&lt;strong&gt;</span>{{ count }}-Part<span class="nt">&lt;/strong&gt;</span> Series.<span class="nt">&lt;/p&gt;</span>
+	<span class="nt">&lt;ul&gt;</span>
+	{% assign count = &#39;0&#39; %}
+	{% for post in site.posts reversed %}
+	{% if post.series == series %}
+		{% capture count %}{{ count | plus: &#39;1&#39; }}{% endcapture %}
+		<span class="nt">&lt;li&gt;</span>Part {{ count }} - 
+		{% if page.url == post.url %}
+			This Article
+		{% else %}
+			<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{post.url}}&quot;</span><span class="nt">&gt;</span>{{post.title}}<span class="nt">&lt;/a&gt;</span>
+		{% endif %}
+		<span class="nt">&lt;/li&gt;</span>
+	{% endif %}
+	{% endfor %}
+	<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+{% assign count = nil %}
+{% assign idx = nil %}
+</pre>
+</div>

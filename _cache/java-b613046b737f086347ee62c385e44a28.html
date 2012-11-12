@@ -1,0 +1,23 @@
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">* Begin compilation for the root of a script named __file__.</span>
+<span class="cm">*</span>
+<span class="cm">* @param args Arguments to the script, as passed via jitted wrappers</span>
+<span class="cm">* @param scope The StaticScope for the script</span>
+<span class="cm">* @param inspector The ASTInspector for the nodes for the script</span>
+<span class="cm">* @return A new BodyCompiler for the body of the script</span>
+<span class="cm">*/</span>
+<span class="kd">public</span> <span class="n">BodyCompiler</span> <span class="nf">startFileMethod</span><span class="o">(</span><span class="n">CompilerCallback</span> <span class="n">args</span><span class="o">,</span> <span class="n">StaticScope</span> <span class="n">scope</span><span class="o">,</span> <span class="n">ASTInspector</span> <span class="n">inspector</span><span class="o">);</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Begin compilation for a the root of a script. This differs from method compilation</span>
+<span class="cm">* in that it doesn&#39;t do specific-arity logic, nor does it require argument processing.</span>
+<span class="cm">*</span>
+<span class="cm">* @param javaName The outward user-readable name of the method. A unique name will be generated based on this.</span>
+<span class="cm">* @param arity The arity of the method&#39;s argument list</span>
+<span class="cm">* @param localVarCount The number of local variables that will be used by the method.</span>
+<span class="cm">* @return An Object that represents the method within this compiler. Used in calls to</span>
+<span class="cm">* endMethod once compilation for this method is completed.</span>
+<span class="cm">*/</span>
+<span class="kd">public</span> <span class="n">BodyCompiler</span> <span class="nf">startRoot</span><span class="o">(</span><span class="n">String</span> <span class="n">rubyName</span><span class="o">,</span> <span class="n">String</span> <span class="n">javaName</span><span class="o">,</span> <span class="n">StaticScope</span> <span class="n">scope</span><span class="o">,</span> <span class="n">ASTInspector</span> <span class="n">inspector</span><span class="o">);</span>
+</pre>
+</div>

@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">interpret</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">runBodyRubyCode</span><span class="o">(...);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span><span class="o">(</span><span class="n">RaiseException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">runRescueRubyCode</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getRubyException</span><span class="o">());</span>
+    <span class="o">}</span>
+    <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">runEnsureRubyCode</span><span class="o">(...);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>

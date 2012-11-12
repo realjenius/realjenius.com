@@ -1,0 +1,19 @@
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">static</span> <span class="n">spark</span><span class="o">.</span><span class="na">Spark</span><span class="o">.*;</span>
+<span class="kn">import</span> <span class="nn">spark.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      
+      <span class="n">get</span><span class="o">(</span><span class="k">new</span> <span class="n">Route</span><span class="o">(</span><span class="s">&quot;/hello&quot;</span><span class="o">)</span> <span class="o">{</span>
+         <span class="nd">@Override</span>
+         <span class="kd">public</span> <span class="n">Object</span> <span class="nf">handle</span><span class="o">(</span><span class="n">Request</span> <span class="n">request</span><span class="o">,</span> <span class="n">Response</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">&quot;Hello World!&quot;</span><span class="o">;</span>
+         <span class="o">}</span>
+      <span class="o">});</span>
+
+   <span class="o">}</span>
+
+<span class="o">}</span>
+</pre>
+</div>

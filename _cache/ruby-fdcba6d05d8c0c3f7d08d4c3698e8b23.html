@@ -1,0 +1,29 @@
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;benchmark&#39;</span>
+
+<span class="no">MAX</span>  <span class="o">=</span> <span class="mi">1000</span>
+<span class="no">BLOCKSIZE</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span>
+<span class="no">LINE_SIZE</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="no">LINES</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="no">FILE</span> <span class="o">=</span> <span class="s1">&#39;io_test_bench_file.txt&#39;</span>
+
+<span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">FILE</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">){</span> <span class="o">|</span><span class="n">fh</span><span class="o">|</span>
+  <span class="no">LINES</span><span class="o">.</span><span class="n">times</span><span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+    <span class="no">LINE_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">fh</span><span class="o">.</span><span class="n">print</span> <span class="s2">&quot;This is time: {t} &quot;</span>
+    <span class="p">}</span>
+    <span class="n">fh</span><span class="o">.</span><span class="n">puts</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">stat</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="no">FILE</span><span class="p">)</span>
+<span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">||</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+  <span class="no">Benchmark</span><span class="o">.</span><span class="n">bm</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s1">&#39;IO.foreach(file)&#39;</span><span class="p">){</span>
+      <span class="no">MAX</span><span class="o">.</span><span class="n">times</span><span class="p">{</span> <span class="no">IO</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="no">FILE</span><span class="p">){}</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">File</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="no">FILE</span><span class="p">)</span> <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exists?</span><span class="p">(</span><span class="no">FILE</span><span class="p">)</span>
+</pre>
+</div>

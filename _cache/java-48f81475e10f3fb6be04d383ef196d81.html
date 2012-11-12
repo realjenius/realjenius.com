@@ -1,0 +1,11 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">Node</span> <span class="nf">declare</span><span class="o">(</span><span class="n">ISourcePosition</span> <span class="n">position</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">slot</span> <span class="o">=</span> <span class="n">exists</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">slot</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// mark as captured if from containing scope</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">capture</span><span class="o">(</span><span class="n">slot</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">DVarNode</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="o">((</span><span class="n">depth</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="o">)</span> <span class="o">|</span> <span class="n">slot</span><span class="o">),</span> <span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">enclosingScope</span><span class="o">.</span><span class="na">declare</span><span class="o">(</span><span class="n">position</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+</pre>
+</div>
