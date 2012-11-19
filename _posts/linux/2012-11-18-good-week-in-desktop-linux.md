@@ -56,3 +56,7 @@ The 4.0 release [includes preview support for generating Linux binaries](http://
 Microsoft [released Skype 4.1 this week for Linux](http://ostatic.com/blog/skype-4-1-for-linux-brings-performance-improvements), bringing with it support for integration with the Messenger IM service.
 
 This isn't particularly notable as an individual release, but it does seem to further solidify the commitment (from Microsoft nonetheless!) to deliver a consistent, and hopefully quality, Skype client for Linux. Something those of us who use it for our jobs will appreciate.
+
+## Netflix (Kinda!)
+
+Finally, folks finally got Netflix (in all its Silverlight DRM glory) running on Linux via [use of Firefox running through Wine](http://www.engadget.com/2012/11/17/netflix-finally-comes-to-linux-sort-of/). It apparently was quite a chore to get working; but you've gotta love the ingenuity of people.
