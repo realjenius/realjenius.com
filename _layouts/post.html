@@ -2,19 +2,20 @@
 layout: main
 ---
 <article class="post">
-	<header class="single-entry-header">
-		<h1 class="entry-title"><a href="{{page.url}}">{{page.title}}</a></h1>
-		<p>
-			<span class="entry-date">{{page.date | date: '%m/%d/%Y'}}</span>
-			<span class="entry-author">by R.J.</span>
-		</p>
-	</header>
+	<div class="page-header">
+		<h2 class="entry-title"><a href="{{page.url}}">{{page.title}}</a>
+			<small>
+				<span class="entry-date">{{page.date | date: '%m/%d/%Y'}}</span>
+				<span class="entry-author">by R.J.</span>
+			</small>
+		</h2>
+	</div>
 
-	<div class="single-entry-content">
+	<div class="article-body">
 		{{ content }}
 	</div>
 
-	<footer class="single-entry-meta">
+	<footer>
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
 		    var disqus_shortname = 'realjenius';
@@ -34,28 +35,8 @@ layout: main
 		</script>
 		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 		<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-		<p>
-			Categories:
-				{% if page.categories %}
-					{% for cat in page.categories %}
-						<a href="/category/{{cat}}">{{cat}}</a>
-					{% endfor %}
-				{% else %}
-					<i>None</i>
-				{% endif %}
-			|
-			Tags:
-				{% if page.tags %}
-					{% for tag in page.tags %}
-						<a href="/tag/{{tag}}">{{tag}}</a>
-					{% endfor %}
-				{% else %}
-					<i>None</i>
-				{% endif %}
-			|
-			<a href="http://realjenius.com/{{post.url}}">Permalink</a>  
-		</p>
 		
+		{% assign item = page %}
+		{% include post_details.html %}
+	</footer>
 </article>
-
-<div class="clear"></div>

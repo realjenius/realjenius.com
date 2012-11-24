@@ -1,12 +1,16 @@
 {% capture src %}{{ src | prepend_if: '/' }}{% endcapture %}
 {% if align == null %}
 	{% assign align = 'alignnone' %}
+{% elsif align == 'right' %}
+	{% assign align = 'pull-right' %}
+{% elsif align == 'left' %}
+	{% assign align = 'pull-left' %}
 {% endif %}
 
-<div class="picture {{align}}">
-	<img src="/images/articles{{src}}"/>
+<div class="thumbnail {{align}}">
+	<img src="/images/articles{{src}}" />
 	{% if caption %}
-		<div class="caption">{{caption}}</div>
+		<h5>{{caption}}</h5>
 	{% endif %}
 </div>
 {% assign caption = nil %}

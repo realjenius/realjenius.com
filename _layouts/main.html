@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
-        <title>{{page.title}}</title>
-        <meta charset="UTF-8">
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic|Droid+Sans:400,700' 
-        	rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" media="screen" href="/stylesheets/main.css">
-        <link rel="stylesheet" media="screen" href="/stylesheets/theme/airy.css">
-        <link rel="stylesheet" media="screen" href="/stylesheets/syntax.css">
-        <link rel="shortcut icon" type="image/png" href="/favicon.gif">
+        <title>RealJenius.com - {{page.title}}</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="RealJenius.com - Hold my beer; watch this." />
+    	<meta name="author" content="R.J. Lorimer" />
+		<meta charset="UTF-8" />
+
+
+    	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    	<!--[if lt IE 9]>
+      		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    	<![endif]-->
+
+		<link rel="shortcut icon" type="image/png" href="/favicon.gif"/>
+		
+		<link href="/stylesheets/bootstrap-sh.min.css" rel="stylesheet" />
+		<link href="/stylesheets/syntax-dark.css" rel="stylesheet" />
+		<link href="/stylesheets/main.css" rel="stylesheet"/>
+		<link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet"/>
+		
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic|Lora|Cinzel"
+        	rel="stylesheet" type="text/css"/>
+
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
@@ -25,90 +39,78 @@
         </script>
     </head>
     <body>
-    	<div id="page" class="clearfix">
-        	<header id="branding">
-        		<nav id="mainnav" class="clearfix">
-        			<div class="menu-primary-container">
-        				<ul id="menu-primary" class="menu">
-        					<li class="menu-item"><a href="/">Home</a></li>
-        					<li class="menu-item"><a href="/category/journal/">Journal</a></li>
-        					<li class="menu-item"><a href="/category/article/">Article</a></li>
-        					<li class="menu-item"><a href="/about.html">About</a></li>
-                            <li class="menu-item"><a href="/contact.html">Contact</a></li>
-        				<ul>
-        			</div>
-        		</nav>
-        		<hgroup id="site-title">
-        			<h1><a href="/" title="RealJenius.com">RealJenius.com</a></h1>
-        			<h2 id="site-description">Hold my beer; watch this.</h2>
-        		</hgroup>
-        		<div class="clear"></div>
-        	</header>
-        	<div id="wrap">
-        		<div id="main">
-        			<div id="content">
-        				{{ content }}
-        			</div>
-        			<div id="secondary" class="widget-area" role="complementary">
-						<aside class="widget">
-							<h3 class="widget-title">Elsewhere</h3>
-							<div class="textwidget">
-								<ul>
-									<li class="tube">
-										<a href="http://www.twitter.com/realjenius">Twitter</a>
-									</li>
-									<li class="tube">
-										<a href="http://www.linkedin.com/in/rjlorimer">LinkedIn</a>
-									</li>
-									<li class="tube">
-										<a href="https://github.com/realjenius">GitHub</a>
-									</li>
-									<li class="tube">
-										<a href="http://live.xbox.com/en-US/profile/profile.aspx?pp=0&GamerTag=Real+Jenius">XBox Live</a>
-									</li>
-									<li class="tube">
-										<a href="http://beeradvocate.com/user/profile/realjenius">BeerAdvocate</a>
-									</li>
-								</ul>
-							</div>
-						</aside>
-						<aside class="widget">
-							<h3 class="widget-title">Feeds</h3>
-							<div class="textwidget">
-								<ul>
-									<li class="feed">
-										<a href="/atom.xml">Everything</a>
-									</li>
-									<li class="feed">
-										<a href="/category/journal/atom.xml">Journal</a>
-									</li>
-									<li class="feed">
-										<a href="/category/article/atom.xml">Articles</a>
-									</li>
-									<li class="feed">
-										<a href="/tag/java/atom.xml">Just Java</a>
-									</li>
-									<li class="feed">
-										<a href="/tag/tech/atom.xml">Just Tech</a>
-									</li>
-									<li class="feed">
-										<a href="/tag/android/atom.xml">Just Android</a>
-									</li>
-								</ul>
-							</div>
-						</aside>
+    	<div class="container">
+			<div class="row">
+				<div class="span3" id="nav">
+					<div class="siteinfo">
+						<a class="brand" href="/">
+							<span class="title_letter">R</span>eal<span class="title_letter">J</span>enius.com</a>
+						<span class="subbrand">Hold My Beer; Watch This</span>
+						<ul class="nav nav-pills nav-stacked">
+	    					<li><a href="/about.html">About Me</a></li>
+	                        <li><a href="/contact.html">Contact Me</a></li>
+	          			</ul>
 					</div>
+					<aside>
+						<h4>Elsewhere</h4>
+						
+						<ul class="nav nav-pills nav-stacked">
+							<li>
+								<a href="http://www.twitter.com/realjenius">Twitter</a>
+							</li>
+							<li>
+								<a href="http://www.linkedin.com/in/rjlorimer">LinkedIn</a>
+							</li>
+							<li>
+								<a href="https://github.com/realjenius">GitHub</a>
+							</li>
+							<li>
+								<a href="http://live.xbox.com/en-US/profile/profile.aspx?pp=0&GamerTag=Real+Jenius">XBox Live</a>
+							</li>
+							<li>
+								<a href="http://beeradvocate.com/user/profile/realjenius">BeerAdvocate</a>
+							</li>
+						</ul>
+					</aside>
+					<aside>
+						<h4>Feeds</h4>
+						<ul class="nav nav-pills nav-stacked">
+							<li>
+								<a href="/atom.xml">Everything</a>
+							</li>
+							<li>
+								<a href="/category/journal/atom.xml">Journal</a>
+							</li>
+							<li>
+								<a href="/category/article/atom.xml">Articles</a>
+							</li>
+							<li>
+								<a href="/tag/java/atom.xml">Just Java</a>
+							</li>
+							<li>
+								<a href="/tag/tech/atom.xml">Just Tech</a>
+							</li>
+							<li>
+								<a href="/tag/android/atom.xml">Just Android</a>
+							</li>
+						</ul>
+					</aside>
 				</div>
-			</div> 
-			<footer id="colophon" class="clearfix">
-				<p>&copy 2009-2012 - R.J. Lorimer</p>
-				<p><strong>Disclaimer:</strong> This is my personal site. What I say here is mine and mine alone. 
-							My opinions have no bearing on my employer, and likewise, my employer has no claim over 
-							the ownership of the content on this site.</p>
-				<p>Hosted by <a href="http://mediatemple.net">Media Temple</a> (<a href="http://twitter.com/mediatemple">@MediaTemple</a>)
-				<p></p>
-				<a href="#page" class="top">Top</a>
-			</footer> 
+				
+				<div class="span9" id="content">
+					{{content}}
+				</div>
+
+			</div>
+
 		</div>
+		<footer class="footer">
+			<p class="pull-left">&copy 2009-2012 - R.J. Lorimer</p>
+			<p class="pull-right">Hosted by <a href="http://mediatemple.net">Media Temple</a> (<a href="http://twitter.com/mediatemple">@MediaTemple</a>)
+			<div class="clearfix"></div>
+			<p><small><em><strong>Disclaimer:</strong> This is my personal site. What I say here is mine and mine alone. 
+						My opinions have no bearing on my employer, and likewise, my employer has no claim over 
+						the ownership of the content on this site.</em></small></p>
+		</footer>
     </body>
 </html>

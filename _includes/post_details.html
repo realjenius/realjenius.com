@@ -1,0 +1,25 @@
+<p class="post_details pull-right well">
+	<small>
+	Categories:
+		{% if item.categories %}
+			{% for cat in item.categories %}
+				<a href="/category/{{cat}}">{{cat}}</a>
+			{% endfor %}
+		{% else %}
+			None
+		{% endif %}
+	|
+	Tags:
+		{% if item.tags %}
+			{% for tag in item.tags %}
+				<a href="/tag/{{tag}}">{{tag}}</a>
+			{% endfor %}
+		{% else %}
+			None
+		{% endif %}
+	|
+	<a href="http://realjenius.com{{item.url}}">Permalink</a>
+	</small>
+</p>
+
+{% assign item = nil %}

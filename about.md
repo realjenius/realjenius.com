@@ -1,5 +1,5 @@
 ---
-title: What is RealJenius.com?
+title: About Me
 summary: A short summary of what RealJenius.com is.
 layout: page
 ---
