@@ -92,3 +92,10 @@ hr.list_separator {
 #paging {
 	height: 35px;
 }
+
+footer.disclaimer {
+	line-height: 1em;
+}
+footer.site-details {
+	text-align: right;
+}
