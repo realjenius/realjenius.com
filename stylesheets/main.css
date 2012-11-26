@@ -93,9 +93,9 @@ hr.list_separator {
 	height: 35px;
 }
 
-footer.disclaimer {
-	line-height: 1em;
+footer .disclaimer {
+	line-height: .9em;
 }
-footer.site-details {
+footer .site-details {
 	text-align: right;
 }
