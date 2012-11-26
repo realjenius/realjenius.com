@@ -6,3 +6,4 @@ tag_page_layout: tag_page
 tag_feed_layout: tag_feed
 permalink: /:year/:month/:day/:title/
 url: http://realjenius.com
+exclude: [README.md]
