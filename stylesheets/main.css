@@ -84,9 +84,8 @@ footer.footer {
 
 hr.list_separator {
 	height: 1px;
-	color: #5a6a7d;
-	border-color: #5a6a7d;
 	background-color: #5a6a7d;
+	border: 0;
 }
 
 #paging {
