@@ -1,0 +1,36 @@
+<div class="highlight"><pre>---
+title: nil
+---
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+
+&lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+  &lt;channel&gt;
+   {% if page.grouptype == &#39;tag&#39; %}
+   	&lt;title&gt;RealJenius.com - Tag: {{page.tag}}&lt;/title&gt;
+   {% elsif page.grouptype == &#39;category&#39; %}
+    &lt;title&gt;RealJenius.com - Category: {{page.category}}&lt;/title&gt;
+   {% else %}
+    &lt;title&gt;RealJenius.com&lt;/title&gt;
+   {% endif %}
+   &lt;link&gt;http://realjenius.com&lt;/link&gt;
+   &lt;description&gt;I&#39;m a software developer in the game industry, and have been (for better or worse) coding on the Java platform for the last decade. I also do all my own stunts.&lt;/description&gt;
+   &lt;language&gt;en-us&lt;/language&gt;
+   &lt;managingEditor&gt;R.J. Lorimer&lt;/managingEditor&gt;
+   &lt;atom:link href=&quot;rss&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot; /&gt;
+   
+    {% for post in page.posts %}
+	  &lt;item&gt;
+        &lt;title&gt;{{ post.title }}&lt;/title&gt;
+        &lt;link&gt;http://realjenius.com{{ post.url }}&lt;/link&gt;
+		&lt;author&gt;R.J. Lorimer&lt;/author&gt;
+		&lt;pubDate&gt;{{ post.date | date_to_xmlschema }}&lt;/pubDate&gt;
+		&lt;guid&gt;http://realjenius.com{{ post.url }}&lt;/guid&gt;
+		&lt;description&gt;&lt;![CDATA[
+		   {{ post.content | expand_urls : site.url }}
+		]]&gt;&lt;/description&gt;
+	  &lt;/item&gt;
+    {% endfor %}
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</pre>
+</div>

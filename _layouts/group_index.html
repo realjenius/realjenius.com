@@ -1,12 +1,11 @@
 ---
 layout: main
 ---
-{% capture type %}{{page.page_type}}{% endcapture %}
-{% if type == 'tag' %}
+{% if page.grouptype == 'tag' %}
 <div class="page-header">
 	<h2>Tag: '{{page.tag}}'</h2>
 </div>
-{% elsif type == 'category' %}
+{% elsif page.grouptype == 'category' %}
 <div class="page-header">
 	<h2>Category: '{{page.category}}'</h2>
 </div>
@@ -28,9 +27,9 @@ layout: main
 	<hr class="list_separator" />
 {% endfor %}
 	
-{% if type == 'tag' %}
+{% if page.grouptype == 'tag' %}
 	{% capture paging_root %}/tag/{{page.tag}}/{% endcapture %}
-{% elsif type == 'category' %}
+{% elsif page.grouptype == 'category' %}
 	{% capture paging_root %}/category/{{page.category}}/{% endcapture %}
 {% else %}
 	{% capture paging_root %}/{% endcapture %}

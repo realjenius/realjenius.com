@@ -1,0 +1,26 @@
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+  <span class="n">site</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">category</span><span class="o">|</span>
+    <span class="n">build_subpages</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+  <span class="k">end</span>
+  
+  <span class="n">site</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">tag</span><span class="o">|</span>
+    <span class="n">build_subpages</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="s2">&quot;tag&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># Do the actual generation.</span>
+<span class="k">def</span> <span class="nf">build_subpages</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">posts</span><span class="p">)</span> 
+  <span class="n">posts</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">posts</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">sort_by</span> <span class="p">{</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="o">-</span><span class="nb">p</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">to_f</span> <span class="p">}</span>     
+  <span class="n">atomize</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">posts</span><span class="p">)</span>
+  <span class="n">paginate</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">posts</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">atomize</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">posts</span><span class="p">)</span>
+  <span class="c1"># TODO</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">paginate</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">posts</span><span class="p">)</span>
+  <span class="c1"># TODO</span>
+<span class="k">end</span>
+</pre>
+</div>

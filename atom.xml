@@ -2,5 +2,8 @@
 layout: atom
 title: nil
 ---
-{% assign theposts = site.posts %}
-{% include atom_posts.xml %}
+{% for post in site.posts %}
+	{% if forloop.index < 10 %}
+		{% include atom_post.xml %}
+	{% endif %}
+{% endfor %}
