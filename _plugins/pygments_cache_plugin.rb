@@ -1,3 +1,4 @@
+require 'pygments'
 require 'fileutils'
 require 'digest/md5'
 
@@ -11,11 +12,11 @@ Jekyll::HighlightBlock.class_eval do
       if File.exist?(path)
         highlighted_code = File.read(path)
       else
-        highlighted_code = Albino.new(code, @lang).to_s(@options)
+        highlighted_code = Pygments.highlight(code, :lexer => lang, :formatter => 'html', :options => {:encoding => 'utf-8'})
         File.open(path, 'w') {|f| f.print(highlighted_code) }
       end
     else
-      highlighted_code = Albino.new(code, @lang).to_s(@options)
+      highlighted_code = Pygments.highlight(code, :lexer => lang, :formatter => 'html', :options => {:encoding => 'utf-8'})
     end
     output = add_code_tags(highlighted_code, @lang)
     output = context["pygments_prefix"] + output if context["pygments_prefix"]
