@@ -17,3 +17,9 @@ Github builds are a branch mirror from my private Git repo. Deploys are automate
 ## Questions/Comments?
 
 Feel free to [Contact Me](http://realjenius.com/contact.html)!
+
+## Prerequisites
+
+* Jekyll 12.0 (This means `pygments.rb` and no more Albino in the cache plugin for highlighting)
+* Ruby 1.9.3 (because I can)
+* Pygments 1.6
