@@ -1,0 +1,29 @@
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">paginate</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">posts</span><span class="p">)</span>
+  <span class="n">pages</span> <span class="o">=</span> <span class="no">Pager</span><span class="o">.</span><span class="n">calculate_pages</span><span class="p">(</span><span class="n">posts</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">site</span><span class="o">.</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;paginate&#39;</span><span class="o">].</span><span class="n">to_i</span><span class="p">)</span>
+  <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.pages</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">num_page</span><span class="o">|</span>
+    <span class="n">pager</span> <span class="o">=</span> <span class="no">Pager</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">site</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">num_page</span><span class="p">,</span> <span class="n">posts</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">pages</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/</span><span class="si">#{</span><span class="n">type</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">posts</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="n">num_page</span> <span class="o">&gt;</span> <span class="mi">1</span>
+      <span class="n">path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/page</span><span class="si">#{</span><span class="n">num_page</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">end</span>
+    <span class="n">newpage</span> <span class="o">=</span> <span class="no">GroupSubPage</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">site</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">posts</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">newpage</span><span class="o">.</span><span class="n">pager</span> <span class="o">=</span> <span class="n">pager</span>
+    <span class="n">site</span><span class="o">.</span><span class="n">pages</span> <span class="o">&lt;&lt;</span> <span class="n">newpage</span> 
+
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">GroupSubPage</span> <span class="o">&lt;</span> <span class="no">Page</span>
+	<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">dir</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+	  <span class="vi">@site</span> <span class="o">=</span> <span class="n">site</span>
+	  <span class="vi">@base</span> <span class="o">=</span> <span class="n">base</span>
+	  <span class="vi">@dir</span> <span class="o">=</span> <span class="n">dir</span>
+	  <span class="vi">@name</span> <span class="o">=</span> <span class="s1">&#39;index.html&#39;</span>
+
+	  <span class="nb">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="vi">@name</span><span class="p">)</span>
+	  <span class="nb">self</span><span class="o">.</span><span class="n">read_yaml</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;_layouts&#39;</span><span class="p">),</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">type</span><span class="si">}</span><span class="s2">_index.html&quot;</span><span class="p">)</span>
+	  <span class="nb">self</span><span class="o">.</span><span class="n">data</span><span class="o">[</span><span class="n">type</span><span class="o">]</span> <span class="o">=</span> <span class="n">val</span>
+	<span class="k">end</span>
+<span class="k">end</span>
+</pre>
+</div>

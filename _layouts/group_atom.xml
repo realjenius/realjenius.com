@@ -1,0 +1,7 @@
+---
+layout: atom
+title: nil
+---
+{% for post in page.posts %}
+	{% include atom_post.xml %}
+{% endfor %}

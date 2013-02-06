@@ -1,0 +1,19 @@
+<div class="highlight"><pre>{% if page.grouptype == &#39;tag&#39; %}
+ <span class="c">&lt;!-- Print tag title here --&gt;</span>
+{% elsif page.grouptype == &#39;category&#39; %}
+ <span class="c">&lt;!-- Print category title here --&gt;</span>
+{% endif %}
+
+{% for post in paginator.posts %}
+  <span class="c">&lt;!-- Print post entry short stuff --&gt;</span>
+{% endfor %}
+
+{% if paginator.next_page %}
+  <span class="c">&lt;!-- Render next page link --&gt;</span>
+{% endif %}
+
+{% if paginator.previous_page %}
+  <span class="c">&lt;!-- Render previous page link --&gt;</span>
+{% endif %}
+</pre>
+</div>
