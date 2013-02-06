@@ -49,7 +49,7 @@ Next, we need to create a reusable chunk of Liquid+HTML for the logic. We can si
 
 Now, in our article, we can simply include the series like this:
 
-{% highlight markdown %}
+{% highlight text %}
 Welcome to my article about Fish in the United States. This is the first entry in a series about fish throughout the world!
 
 {% raw %}
