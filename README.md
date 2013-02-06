@@ -11,3 +11,4 @@ Of particular note for lurkers:
 ## On Deployments
 
 Github builds are a branch mirror from my private Git repo. Deploys are automated to the site with a post-receive hook much like that documented here: [Jekyll Post-Receive Git Deployment](https://github.com/mojombo/jekyll/wiki/Deployment).
+
