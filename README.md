@@ -7,3 +7,5 @@ Of particular note for lurkers:
 * A few other custom plugins for generating post urls, and expanding URLs when generating feeds.
 * Stylesheets and layout are all [Twitter Bootstrap](twitter.github.com/bootstrap/) based.
 * Pygments cache in place to not make builds totally suck.
+
+Github builds are a branch mirror from my private Git repo. Deploys are automated to the site with a post-receive hook much like that documented here: [Jekyll Post-Receive Git Deployment](https://github.com/mojombo/jekyll/wiki/Deployment).
