@@ -1,0 +1,26 @@
+---
+title: Categories and Tags
+layout: page
+---
+<a name="categories"></a>
+<h3>Categories</h3>
+
+<div class="row">
+	{% for category in site.categories %}
+		<div class="col-12 col-lg-12">
+			<a href="/category/{{category[0]}}/">{{category[0]}} <span class="badge">{{category[1].size}}</span></a>
+		</div>		
+	{% endfor %}
+</div>
+
+<a name="tags"></a>
+<h3>Tags</h3>
+
+<div class="row">
+	{% for tag in site.tags %}
+		<div class="col-lg-3 col-sm-4 col-12">
+		<a href="/tag/{{tag[0]}}/">{{tag[0]}} <span class="badge">{{tag[1].size}}</span></a>
+		</div>
+	{% endfor %}
+</div>
+

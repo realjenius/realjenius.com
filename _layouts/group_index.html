@@ -12,19 +12,7 @@ layout: main
 {% endif %}
 
 {% for post in paginator.posts %}
-	<article>
-		<h3>
-			<a href="{{post.url}}">{{post.title}}</a> 
-			<small>{{post.date | date: "%m/%d/%Y"}} by R.J.</small>
-		</h3>
-		<p>{{post.summary}}</p>
-
-		<p class="continue_reading pull-left"><a href="{{post.url}}" class="btn btn-small btn-inverse">Continue Reading &rarr;</a></p>
-		{% assign item = post %}
-		{% include post_details.html %}
-	</article>
-	<div class="clearfix"></div>
-	<hr class="list_separator" />
+	{% include post_row.html %}
 {% endfor %}
 	
 {% if page.grouptype == 'tag' %}
@@ -34,25 +22,4 @@ layout: main
 {% else %}
 	{% capture paging_root %}/{% endcapture %}
 {% endif %}
-
-<div id="paging">
-{% if paginator.next_page %}
-	<a href="{{paging_root}}page{{paginator.next_page}}" class="btn btn-inverse pull-left">&larr; Older</a>
-{% else %}
-	<a href="#" class="btn btn-inverse disabled pull-left">&larr; Older</a>
-{% endif %}
-
-{% if paginator.previous_page %}
-	{% if paginator.previous_page == 1 %}
-		<a href="{{paging_root}}" class="btn btn-inverse pull-right">Newer  &rarr;</a>
-	{% else %}
-		<a href="{{paging_root}}page{{paginator.previous_page}}" class="btn btn-inverse pull-right">Newer &rarr;</a>
-	{% endif %}
-{% else %}
-		<a href="#" class="btn btn-inverse disabled pull-right">Newer &rarr;</a>
-	</li>
-{% endif %}
-</div>
-<div class="clearfix page-bottom"></div>
-{% assign type = nil %}
-{% assign paging_root = nil %}
+{% include paging_buttons.html %}

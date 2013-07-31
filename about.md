@@ -10,19 +10,17 @@ layout: page
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently the **Director of Platform Engineering** for [Electrotank, Inc.](http://www.electrotank.com), which effectively boils down to me being technically responsible for the development of all of our products. My responsibilities include:
+I am currently the **Principal Back End Engineer** (aka Cloud Whisperer) for [Mind Pirate, Inc](http://www.mindpirate.com). As my title implies, I'm the principal engineer for the server components of our games, applications, and our next-generation mobile platform, Callisto.
+ 
+Prior to Mind Pirate, I worked for [Electrotank](http://www.electrotank.com) as the **Director of Platform Engineering**, where I was the lead developer for the networking and game-logic middleware platforms that Electrotank offered. In that capacity, I presented at [QCon](http://qconnewyork.com/) and [GDC](http://www.gdcvault.com/play/1016590/Lag-Sucks-Making-Online-Gaming) on our tech *(requires GDC Vault access)*.
 
-* Lead server developer
-* Primary design and product direction
-* Mr. Fixit
+Over the course of my career, I have technically lead a large variety of powerful teams.
 
-I have recently presented at [QCon](http://qconnewyork.com/) and [GDC](http://www.gdcvault.com/play/1016590/Lag-Sucks-Making-Online-Gaming) on our tech *(requires GDC Vault access)*.
-
-Prior to Electrotank, I've worked on a variety of large projects, technically leading mid-size powerful teams.
-
-* I have been developing in Java for over a dozen years.
-* I have several years experience with Ruby, C#, Javascript, HTML, and general relational database and web technology.
+Here's a mini CV:
+* I've been developing in Java, or otherwise on the JVM for 14 years.
+* I have several years experience with Ruby, C#, Scala, Javascript, HTML, relational and non-relational database technologies.
 * My expertise is in building high-concurrency, low-latency, fault-tolerant systems.
+* Working in the massively-multiplayer games industry has given me unique experience in building low-latency systems at significant scale. This has given me valuable knowledge in low-level network, complex clustering problems, and large data management.
 * I have done a significant amount of editorial work over the years.
 * I do all my own stunts.
 

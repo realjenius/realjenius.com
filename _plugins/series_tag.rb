@@ -23,7 +23,7 @@ module Jekyll
 
       all_entries.sort_by { |p| p.date.to_f }
 
-      text = "<div class='seriesNote'>"
+      text = "<div class='panel seriesNote'>"
       list = "<ul>"
       all_entries.each_with_index do |post, idx|
         list += "<li><strong>Part #{idx+1}</strong> - "
