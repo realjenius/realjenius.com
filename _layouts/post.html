@@ -19,6 +19,12 @@ layout: main
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-lg-5 col-offset-7">
+				{% assign item = page %}
+				{% include post_details.html %}
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-lg-12">
 				<div id="disqus_thread"></div>
 				<script type="text/javascript">
@@ -39,9 +45,6 @@ layout: main
 				</script>
 				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 				<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-				
-				{% assign item = page %}
-				{% include post_details.html %}
 			</div>
 		</div>
 	</div>

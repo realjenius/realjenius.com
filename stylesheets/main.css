@@ -84,9 +84,16 @@ blockquote p {
 	font-size: 15px;
 }
 
-p.post_details {
+.post-details {
 	padding-top: 5px;
-	padding-bottom: 5px	;
+	padding-bottom: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	text-align: right;
+}
+.post-details a:hover {
+	text-decoration: none;
 }
 
 .highlight pre {

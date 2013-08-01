@@ -1,9 +1,8 @@
-<p class="post_details pull-right well">
-	<small>
+<div class="post-details">
 	Categories:
 		{% if item.categories %}
 			{% for cat in item.categories %}
-				<a href="/category/{{cat}}">{{cat}}</a>
+				<a href="/category/{{cat}}"><span class="label">{{cat}}</span></a>
 			{% endfor %}
 		{% else %}
 			None
@@ -12,14 +11,13 @@
 	Tags:
 		{% if item.tags %}
 			{% for tag in item.tags %}
-				<a href="/tag/{{tag}}">{{tag}}</a>
+				<a href="/tag/{{tag}}"><span class="label">{{tag}}</span></a>
 			{% endfor %}
 		{% else %}
 			None
 		{% endif %}
 	|
-	<a href="http://realjenius.com{{item.url}}">Permalink</a>
-	</small>
-</p>
+	<a href="http://realjenius.com{{item.url}}"><span class="label label-info">Permalink</span></a>
+</div>
 
 {% assign item = nil %}
