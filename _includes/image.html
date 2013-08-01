@@ -7,12 +7,24 @@
 	{% assign align = 'pull-left' %}
 {% endif %}
 
-<div class="thumbnail {{align}}">
+{% if align == 'alignnone' %}
+<div class="imgblock">
+<div class="noalignouter">
+	<div class="noaligninner">
+{% endif %}
+<div class="img thumbnail {{align}}">
 	<img src="/images/articles{{src}}" />
 	{% if caption %}
-		<h5>{{caption}}</h5>
+		<div class="well well-small">{{caption}}</div>
 	{% endif %}
 </div>
+{% if align == 'alignnone' %}
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+{% endif %}
+
 {% assign caption = nil %}
 {% assign align = nil %}
 {% assign src = nil %}

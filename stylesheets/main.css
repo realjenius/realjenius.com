@@ -184,3 +184,29 @@ code, pre {
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
+.noalignouter {
+	float: right;
+	right: 50%;
+	position: relative;
+}
+.noaligninner {
+	float: right;
+	right: -50%;
+	position: relative;
+}
+.alignnone {
+	float: none;
+	margin: 20px auto;
+}
+
+.img {
+	border: 1px solid #999;
+}
+
+.img .well {
+	padding-top: 10px;
+	margin-bottom: 0;	
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+}
