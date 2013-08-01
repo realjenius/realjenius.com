@@ -8,7 +8,6 @@ Of particular note for lurkers:
 * Custom category/tag index and feed generation within [_plugins](https://github.com/realjenius/realjenius.com/tree/master/_plugins).
 * A few other custom plugins for generating post urls, and expanding URLs when generating feeds.
 * Stylesheets and layout are all [Twitter Bootstrap](twitter.github.com/bootstrap/) based.
-* Pygments cache in place to not make builds totally suck.
 
 ## On Deployments
 
@@ -20,6 +19,6 @@ Feel free to [Contact Me](http://realjenius.com/contact.html)!
 
 ## Prerequisites
 
-* Jekyll 12.0 (This means `pygments.rb` and no more Albino in the cache plugin for highlighting)
+* Jekyll 1.1.2
 * Ruby 1.9.3 (because I can)
 * Pygments 1.6
