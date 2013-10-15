@@ -1,5 +1,6 @@
 paginate: 10
 pygments: true
+markdown: kramdown
 tag_page_dir: tag
 tag_feed_dir: tag
 tag_page_layout: tag_page
