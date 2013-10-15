@@ -74,6 +74,7 @@ Here are options I explicitly excluded for one reason or another:
 ### Summary
 
 Right now I'm exploring hosts in this option:
+
 1. Digital Ocean - This looks really compelling at the moment. Pricing is great; tools look great, and they have a good reputation right now.
 1. Linode - Some folks simply swear by Linode, and I like some of their features such as HA proxy options. Pricing is good.
 1. A Small Orange - These folks have a lot of street cred, and while their pricing isn't totally competitive everywhere, their deployment looks pretty sharp all told.
