@@ -19,7 +19,7 @@ Feel free to [Contact Me](http://realjenius.com/contact.html)!
 
 ## Prerequisites
 
-* Jekyll 1.1.2
-* Ruby 1.9.3 (because I can)
-* Pygments 1.6
-* Kramdown 1.2.0
+* Jekyll 1.1.2+
+* Ruby 1.9.3+
+* Pygments 1.6+
+* Kramdown 1.2.0+
