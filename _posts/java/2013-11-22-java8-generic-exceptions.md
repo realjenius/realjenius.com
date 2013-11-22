@@ -40,7 +40,7 @@ public void saveThingy(Thingy thingy) throws NotFoundException, AlreadyExistsExc
         // may save, or may throw one of many checked exceptions.
         throw new AlreadyExistsException();
       }
-	});
+    });
   }
   catch(TransactionException e) {
     e.throwIf(NotFoundException.class)
