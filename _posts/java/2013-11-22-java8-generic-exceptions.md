@@ -6,7 +6,6 @@ category: journal
 tags: java java8 lambdas exceptions
 ---
 
-
 One of the more interesting things with Java 8 will be how it impacts the way API design is done. This is already being discussed a lot with lambdas, and indeed, they are the key driver for much of the API change. However, it's not as simple as making sure you accept single method interfaces everywhere. There are a lot of subtle changes to consider. I will walk through one here with exceptions.
 
 The ability to generically define the exceptions in a throws clause for a method in Java isn't a new thing (although most devs don't seem to know or care about it). Pop open any Java 7 project, and you'll be able to do this:
