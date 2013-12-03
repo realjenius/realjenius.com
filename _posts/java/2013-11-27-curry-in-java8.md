@@ -6,7 +6,7 @@ category: journal
 tags: java java8 lambdas currying
 ---
 
-Now that Java is dipping its toes into the waters of supporting functional programming styles, many of the tenants of functional programming come to mind, and it's worth exploring what is possible in this brave new world. Two of those features are currying and partial application. So the question is, can Java be functional?
+Now that Java is dipping its toes into the waters of supporting functional programming styles, many of the tenets of functional programming come to mind, and it's worth exploring what is possible in this brave new world. Two of those features are currying and partial application. So the question is, can Java be functional?
 
 ### Currying and Partial Application - A Refresher
 
