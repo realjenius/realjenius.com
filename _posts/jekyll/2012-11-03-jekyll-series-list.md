@@ -73,31 +73,31 @@ Here is a big wall of hack-y liquid tags to achieve just that.
 {% assign count = '0' %}
 {% assign idx = '0' %}
 {% for post in site.posts reversed %}
-	{% if post.series == series %}
-		{% capture count %}{{ count | plus: '1' }}{% endcapture %}
-		{% if post.url == page.url %}
-			{% capture idx %}{{count}}{% endcapture %}
-		{% endif %}
-	{% endif %}
+    {% if post.series == page.series %}
+        {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+        {% if post.url == page.url %}
+            {% capture idx %}{{count}}{% endcapture %}
+        {% endif %}
+    {% endif %}
 {% endfor %}
 
 <div class="seriesNote">
-	<p>This article is <strong>Part {{ idx }}</strong> in a <strong>{{ count }}-Part</strong> Series.</p>
-	<ul>
-	{% assign count = '0' %}
-	{% for post in site.posts reversed %}
-	{% if post.series == series %}
-		{% capture count %}{{ count | plus: '1' }}{% endcapture %}
-		<li>Part {{ count }} - 
-		{% if page.url == post.url %}
-			This Article
-		{% else %}
-			<a href="{{post.url}}">{{post.title}}</a>
-		{% endif %}
-		</li>
-	{% endif %}
-	{% endfor %}
-	</ul>
+    <p>This article is <strong>Part {{ idx }}</strong> in a <strong>{{ count }}-Part</strong> Series.</p>
+    <ul>
+        {% assign count = '0' %}
+        {% for post in site.posts reversed %}
+        {% if post.series == page.series %}
+            {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+            <li>Part {{ count }} -
+                {% if page.url == post.url %}
+                This Article
+                {% else %}
+                <a href="{{post.url}}">{{post.title}}</a>
+                {% endif %}
+            </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
 </div>
 
 {% assign count = nil %}
