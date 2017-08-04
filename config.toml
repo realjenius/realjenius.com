@@ -34,7 +34,7 @@ DefaultContentLanguage = "en"
 [[menu.main]]
   name = "About"
   url = "about"
-  weight = 3
+  weight = 2
 
   [[menu.main]]
     name = "Contact"
