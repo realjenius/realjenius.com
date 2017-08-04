@@ -44,4 +44,4 @@ DefaultContentLanguage = "en"
 [[menu.main]]
   name = "Tags"
   url = "tags"
-  weight = 5
+  weight = 4
