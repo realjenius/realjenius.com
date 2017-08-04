@@ -3,7 +3,7 @@ title: 'Is There Curry In This Dish?'
 summary: 'Java 8 now has some functional concepts. How functional can it really get,
  though?' 
 date: 2013-11-27
-tags: ["java", "java8", "lambdas", "currying"]
+tags: ["java", "java8", "lambdas", "currying", "functional"]
 ---
 
 Now that Java is dipping its toes into the waters of supporting functional programming styles, many of the tenets of functional programming come to mind, and it's worth exploring what is possible in this brave new world. Two of those features are currying and partial application. So the question is, can Java be functional?
