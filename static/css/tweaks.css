@@ -1,0 +1,15 @@
+figcaption p {
+  text-align: center;
+  font-weight: bold;
+  font-size: .9em;
+}
+
+.figureright {
+  float: right;
+  margin: 20px;
+}
+
+.figureleft {
+  float: left;
+  margin: 20px;
+}

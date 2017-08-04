@@ -1,0 +1,47 @@
+baseURL = "http://realjenius.com/"
+languageCode = "en-us"
+title = "RealJenius.com"
+theme = "beautifulhugo"
+metaDataFormat = "yaml"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+DefaultContentLanguage = "en"
+
+[permalinks]
+  post = "/:year/:month/:day/:filename/"
+
+[Params]
+  subtitle = "Hold My Beer, Watch This"
+  logo = "img/headshot.jpg"
+  favicon = "img/favicon.ico"
+  dateFormat = "January 2, 2006"
+  rss = true
+  comments = true
+
+[Author]
+  name = "R.J. Lorimer"
+  email = "rj@realjenius.com"
+  facebook = "realjenius"
+  github = "realjenius"
+  twitter = "realjenius"
+  linkedin = "rjlorimer"
+
+[[menu.main]]
+  name = "Blog"
+  url = ""
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "about"
+  weight = 3
+
+  [[menu.main]]
+    name = "Contact"
+    url = "contact"
+    weight = 4
+
+[[menu.main]]
+  name = "Tags"
+  url = "tags"
+  weight = 5
