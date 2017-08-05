@@ -4,11 +4,13 @@ figcaption p {
   font-size: .9em;
 }
 
+/* Float a figure to the right of the article. */
 .figureright {
   float: right;
   margin: 20px;
 }
 
+/* Float a figure to the left of the article. */
 .figureleft {
   float: left;
   margin: 20px;
