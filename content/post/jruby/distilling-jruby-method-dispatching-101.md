@@ -16,7 +16,7 @@ One of the first areas I picked up was the method dispatch code. This is an area
 
 Unfortunately, it is also right in the middle of the implementation, so it's a bit like starting to eat the elephant right in the middle. Nonetheless, I have made my way through a good bit of it, and learned a lot in the process, so let's get started.
 
-{{< series distilling-jruby >}}
+{{< series >}}
 
 **Disclaimer**: *I am admittedly an amateur when it comes to the JRuby code. Nothing I say on here should be considered JRuby gospel; consider it a diary of my understanding of the code, and a good starting point for your analysis should you want to make one. I welcome any constructive input on where I may have gone off the reservation.*
 

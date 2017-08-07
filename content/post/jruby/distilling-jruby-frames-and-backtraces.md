@@ -14,7 +14,7 @@ In previous "distilling" articles, I discussed how methods are dispatched, and t
 
 This article is all about how JRuby implements those concepts.
 
-{{< series distilling-jruby >}}
+{{< series >}}
 
 ## Overview
 
