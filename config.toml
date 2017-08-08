@@ -6,6 +6,8 @@ metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 DefaultContentLanguage = "en"
+disqusShortname = "realjenius"
+googleAnalytics = "UA-27375996-1"
 
 [permalinks]
   post = "/:year/:month/:day/:filename/"
