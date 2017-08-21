@@ -188,7 +188,9 @@ Some notes:
 * This makes no special affordances currently for symbolic links, meaning any symbolic link will be followed and copied deeply. Java 7's [Files.copy](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#copy-java.nio.file.Path-java.nio.file.Path-java.nio.file.CopyOption...-) method, but note that this is not recursive; it simply supports the `NO_FOLLOW_LINKS` directive. Ideally Kotlin would support this in the future, when they upgrade to supporting higher than Java 6 as a baseline platform.
 * This copy has no ability to copy attributes of the underlying files today. Again, this is possible with the `Files.copy` utility, and once Kotlin removes Java 6 as a baseline, it will probably be able to take advantage of that as well.
 
-Many examples [like this one](https://dzone.com/articles/what%E2%80%99s-new-java-7-copy-and) suggest that to copy recursively in Java 7+ a `FileVisitor` should be used applied against the Java `walkFileTree` operation. Kotlin also introduces a file-tree-walker API, except it is designed to play ball with the functional nature of Kotlin instead of the visitor pattern as used in Java. Since Kotlin allows iterators to be used in for comprehensions, you can simply iterate the tree depth-first. Here's a brief example:
+# Tree Traversal
+
+Many examples [like this one](https://dzone.com/articles/what%E2%80%99s-new-java-7-copy-and) suggest that to copy recursively in Java 7+ a `FileVisitor` should be used applied against the Java `walkFileTree` operation. Kotlin also introduces a file-tree-walker API, except it is designed to play ball with the functional nature of Kotlin instead of the visitor pattern as used in Java. Since Kotlin allows sequences to be used in for comprehensions, you can simply iterate the tree depth-first. Here's a brief example:
 
 ```java
 for (src in File("some-file").walkTopDown().onFail { file, ex -> throw RuntimeException(ex) }) {
@@ -196,7 +198,9 @@ for (src in File("some-file").walkTopDown().onFail { file, ex -> throw RuntimeEx
 }
 ```
 
-Alternatively, you can also do this all by callback hooks:
+Additionally, since Kotlin sequences are operable comparably to Java streams, you can use any sort of map / filter / collect transformation you wish.
+
+Note that there are a series of other customizable hooks on the file tree walk API, allowing you to intercept when it traverses:
 
 ```java
 File("some-file").walkTopDown()
@@ -206,23 +210,9 @@ File("some-file").walkTopDown()
   .onLeave { file -> ... }
 ```
 
-Lastly, there are a variety of additional largely unrelated tools and shortcuts available for working with files, so I'll just list those here:
+Finally, note that there is also `walkBottomUp`, as well as `walk(FileWalkDirection)`, both of which allow you to control the direction over the files that is traversed.
 
-```java
-val reader = File("some-file").bufferedReader()
-val writer = File("some-file").bufferedWriter()
-val bytes = File("some-file").readBytes() // returns a ByteArray
-File("some-file").appendText("Add some text to the end of the file")
-File("some-file").appendBytes(byteArrayOf(1,2,3))
-```
-
-URL also has the benefit of the short-cut read-to-datatype functions:
-
-```java
-val url : URL = // from somewhere
-val bytes = url.readBytes()
-val text = url.readText()
-```
+The distinction is whether the directory is visited before or after the underlying files and child directories, or before. In both cases this is depth-first.
 
 # Line Traversal
 
@@ -261,6 +251,26 @@ val seq = r.lineSequence() // Sequence<String>
 ```
 
 Note, however, in this case the reader will not be closed as a result of the operation; you must close it yourself.
+
+# File Management Miscellany
+
+Lastly, there are a variety of additional largely unrelated tools and shortcuts available for working with files, so I'll just list those here:
+
+```java
+val reader = File("some-file").bufferedReader()
+val writer = File("some-file").bufferedWriter()
+val bytes = File("some-file").readBytes() // returns a ByteArray
+File("some-file").appendText("Add some text to the end of the file")
+File("some-file").appendBytes(byteArrayOf(1,2,3))
+```
+
+URL also has the benefit of the short-cut read-to-datatype functions:
+
+```java
+val url : URL = // from somewhere
+val bytes = url.readBytes()
+val text = url.readText()
+```
 
 # Extensions, Inlines, and Patterns of Use, Oh My
 
