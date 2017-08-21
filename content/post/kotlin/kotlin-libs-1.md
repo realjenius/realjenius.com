@@ -190,7 +190,7 @@ Some notes:
 
 # Tree Traversal
 
-Many examples [like this one](https://dzone.com/articles/what%E2%80%99s-new-java-7-copy-and) suggest that to copy recursively in Java 7+ a `FileVisitor` should be used applied against the Java `walkFileTree` operation. Kotlin also introduces a file-tree-walker API, except it is designed to play ball with the functional nature of Kotlin instead of the visitor pattern as used in Java. Since Kotlin allows sequences to be used in for comprehensions, you can simply iterate the tree depth-first. Here's a brief example:
+Many examples [like this one](https://dzone.com/articles/what%E2%80%99s-new-java-7-copy-and) suggest that to copy recursively in Java 7+ a `FileVisitor` should be used applied against the Java `walkFileTree` operation. Kotlin also introduces a file-tree-walker API, except it is designed to play ball with the functional nature of Kotlin instead of the visitor pattern as used in Java. Since the FileTreeWalk object is a sequence, and Kotlin allows sequences to be used in for comprehensions, you can simply iterate the tree depth-first. Here's a brief example:
 
 ```java
 for (src in File("some-file").walkTopDown().onFail { file, ex -> throw RuntimeException(ex) }) {
