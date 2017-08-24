@@ -1,7 +1,7 @@
 ---
 title: 'Is There Curry In This Dish?'
 summary: 'Java 8 now has some functional concepts. How functional can it really get,
- though?' 
+ though?'
 date: 2013-11-27
 tags: ["java", "java8", "lambdas", "currying", "functional"]
 ---
@@ -23,7 +23,7 @@ function add(a, b) {
 	return a + b;
 }
 
-add(1,2); // returns 4.
+add(1,2); // returns 3.
 ```
 
 We can revisit this implementation as a curried version instead, and it could look like this:
@@ -35,7 +35,7 @@ function add(a) {
 	}
 }
 
-add(1)(2); // returns 4.
+add(1)(2); // returns 3.
 ```
 
 This allows us to define, and then carry around a halfway completed function (it allows you to "specialize" the function).

@@ -20,7 +20,7 @@ All of these frameworks use the concepts of event-sourcing at some level, where 
 
 Event sourcing operates on the idea that log of changes can be produced by all changes made by all systems, and that change-log can, in turn, be eventually realized to a consistent state.
 
-Consider a relational database. Two users might rapidly execute updates like this:
+Consider a relational database. Two users might rapidly execute updates like this (even at the same micro-second):
 
 ```sql
 update some_schema.some_table set some_value = "my value" where some_key=123;
