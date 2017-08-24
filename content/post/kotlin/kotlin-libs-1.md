@@ -1,11 +1,14 @@
 ---
 title: "Kotlin Libraries: I/O operations"
 date: 2017-08-20
+series: kotlin-libraries
 ---
 
 This is the first in a series of articles that will quickly go over some of the more interesting bits of the Kotlin standard libraries for Java. Today's run-through is about some of the more interesting affordances for I/O based programming.
 
 <!--more-->
+
+{{< series >}}
 
 For users of the Guava library from Google, many of the tools afforded by the Kotlin standard library will seem familiar.
 
