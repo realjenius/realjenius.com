@@ -2,6 +2,7 @@
 title: 'Kotlin Libraries: Comparables and Comparators'
 date: 2017-08-23
 series: kotlin-libraries
+tags: ["kotlin","java","kotlin-libraries"]
 ---
 This is the second article in a series around Kotlin standard library additions. This article is all about the Kotlin comparator factory functions.
 

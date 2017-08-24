@@ -2,6 +2,7 @@
 title: "Kotlin Libraries: I/O operations"
 date: 2017-08-20
 series: kotlin-libraries
+tags: ["kotlin","java","kotlin-libraries"]
 ---
 
 This is the first in a series of articles that will quickly go over some of the more interesting bits of the Kotlin standard libraries for Java. Today's run-through is about some of the more interesting affordances for I/O based programming.
