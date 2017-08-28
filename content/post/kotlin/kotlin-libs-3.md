@@ -1,6 +1,6 @@
 ---
 title: 'Kotlin Libraries: Concurrency'
-date: 2017-08-24
+date: 2017-08-28
 series: kotlin-libraries
 tags: ["kotlin","java","kotlin-libraries"]
 ---
@@ -64,8 +64,8 @@ fun main(args: Array<String>) {
 
 Two immediate benefits:
 
-# This is added to `Lock` interface, which means all lock implementations can take advantage of it
-# It is an inline function so you don't pay for any additional overhead from the standard Java implementation.
+1. This is added to `Lock` interface, which means all lock implementations can take advantage of it
+1. It is an inline function so you don't pay for any additional overhead from the standard Java implementation.
 
 They have done this similarly for `ReentrantReadWriteLock` readers and writers:
 
