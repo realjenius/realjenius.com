@@ -9,6 +9,10 @@ Today's Kotlin library article is about the `kotlin.concurrent` package, and eve
 
 Java's concurrency package is already quite sophisticated, and rather than re-invent so many extremely delicate abstractions, the Kotlin authors focused on making the libraries better suited to the language by decorating and shortening various features.
 
+<!--more-->
+
+{{< series >}}
+
 # Thread Local additions
 
 Thread local gets a new "get-or-set" defaulting function. This allows for an arbitrarily complex block of code to be used to default the thread local.
