@@ -122,6 +122,8 @@ As Mr. Goetz points out, this inlines beautifully, can further rely on LDC to ma
 
 {{<figure src="/img/articles/java/constant-time-pattern-matching.png" >}}
 
+By using a pattern like (but perhaps not exactly matching) this interface, such that the expected call-sites are factories (similar to the lambda meta-factory approach), the hotspot compiler (or *any* JVM runtime) has a lot of tools available to optimize as it sees fit. It may be able to detect ahead of time that much of the work isn't required in most cases.
+
 You can watch the enlightening talk here:
 
 {{< youtube n3_8YcYKScw >}}
