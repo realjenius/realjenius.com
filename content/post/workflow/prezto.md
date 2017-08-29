@@ -154,6 +154,9 @@ function up {
         cd $CDSTR
     fi
 }
+
+# Colorized CAT!
+alias ccat='pygmentize -g'
 ```
 
 # Results
