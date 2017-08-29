@@ -1,7 +1,7 @@
 ---
 title: "JVMLS 2017: Pattern Matching in Java"
 date: 2017-08-29
-tags: ["pattern-matching","java","jvml","goetz"]
+tags: ["pattern-matching","java","jvmls","goetz"]
 ---
 This year at JVMLS, [Brian Goetz talked about Pattern Matching on the JVM](https://www.youtube.com/watch?v=n3_8YcYKScw) and how it might be modeled. In particular he spoke about:
 
