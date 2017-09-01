@@ -7,6 +7,8 @@ One of Kotlin's strengths is that generally speaking, the code you might write i
 
 An odd case where that doesn't prove to be true is declaring loggers as Java developers.
 
+<!--more-->
+
 # A Background on Kotlin and statics
 Java makes static a first-class feature of any particular class, where-as Kotlin rejects the idea of statics altogether, and instead gives you the concept of a singleton companion in [Companion Objects](https://kotlinlang.org/docs/reference/object-declarations.html).
 
