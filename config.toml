@@ -1,4 +1,4 @@
-baseURL = "http://realjenius.com/"
+baseURL = "https://realjenius.com/"
 languageCode = "en-us"
 title = "RealJenius.com"
 theme = "beautifulhugo"

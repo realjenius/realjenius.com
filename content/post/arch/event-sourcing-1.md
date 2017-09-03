@@ -50,6 +50,17 @@ Consider that
 
 # Kafka
 
+At its core, all Kafka does is append-only logs, so it seems to be a pretty obvious event sourced concept. It wasn't until the introduction of `KTables` with Kafka streams that Kafka got the idea of calculating state off of a series of events organized by key.
+
+What makes the Kafka approach effective is organizing data into partitions based on a partition key. By partitioning data with the same key in an ordered partition, you can always reproduce the state of the record by simply replaying through the partition.
+
+
+
 # Akka
 
+TODO akka event streams and message passing durability
+
+
 # Axon
+
+Event stream repositories and replay
