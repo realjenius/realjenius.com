@@ -3,7 +3,7 @@ title: Currying and Partial Application in Kotlin
 date: 2017-08-24
 tags: ["kotlin", "lambdas", "currying", "functional"]
 ---
-Many moons ago, I wrote an [article on the feasibility of currying and partial application in Java 8]({{< ref "/post/java/curry-in-java8.md" >}}), and asserted that, while it was technically feasible, explicit and thorough type syntax in the language, as well as inflexible operator notation prevented it from being approachable. In comparison, is Kotlin up to the challenge?
+Many moons ago, I wrote an [article on the feasibility of currying and partial application in Java 8]({{< ref "post/java/curry-in-java8.md" >}}), and asserted that, while it was technically feasible, explicit and thorough type syntax in the language, as well as inflexible operator notation prevented it from being approachable. In comparison, is Kotlin up to the challenge?
 
 <!--more-->
 
