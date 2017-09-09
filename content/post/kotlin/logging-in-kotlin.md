@@ -124,7 +124,7 @@ class MyClass {
 
 This is creating a companion object of type `KLogging`. This is one of the interesting things that Kotlin companion objexcs support: the ability to inherit or be implemented by an entirely outside type.
 
-KLogging has a `logger` parameter on it, which allows you to do this in your code:
+KLogging has a `logger` property which allows you to do this in your code:
 
 ```java
 class MyClass {
