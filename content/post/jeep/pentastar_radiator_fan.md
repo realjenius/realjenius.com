@@ -47,9 +47,9 @@ The 2013 and up Jeep JK wrangler fan on the 3.6L Pentastar has a few key charact
 
 * It is an [Outrunner](https://en.wikipedia.org/wiki/Outrunner) motor design. This doesn't have much bearing on diagnosing problems, but it's a key difference from the more traditional fan designs in the earlier Jeep JKs
 * The fan is a 3 wire design, which you can see if you detach the harness. The three wires are:
-** Heavy gauge power directly from the battery
-** Heavy gauge ground wire which terminates behind the power steering fluid reservoir
-** A small gauge wire that is the "[pulse width modulated duty cycle signal](https://en.wikipedia.org/wiki/Duty_cycle)" from the circuitry in the TIPM (aka smart fuse box)
+  * Heavy gauge power directly from the battery
+  * Heavy gauge ground wire which terminates behind the power steering fluid reservoir
+  * A small gauge wire that is the "[pulse width modulated duty cycle signal](https://en.wikipedia.org/wiki/Duty_cycle)" from the circuitry in the TIPM (aka smart fuse box)
 
 Now, typically, a system like the old JK setup will have relays to do "high amperage" power switching. For example, if a fan needs 60 amps to run on high speed, the high speed relay acts as a large switch which, when enabled, sends the high amperage power to the fan to run. As soon as the power reaches the fan, it kicks on. However, given the description above you'll notice the only voltage going to the fan (other than the piddly PWM wire) is coming directly from the battery; no relays, and therefore no external control.
 
