@@ -80,9 +80,10 @@ However, as it turns out, none of this is used for the radiator fan. As best as 
 
 Why aren't the components on it? Simple: they aren't used!
 
-Also, as far as I could tell, the only code the fan will ever throw on these newer jeeps is P0480, which is all encompassing to mean the TIPM asked the fan to turn on, and couldn't detect that it did, or the engine overheated under a certain MPH and the computer don't know why.
+Also, as far as I could tell, the only code the fan will ever throw on these newer jeeps is P0480, which is all encompassing to mean the TIPM asked the fan to turn on, and couldn't detect that it did, or the engine overheated under a certain MPH and the computer doesn't know why.
 
 Assuming you are getting valid temperature readings from the engine temp sensors, the only components you have to worry about when diagnosing the 2013+ Pentastar 3.6L JK radiator fan not running are:
+
 * The Fan assembly itself
 * The TIPM itself (aka, the computer for most accessories in the car)
 * The power lead from the battery
