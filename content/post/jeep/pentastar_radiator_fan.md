@@ -41,7 +41,7 @@ To recap, the 2012 and earlier Jeep JKs (with the 3.8L engine) have a fan setup 
 * In addition to throwing a P0480, these fans can also throw a code in the P069X range.
 * Can be easily bench tested by jumping a power and ground wires to the fan harness directly to see if it spins up or not, and to see if the fan struggles or clutches correctly, or if it might be drawing too much current, etc.
 
-As you can probably tell, I have collected a good bit of knowledge about the earlier Jeep JK fans. My hope was there would be a lot of parallels between the two powertrains; after all there are already relays and fuses and other equipment already in the Jeep for this; surely for cost savings they would reuse most of that with the newer engine. Unfortunately I have since learned that nearly all of this incorrect for my Jeep.
+As you can probably tell, I have collected a good bit of knowledge about the earlier Jeep JK fans. My hope was there would be a lot of parallels between the two powertrains; after all there are already relays and fuses and other equipment already in the Jeep for this; surely for cost savings they would reuse most of that with the newer engine. Unfortunately I have since learned that nearly all of this is incorrect for my Jeep.
 
 The 2013 and up Jeep JK wrangler fan on the 3.6L Pentastar has a few key characteristics:
 
