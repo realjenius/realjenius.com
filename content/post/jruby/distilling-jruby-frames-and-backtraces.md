@@ -288,6 +288,6 @@ I'm by no means done with these JRuby articles -- I took a little hiatus for wor
 * Java Proxying and Support
 * The New Kid on the Block: Duby
 
-As usual, votes are welcome: [Contact Me]({{< ref "contact.md" >}}).
+As usual, votes are welcome: [Contact Me]({{< ref "/contact.md" >}}).
 
 Stay Tuned!

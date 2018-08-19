@@ -18,7 +18,7 @@ So how does JRuby do it?
 
 {{< series >}}
 
-In my previous [Distilling JRuby article]({{< ref "post/jruby/distilling-jruby-method-dispatching-101.md" >}}) I briefly mentioned a class called 'DynamicScope'. I also hinted at another object called 'StaticScope'. Both play a central role in handling this difficult problem.
+In my previous [Distilling JRuby article]({{< ref "/post/jruby/distilling-jruby-method-dispatching-101.md" >}}) I briefly mentioned a class called 'DynamicScope'. I also hinted at another object called 'StaticScope'. Both play a central role in handling this difficult problem.
 
 ## The Static Scope
 

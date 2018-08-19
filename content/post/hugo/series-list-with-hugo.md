@@ -6,8 +6,8 @@ date: 2017-08-07
 
 Several years ago I developed a couple articles on how to build a series list using Jekyll:
 
-* [Building a Series List with Jekyll Scripts]({{< ref "post/jekyll/jekyll-series-list.md" >}})
-* [Building a Series List with a Jekyll Plugin]({{< ref "post/jekyll/jekyll-series-list-2.md" >}})
+* [Building a Series List with Jekyll Scripts]({{< ref "/post/jekyll/jekyll-series-list.md" >}})
+* [Building a Series List with a Jekyll Plugin]({{< ref "/post/jekyll/jekyll-series-list-2.md" >}})
 
 Today I'm going to revisit the idea using Hugo shortcodes as the solution.
 

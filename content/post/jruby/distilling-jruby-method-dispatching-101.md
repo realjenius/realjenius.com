@@ -190,7 +190,7 @@ As for Java objects that are provided by the user, and are in turn handled by th
 * Java classes, unlike Ruby, have a ton of special cases that make the code very tedious to parse.
 * The JRuby crew is working on revitalizing this code in earnest as part of the next release of JRuby, so whatever I cover here will be out-of-date very soon.
 
-However, in concept it's fairly simple. A RubyClass is constructed and cached for the Java class (by iterating it's class metadata). In that Ruby class, a special method peer (of one of the above types) is constructed that binds to each corresponding Java method. Note that the Java integration jumps through some hoops to provide Ruby-syntax-ish method names, which were all covered in the [EngineYard blog entries]({{< ref "post/jruby/taking-advantage-of-java-in-jruby.md" >}}).
+However, in concept it's fairly simple. A RubyClass is constructed and cached for the Java class (by iterating it's class metadata). In that Ruby class, a special method peer (of one of the above types) is constructed that binds to each corresponding Java method. Note that the Java integration jumps through some hoops to provide Ruby-syntax-ish method names, which were all covered in the [EngineYard blog entries]({{< ref "/post/jruby/taking-advantage-of-java-in-jruby.md" >}}).
 
 Once that class is created and bound to the runtime, it can function like any other `RubyClass`.
 

@@ -3,7 +3,7 @@ title: De-Structuring in Kotlin
 date: 2018-08-18
 tags: ["kotlin","java"]
 ---
-Recently I wrote an article about [de-structuring in TypeScript]({{< ref "post/typescript/destructuring_in_typescript.md" >}}), and hinted that Kotlin has a similar feature, but in more of a "strongly typed" language style. Today I want to discuss that feature.
+Recently I wrote an article about [de-structuring in TypeScript]({{< ref "/post/typescript/destructuring_in_typescript.md" >}}), and hinted that Kotlin has a similar feature, but in more of a "strongly typed" language style. Today I want to discuss that feature.
 
 <!-- more -->
 

@@ -475,6 +475,6 @@ Nevertheless, the work is fairly new on this, and I'd hate to spend too much tim
 
 This article was by far the longest yet, coming in well over 6000 words (and that means if you've read this far you are a patient, patient individual). Short of making this a "two-parter", I'm not sure how I could have shortened it and truly hit the hotspots of the compilation process in Ruby; however I do think my next exploration might be a touch more 'focused'.
 
-I haven't entirely decided yet what's on the chopping block next for these JRuby internals articles, but I have a couple ideas; and of course, I'm always taking input at [My Contact Page]({{< ref "contact.md" >}}).
+I haven't entirely decided yet what's on the chopping block next for these JRuby internals articles, but I have a couple ideas; and of course, I'm always taking input at [My Contact Page]({{< ref "/contact.md" >}}).
 
 Stay tuned.

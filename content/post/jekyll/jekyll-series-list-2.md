@@ -5,7 +5,7 @@ tags: ["jekyll","ruby"]
 date: 2012-11-04
 ---
 
-Previously I showed how you could [build an article series list with Jekyll]({{< ref "post/jekyll/jekyll-series-list.md" >}}) by scrapping together some Liquid scriptlets and some clever looping. The implementation certainly works, but it's a little bit ugly, inefficient, and hard to maintain. The main goal was to see how far we could stress it using only Liquid.
+Previously I showed how you could [build an article series list with Jekyll]({{< ref "/post/jekyll/jekyll-series-list.md" >}}) by scrapping together some Liquid scriptlets and some clever looping. The implementation certainly works, but it's a little bit ugly, inefficient, and hard to maintain. The main goal was to see how far we could stress it using only Liquid.
 
 This time I'd like to show how you could achieve the same by actually implementing a proper Liquid tag; implementing some Ruby code to achieve the same goal.
 
