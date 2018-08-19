@@ -6,6 +6,8 @@ tags: ["typescript","javascript"]
 
 A fairly recent addition to Typescript is index types and the `keyof` operator. For a Java developer this is an interesting thing to learn about, as Java doesn't have this feature, specifically due to type system inflexibility.
 
+<!-- more -->
+
 Academically speaking, an index type is a small facet of [dependent type systems](https://en.wikipedia.org/wiki/Dependent_type) (where one type in use is dependent upon the value of another input). This is also, in effect, a way to get many of the benefits of a [heterogenous map](https://wiki.haskell.org/Heterogenous_collections). The abilities of index types and the `keyof` operator are rooted in two features:
 
 1. The ability to declare a sealed enum of all possible property names on a type
