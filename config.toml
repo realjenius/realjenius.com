@@ -5,6 +5,7 @@ theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
+pygmentsOptions = "linenos=inline"
 DefaultContentLanguage = "en"
 disqusShortname = "realjenius"
 googleAnalytics = "UA-27375996-1"

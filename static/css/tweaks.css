@@ -15,4 +15,7 @@ figcaption p {
   float: left;
   margin: 20px;
 }
- 
+
+.chroma .hl {
+  background-color: #555a70;
+}
