@@ -8,7 +8,7 @@ Hugo makes it quite simple to share code snippets with syntax highlighting on yo
 
 <!--more-->
 
-Note: Recent Hugo versions use a syntax highlighting engine called [Chroma](https://github.com/alecthomas/chroma), whereas older Hugo versions used [Pygments](TODO). However, whether you are using Chroma or Pygments, this feature still works.
+**Note:** Recent Hugo versions use a syntax highlighting engine called [Chroma](https://github.com/alecthomas/chroma), whereas older Hugo versions used [Pygments](http://pygments.org/). However, whether you are using Chroma or Pygments, this feature still works.
 
 When using markdown, the default/simplest approach for highlighting code is simply to use a fenced code block:
 
