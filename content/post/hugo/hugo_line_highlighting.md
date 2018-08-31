@@ -4,11 +4,11 @@ tags: ["hugo"]
 date: 2018-08-30
 ---
 
-Hugo makes it quite simple to share code snippets with syntax highlighting on your site. Did you know how easy it is to highlight individual lines?
+Hugo makes it quite simple to share code snippets with syntax highlighting on your site, but did you know you can highlight individual lines in code-snippets as well?
 
-<!-- more -->
+<!--more-->
 
-Note: Recent Hugo versions use a syntax highlighting engine called [Chroma](https://github.com/alecthomas/chroma), whereas older Hugo versions used [Pygments](TODO). However, whether you are using Chroma or Pygments, much of this advice applies.
+Note: Recent Hugo versions use a syntax highlighting engine called [Chroma](https://github.com/alecthomas/chroma), whereas older Hugo versions used [Pygments](TODO). However, whether you are using Chroma or Pygments, this feature still works.
 
 When using markdown, the default/simplest approach for highlighting code is simply to use a fenced code block:
 
