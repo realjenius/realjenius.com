@@ -264,7 +264,7 @@ If you are like me, looking at this representative inline class type, it may see
 
 ... and then over on the Kotlin side have inline classes that work perfectly as their "int" counterparts, without having to write any custom mapping code or registrations for your specific library of choice (meaning, Jackson sees it as a series of integers, and you can go about your business without having to constantly muck with the object mapper)?
 
-```
+```kotlin
 data class Time(val hours: Hours, val minutes: Minutes, val seconds: Seconds)
 ```
 
@@ -321,7 +321,7 @@ Arguably, using `@JsonCreator` is preferable with Jackson anyway, since it avoid
 * Constructors cannot be name-mangled and Kotlin will keep using vanilla constructors for inline classes
 * Inline classes used in constructors for generated types by Kotlin will continue to take the underlying value type as the arguments
 
-If you are willing to react to the experimental nature of Kotlin in your use case, then by all means - go for it!
+If you are willing to react to the experimental nature of Kotlin in your use case, then by all means - go for it! But go into it knowing that the runtime representation of inline classes is treated as "obscured" and blocked for Java interoperability purposes.
 
 ## Comparing to Java Value Types
 
@@ -334,7 +334,7 @@ As a result, it should be cautioned that Kotlin inline classes are named such be
 * True polymorphism and inheritance
 * Proper parametric type and generics support
 
-## What About Other Languages
+## What About Other Languages?
 
 The problem being solved by inline classes and this general approach to solving them with (mostly) compiler tricks is not a new concept in programming languages. For example, [Haskell](https://wiki.haskell.org/Haskell), has [`newtype`](https://wiki.haskell.org/Newtype). Similarly, [Scala](https://www.scala-lang.org/) developed [Value Classes (SIP-15)](https://docs.scala-lang.org/sips/value-classes.html) and more recently [Opaque Types (SIP-35)](https://docs.scala-lang.org/sips/opaque-types.html) as ways to build primitive indirections on the JVM.
 
