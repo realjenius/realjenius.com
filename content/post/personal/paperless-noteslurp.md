@@ -153,13 +153,13 @@ Once in a while you can then use NoteSlurp to review your inbox and make sure th
 
 The [README](https://github.com/realjenius/noteslurp/blob/master/README.md) provides detailed usage instructions, but in general here is my workflow for filing now that this tool is in place.
 
-1. Any time I get a scanned document, I scan it with my ADF and create a PDF.
-2. I collect all PDFs into a folder on my local machine `/home/realjenius/Documents/sync`
-3. Every PDF dropped there is given a name by me that includes zero-to-many fancy keywords and patterns that are picked up automatically to pre-tag the document when inserting into Evernote
+1. Any time I get a paper document, I scan it with my ADF and create a PDF.
+2. I collect all PDFs (including those downloaded from various sites) into a folder on my local machine `/home/realjenius/Documents/sync`
+3. Every PDF dropped there is given a name by me that includes zero-to-many fancy keywords and patterns that are picked up automatically to pre-tag the document when inserting into Evernote (such as `car_insurance_renewal_05_2019.pdf`) -- this might produce "Insurance", "Car", and "2019-05" as valid tags
 4. The tool runs every 5 minutes using the `run` command, pulling documents into Evernote on my behalf
-5. Periodically I also execute the `file-notes` command to verify and stuff notes away for good.
+5. Periodically I also execute the `file-notes` command to quickly walk through and verify notes to be filed away for good.
 
-### How Do You Use It?
+### How Can You Use It?
 
 My recommendation would be to README the readme on Github and provide feedback where you find it lacking. Additionally, there is a [Release](https://github.com/realjenius/noteslurp/releases) with a pre-packaged JAR ready for consumption.
 
