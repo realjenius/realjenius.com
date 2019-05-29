@@ -5,7 +5,7 @@ tags: ["paperless","personal","evernote","noteslurp","kotlin"]
 ---
 Adulting is hard. Bills come and go, taxes have to be prepared, escrows have shortages, kids have activites, FSAs need proof of medical expenses, cars need to be registered.
 
-The list of things an adult has to do seems to only grow larger over time, and one of the fundamental things that all adults seem to have to do is to track and file paperwork. I've gone "paperless"" in my personal life (which I seem to have interpreted it to mean: "keep digital copies of everything, even if it was paper originally").
+The list of things an adult has to do seems to only grow larger over time, and one of the fundamental things that all adults seem to have to do is to track and file paperwork. I've gone "paperless" in my personal life (which I seem to have interpreted it to mean: "keep digital copies of everything, even if it was paper originally").
 
 When it comes to adulting, barriers to doing the right thing (like actually getting stuff filed paperlessly) are bad, as you won't do them. So, recently I decided to make that just a little bit easier on myself with a new tool. Let me walk through the research I've done, what my process for paperless filing is, and where I've historically had problems, and how this new tool has helped me out.
 
