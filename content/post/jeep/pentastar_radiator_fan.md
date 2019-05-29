@@ -15,7 +15,7 @@ Once the code triggered on my Jeep, I immediately pulled over and parked, but I 
 
 Unfortunately, I quickly hit a dead-end. The internet knowledge of the 3.6L pentastar fan setup is woefully inadequate. I suspect there are a few reasons for this:
 
-1. In most every other aspect, the JK Jeep models ran from 2007-2018, and things like suspension, interior, brakes, etc. were consistent throughout all the years. So, when you google for fan fixes on a JK jeep, you run into a ton of knowledge for 2012 and prior, which is an entirely different engine and fan setup.
+1. In most every other aspect, the JK Jeep models ran from 2007-2018, and things like suspension, interior, brakes, etc. were consistent throughout all the years. So, when you google for fan fixes on a JK jeep, you run into a ton of knowledge for 2011 and prior, which is an entirely different engine and fan setup.
 1. The fan uses a good bit of black magic in its design as compared to more traditional mechanical clutch fans and electric fans
 1. There are a lot of false trails left in the Jeep from the older installation that you think matter but actually don't.
 1. The newer Jeeps are... newer, and as a result parts are failing a lot less often. I suspect that as they age and parts fail more, this knowledge will become a lot more common.
@@ -32,7 +32,7 @@ Here are some of the articles I hit (a sampling):
 
 I found a lot more than this as well - the forums are full of P0480 knowledge, but very little of it touches this model.
 
-To recap, the 2012 and earlier Jeep JKs (with the 3.8L engine) have a fan setup with these characteristics:
+To recap, the 2011 and earlier Jeep JKs (with the 3.8L engine) have a fan setup with these characteristics:
 
 * Run on a 60A fuse
 * Have a low speed relay in the fuse box
@@ -43,7 +43,7 @@ To recap, the 2012 and earlier Jeep JKs (with the 3.8L engine) have a fan setup 
 
 As you can probably tell, I have collected a good bit of knowledge about the earlier Jeep JK fans. My hope was there would be a lot of parallels between the two powertrains; after all there are already relays and fuses and other equipment already in the Jeep for this; surely for cost savings they would reuse most of that with the newer engine. Unfortunately I have since learned that nearly all of this is incorrect for my Jeep.
 
-The 2013 and up Jeep JK wrangler fan on the 3.6L Pentastar has a few key characteristics:
+The 2012 and up Jeep JK wrangler fan on the 3.6L Pentastar has a few key characteristics:
 
 * It is an [Outrunner](https://en.wikipedia.org/wiki/Outrunner) motor design. This doesn't have much bearing on diagnosing problems, but it's a key difference from the more traditional fan designs in the earlier Jeep JKs
 * The fan is a 3 wire design, which you can see if you detach the harness. The three wires are:
@@ -55,7 +55,7 @@ Now, typically, a system like the old JK setup will have relays to do "high ampe
 
 What that means is all of the circuitry for enabling the fan and controlling the fan speed is contained *inside the fan assembly itself*. The fan expects to get power from the battery at all times (so it can run even when the car is off), and translates the PWM duty cycle signal from the computer in the TIPM into a variable speed for the fan itself.
 
-Consequently, the fan for a 2012 and prior JK Jeep is around [$65](https://www.carparts.com/details/Jeep/Wrangler_-openp-JK-closep-/Replacement/Cooling_Fan_Assembly/2008/REPJ160502.html?TID=gglpla&origin=pla&gclid=Cj0KCQjwjtLZBRDLARIsAKT6fXxaEGTp6J7OKZ2vTuQlzzWNrH5xrYb_NySo3sWXifHyob8gxyNxBY4aAo3qEALw_wcB&gclsrc=aw.ds) to [$200](https://www.extremeterrain.com/omix-ada-fan-assembly-jk-1710257.html?utm_content=XT%20Engine%20and%20Performance%20-%20Radiator%20and%20Cooling%7COmix-ADA&utm_source=google-pla&utm_medium=shopping&T5_Var2=shopping&T5_Var3=yellow&T5_Var4=J12191&intl=0&utm_campaign=XTW+Wrangler+Vehicle+Medium&dialogtech=ppc&gclid=CInFpMPB9tsCFcaTxQIdUgYNZA&gclsrc=ds) dollars, and there is a ton of aftermarket competition. However, the "fan assembly" for the Pentastar is pretty much only made by Mopar (Part 68143894AB), and it costs [$400](https://www.oechryslerparts.com/oem-parts/mopar-fan-assembly-68143894ab?origin=pla&gclid=Cj0KCQjwjtLZBRDLARIsAKT6fXyTfiropWMqN8KSPXjuuv93hLMD96arw6RUeJ1NXz5LzY6fYjij0yAaAmbfEALw_wcB) on a good day.
+Consequently, the fan for a 2011 and prior JK Jeep is around [$65](https://www.carparts.com/details/Jeep/Wrangler_-openp-JK-closep-/Replacement/Cooling_Fan_Assembly/2008/REPJ160502.html?TID=gglpla&origin=pla&gclid=Cj0KCQjwjtLZBRDLARIsAKT6fXxaEGTp6J7OKZ2vTuQlzzWNrH5xrYb_NySo3sWXifHyob8gxyNxBY4aAo3qEALw_wcB&gclsrc=aw.ds) to [$200](https://www.extremeterrain.com/omix-ada-fan-assembly-jk-1710257.html?utm_content=XT%20Engine%20and%20Performance%20-%20Radiator%20and%20Cooling%7COmix-ADA&utm_source=google-pla&utm_medium=shopping&T5_Var2=shopping&T5_Var3=yellow&T5_Var4=J12191&intl=0&utm_campaign=XTW+Wrangler+Vehicle+Medium&dialogtech=ppc&gclid=CInFpMPB9tsCFcaTxQIdUgYNZA&gclsrc=ds) dollars, and there is a ton of aftermarket competition. However, the "fan assembly" for the Pentastar is pretty much only made by Mopar (Part 68143894AB), and it costs [$400](https://www.oechryslerparts.com/oem-parts/mopar-fan-assembly-68143894ab?origin=pla&gclid=Cj0KCQjwjtLZBRDLARIsAKT6fXyTfiropWMqN8KSPXjuuv93hLMD96arw6RUeJ1NXz5LzY6fYjij0yAaAmbfEALw_wcB) on a good day.
 
 Part of the reason for a lack of an aftermarket is the complexity of having to reproduce a competitively priced setup that can do the same thing while keeping the factory computer from throwing codes. To work with the factory setup, any fan assembly has to:
 
@@ -82,7 +82,7 @@ Why aren't the components on it? Simple: they aren't used!
 
 Also, as far as I could tell, the only code the fan will ever throw on these newer jeeps is P0480, which is all encompassing to mean the TIPM asked the fan to turn on, and couldn't detect that it did, or the engine overheated under a certain MPH and the computer doesn't know why.
 
-Assuming you are getting valid temperature readings from the engine temp sensors, the only components you have to worry about when diagnosing the 2013+ Pentastar 3.6L JK radiator fan not running are:
+Assuming you are getting valid temperature readings from the engine temp sensors, the only components you have to worry about when diagnosing the 2012+ Pentastar 3.6L JK radiator fan not running are:
 
 * The Fan assembly itself
 * The TIPM itself (aka, the computer for most accessories in the car)
