@@ -33,7 +33,7 @@
 
 # Footer
 - id: poweredBy # Accepts HTML
-  translation: '由 <a href="http://gohugo.io">Hugo v{{ .Hugo.Version }}</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+  translation: '由 <a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> 强力驱动 &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
 
 # Navigation
 - id: toggleNavigation
@@ -49,19 +49,26 @@
 
 # Staticman
 - id: noComment
-  translation: "No comment"
+  translation: "没有评论"
 - id: oneComment
-  translation: "comment"
+  translation: "则评论"
 - id: moreComment
-  translation: "comments"
+  translation: "则评论"
 - id: useMarkdown
-  translation: "You can use Markdown syntax"
+  translation: "您可以使用Markdown语法"
 - id: yourName
-  translation: "Your name"
+  translation: "你的名字"
 - id: yourEmail
-  translation: "Your email address"
+  translation: "您的电子邮件地址"
 - id: yourWebsite
-  translation: "You website"
+  translation: "你的网页"
 
+# Delayed Disqus
+- id: show
+  translation: "显示"
+- id: comments
+  translation: "则评论"
 
-
+# Related posts
+- id: seeAlso
+  translation: "也可以看看"

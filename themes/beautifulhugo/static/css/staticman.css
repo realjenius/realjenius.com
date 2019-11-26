@@ -82,7 +82,7 @@
  	height: 10em;
 }
 
-form--loading:before {
+.form--loading:before {
 	content: '';
 }
 

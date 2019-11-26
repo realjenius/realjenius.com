@@ -140,7 +140,37 @@ var main = {
     $(".intro-header.big-img").css("background-position", "");
   }
   if (typeof desc !== typeof undefined && desc !== false) {
-    $(".img-desc").text(desc).show();
+    // Check for Markdown link
+    var mdLinkRe = /\[(.*?)\]\((.+?)\)/;
+    if (desc.match(mdLinkRe)) {
+      // Split desc into parts, extracting md links
+      var splitDesc = desc.split(mdLinkRe);
+
+      // Build new description
+      var imageDesc = $(".img-desc");
+      splitDesc.forEach(function (element, index){
+        // Check element type. If links every 2nd element is link text, and every 3rd link url
+        if (index % 3 === 0) {
+          // Regular text, just append it
+          imageDesc.append(element);
+        }
+        if (index % 3 === 1) {
+          // Link text - do nothing at the moment
+        }
+        if (index % 3 === 2) {
+          // Link url - Create anchor tag with text
+          var link = $("<a>", {
+            "href": element,
+            "target": "_blank",
+            "rel": "noopener noreferrer"
+          }).text(splitDesc[index - 1]);
+          imageDesc.append(link);
+        }
+      });
+      imageDesc.show();
+    } else {
+      $(".img-desc").text(desc).show();
+    }
   } else {
     $(".img-desc").hide();
   }

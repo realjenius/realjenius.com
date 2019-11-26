@@ -1,4 +1,4 @@
-# Beautiful Hugo - A port of Beautiful Jekyll Theme
+# Beautiful Hugo - An adaptation of the Beautiful Jekyll theme
 
 ![Beautiful Hugo Theme Screenshot](https://github.com/halogenica/beautifulhugo/blob/master/images/screenshot.png)
 
@@ -6,7 +6,8 @@
 
     $ mkdir themes
     $ cd themes
-    $ git clone https://github.com/halogenica/beautifulhugo.git beautifulhugo
+    $ git submodule add https://github.com/halogenica/beautifulhugo.git beautifulhugo
+    
 
 See [the Hugo documentation](https://gohugo.io/themes/installing/) for more information.
 
@@ -44,7 +45,7 @@ pygmentsStyle = "trac"
 pygmentsUseClassic = true
 ```
 
-Pygments is mostly compatable with the newer Chroma. It is slower but has some additional theme options. I recommend Chroma over Pygments.
+Pygments is mostly compatable with the newer Chroma. It is slower but has some additional theme options. I recommend Chroma over Pygments. Pygments will use `syntax.css` for highlighting, unless you also set the config `pygmentsUseClasses = false` which will generate the style code directly in the HTML file. 
 
 #### Highlight.js - Client side syntax highlighting
 ```
@@ -60,18 +61,23 @@ To use this feature, uncomment and fill out the `disqusShortname` parameter in `
 
 ### Staticman support
 
-Add *staticman* configuration section in `config.toml` or `config.yaml`
+Add *Staticman* configuration section in `config.toml` or `config.yaml`
 
-Sample `config.yaml` configuration
+Sample `config.toml` configuration
 
 ```
-  staticman:
-    api: https://api.staticman.net/v2/entry/<USERNAME>/<REPOSITORY-BLOGNAME>/master/comments
-    pulls: https://github.com/<USERNAME>/<REPOSITORY-BLOGNAME>/pulls
-    recaptcha:
+[Params.staticman]
+  api = "https://<API-ENDPOINT>/v3/entry/{GIT-HOST}/<USERNAME>/<REPOSITORY-BLOGNAME>/master/comments"
+[Params.staticman.recaptcha]
       sitekey: "6LeGeTgUAAAAAAqVrfTwox1kJQFdWl-mLzKasV0v"
       secret: "hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic="
 ```
+
+Note: The public `API-ENDPOINT` https://staticman.net is currently hitting its API limit, so one may use other API instances to provide Staticman comment service.
+
+The section `[Params.staticman.recaptcha]` is *optional*.  To add reCAPTCHA to your site, you have to replace the default values with your own ones (to be obtained from Google.)  The site `secret` has to be encrypted with
+
+    https://<API-ENDPOINT>/v3/encrypt/<SITE-SECRET>
 
 You must also configure the `staticman.yml` in you blog website.
 
@@ -98,7 +104,7 @@ comments:
     secret: "hsGjWtWHR4HK4pT7cUsWTArJdZDxxE2pkdg/ArwCguqYQrhuubjj3RS9C5qa8xu4cx/Y9EwHwAMEeXPCZbLR9eW1K9LshissvNcYFfC/b8KKb4deH4V1+oqJEk/JcoK6jp6Rr2nZV4rjDP9M7nunC3WR5UGwMIYb8kKhur9pAic="
 ```
 
-
+If you *don't* have the section `[Params.staticman]` in `config.toml`, you *won't* need the section `reCaptcha`  in `staticman.yml`
 
 ### Google Analytics
 
@@ -106,24 +112,72 @@ To add Google Analytics, simply sign up to [Google Analytics](https://www.google
 
 ### Commit SHA on the footer
 
-If the source of your site is in a Git repo, the SHA corresponding to the commit the site is built from can be shown on the footer. To do so, two environment variables have to be set (`GIT_COMMIT_SHA` and `GIT_COMMIT_SHA_SHORT`) and parameter `commit` has to be defined in the config file:
+If the source of your site is in a Git repo, the SHA corresponding to the commit the site is built from can be shown on the footer. To do so, two site parameters `commit` has to be defined in the config file `config.toml`:
 
 ```
+enableGitInfo = true
 [Params]
   commit = "https://github.com/<username>/<siterepo>/tree/"
 ```
-  
-This can be achieved by running the next command prior to calling Hugo:
+
+See at [vincenttam/vincenttam.gitlab.io](https://gitlab.com/vincenttam/vincenttam.gitlab.io) for an example of how to add it to a continuous integration system.
+
+### Multilingual
+
+To allow Beautiful Hugo to go multilingual, you need to define the languages
+you want to use inside the `languages` parameter on `config.toml` file, also
+redefining the content dir for each one. Check the `i18n/` folder to see all
+languages available.
+
+```toml
+[languages]
+  [languages.en] 
+    contentDir = "content/en" # English
+  [languages.ja]
+    contentDir = "content/ja" # Japanese
+  [languages.br]
+    contentDir = "content/br" # Brazilian Portuguese
+```
+
+Now you just need to create a subdir within the `content/` folder for each
+language and just put stuff inside `page/` and `post/` regular directories.
+```
+content/      content/      content/  
+└── en/       └── br/       └── ja/ 
+    ├── page/     ├── page/     ├── page/
+    └── post/     └── post/     └── post/
 
 ```
-  GIT_COMMIT_SHA=`git rev-parse --verify HEAD` GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
+ 
+### Extra shortcodes
+
+There are two extra shortcodes provided (along with the customized figure shortcode):
+
+#### Details
+
+This simply adds the html5 detail attribute, supported on all *modern* browsers. Use it like this:
+
 ```
-  
-See at [xor-gate/xor-gate.org](https://github.com/xor-gate/xor-gate.org) an example of how to add it to a continuous integration system.
-  
+{{% details "This is the details title (click to expand)" %}}
+This is the content (hidden until clicked).
+{{% /details %}}
+```
+
+#### Split
+
+This adds a two column side-by-side environment (will turn into 1 col for narrow devices):
+
+```
+{{< columns >}}
+This is column 1.
+{{< column >}}
+This is column 2.
+{{< endcolumn >}}
+```
+
 ## About
 
-This is a port of the Jekyll theme [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) by [Dean Attali](https://deanattali.com/aboutme#contact). It supports most of the features of the original theme.
+This is an adaptation of the Jekyll theme [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) by [Dean Attali](https://deanattali.com/aboutme#contact). It supports most of the features of the original theme, and many new features. It has diverged from the Jekyll theme over time, with years of community updates.
 
 ## License
 

@@ -33,7 +33,7 @@
 
 # Footer
 - id: poweredBy # Accepts HTML
-  translation: '<a href="http://gohugo.io">Hugo v{{ .Hugo.Version }}</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>'
+  translation: '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> alimentada &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adaptado de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
 
 # Navigation
 - id: toggleNavigation
@@ -49,19 +49,26 @@
 
 # Staticman
 - id: noComment
-  translation: "No comment"
+  translation: "Sin comentarios"
 - id: oneComment
-  translation: "comment"
+  translation: "comentario"
 - id: moreComment
-  translation: "comments"
+  translation: "comentarios"
 - id: useMarkdown
-  translation: "You can use Markdown syntax"
+  translation: "Puedes usar la sintaxis de Markdown"
 - id: yourName
-  translation: "Your name"
+  translation: "Tu nombre"
 - id: yourEmail
-  translation: "Your email address"
+  translation: "Tu correo electrónico"
 - id: yourWebsite
-  translation: "You website"
+  translation: "Tu sitio web"
 
-
-
+# Delayed Disqus
+- id: show
+  translation: "Mostrar"
+- id: comments
+  translation: "comentarios" 
+  
+# Related posts
+- id: seeAlso
+  translation: "Ver también"
