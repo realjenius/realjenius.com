@@ -136,4 +136,4 @@ Oh-My-ZSH and Prezto both have huge established communities, and an absurd amoun
 Similarly, Fish, being more different from Bash than ZSH is, has to do a little more work to function cleanly in a bash-heavy world. Tools like `foreign-env` are increasingly useful when tools like the `gcloud` CLI want to self-install into your dotfiles and they don't natively support Fish.
 
 I have hit a (perhaps totally expected) number of hiccups to get through various hurdles, and hopefully this article will help you have a few less in your workflow if you try Fish.
-Overall I've been ecstatic with the general performance, quality of auto-complete and suggestions, and color support that Fish ships out of the box. It feels more polished in general post-install, and I'm h
+Overall I've been ecstatic with the general performance, quality of auto-complete and suggestions, and color support that Fish ships out of the box. It feels more polished in general post-install, and I'm quite happy with my terminal experience.
