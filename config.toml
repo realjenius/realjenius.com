@@ -1,7 +1,7 @@
 baseURL = "https://www.realjenius.com"
 languageCode = "en-us"
 title = "RealJenius.com"
-theme = "beautifulhugo_fixed"
+theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
