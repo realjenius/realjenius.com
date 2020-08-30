@@ -7,7 +7,7 @@ date: "2009-11-03T22:19:00-06:00"
 
 {{< figure src="/img/articles/jruby/logo.png" class="figureright" >}}
 
-I've been spending some time dipping my toes in patch contribution for JRuby recently. I started with a few easy, isolated, spec issues, and have since been working my way into more entrenched problems. The past few weeks I spent a good bit of time toying with solutions to [JRUBY-2810](http://jira.codehaus.org/browse/JRUBY-2810): "IO foreach performance is slower than MRI". The exercise was interesting enough, that I thought it might be worth posting here. This isn't meant to be a study of the JRuby code in particular, but more-so in the thought process of diagnosing a performance problem in foreign code.
+I've been spending some time dipping my toes in patch contribution for JRuby recently. I started with a few easy, isolated, spec issues, and have since been working my way into more entrenched problems. The past few weeks I spent a good bit of time toying with solutions to [JRUBY-2810](https://projectmanagernews.com/general/most-important-projects-codehaus/): "IO foreach performance is slower than MRI". The exercise was interesting enough, that I thought it might be worth posting here. This isn't meant to be a study of the JRuby code in particular, but more-so in the thought process of diagnosing a performance problem in foreign code.
 
 ### Proof is in the Benchmark
 
