@@ -199,10 +199,6 @@ file.source().buffer().use {
 }
 ```
 
-# Code Organization
-
-
-
 # What's Next: Time to Dig In!
 
 Now that we have some foundational fun stuff, it's time to start trying to actually dig in to the Ultima 6 game data. For this first round we need to start with one of the most basic parts of the runtime of a classic VGA game: [Palettes](https://en.wikipedia.org/wiki/Palette_(computing)).

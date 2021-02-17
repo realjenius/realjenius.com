@@ -7,7 +7,7 @@ date: "2009-11-03T22:19:00-06:00"
 
 {{< figure src="/img/articles/jruby/logo.png" class="figureright" >}}
 
-I've been spending some time dipping my toes in patch contribution for JRuby recently. I started with a few easy, isolated, spec issues, and have since been working my way into more entrenched problems. The past few weeks I spent a good bit of time toying with solutions to [JRUBY-2810](http://jira.codehaus.org/browse/JRUBY-2810): "IO foreach performance is slower than MRI". The exercise was interesting enough, that I thought it might be worth posting here. This isn't meant to be a study of the JRuby code in particular, but more-so in the thought process of diagnosing a performance problem in foreign code.
+I've been spending some time dipping my toes in patch contribution for JRuby recently. I started with a few easy, isolated, spec issues, and have since been working my way into more entrenched problems. The past few weeks I spent a good bit of time toying with solutions to [JRUBY-2810](https://projectmanagernews.com/general/most-important-projects-codehaus/): "IO foreach performance is slower than MRI". The exercise was interesting enough, that I thought it might be worth posting here. This isn't meant to be a study of the JRuby code in particular, but more-so in the thought process of diagnosing a performance problem in foreign code.
 
 ### Proof is in the Benchmark
 
@@ -17,7 +17,7 @@ Furthermore, improvements for most performance problems typically involves makin
 
 JRuby always has a few open, standing performance bugs. It's the nature of the beast that it is compared to MRI (the "reference" implementation), and anywhere it performs less favorably is going to be considered a bug (fast enough be damned). The performance measurement is up to the beholder, but CPU timings are generally the most popular.
 
-[JRUBY-2810](http://jira.codehaus.org/browse/JRUBY-2810) is an interesting case. IO line looping was proving to be slower than MRI Ruby; in some cases **much** slower. In this particular case, CPU was the closely-watched resource.
+[JRUBY-2810](https://projectmanagernews.com/general/most-important-projects-codehaus/) is an interesting case. IO line looping was proving to be slower than MRI Ruby; in some cases **much** slower. In this particular case, CPU was the closely-watched resource.
 
 The first step I took to analyzing the problem was reproducing it. With Ruby this is usually pretty easy, as arbitrary scripts can just be picked up and executed, as opposed to Java, where all too often you have to build a special harness or test class just to expose the problem. Scripts are very natural for this, and in this particular case, the user had already provided one in the benchmarks folder that ships with the JRuby source.
 
