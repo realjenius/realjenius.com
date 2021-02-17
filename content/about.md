@@ -6,11 +6,11 @@ comments: false
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently working for [Ultimate Software](http://ultimatesoftware.com) as a software architect for multiple projects.
+I am currently working for [UKG, Inc.](http://ukg.com) (formerly Ultimate Software) as a software architect for multiple projects.
 
 ### My History
 
-Prior to working for Ultimate Software, I spent eight years immersed in the high-energy (and never boring) gaming industry, first working for Electrotank as *Director of Platform Engineering*, then working for Mind Pirate as the *Cloud Whisperer*, and most recently working for [High 5 Games](http://www.high5games.com) as their *Director of Server Development*.
+Prior to working for UKG, I spent eight years immersed in the high-energy (and never boring) gaming industry, first working for Electrotank as *Director of Platform Engineering*, then working for Mind Pirate as the *Cloud Whisperer*, and most recently working for [High 5 Games](http://www.high5games.com) as their *Director of Server Development*.
 
 Over the course of my career, I have technically lead a large variety of powerful teams.
 
