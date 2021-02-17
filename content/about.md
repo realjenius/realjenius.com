@@ -6,7 +6,7 @@ comments: false
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently working for [Ultimate Software](http://ultimatesoftware.com) as a technical lead for multiple projects.
+I am currently working for [Ultimate Software](http://ultimatesoftware.com) as a software architect for multiple projects.
 
 ### My History
 
