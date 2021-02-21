@@ -8,7 +8,7 @@ sections:
   path: content
   label: Pages
   create: all
-  match: "*"
+  match: "**/*"
 upload_dir: static/assets
 public_path: "/assets"
 front_matter_path: ''
