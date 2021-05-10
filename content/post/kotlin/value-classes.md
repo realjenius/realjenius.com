@@ -93,7 +93,7 @@ Even if as a reader this is all news to you, it is probably clear how big of a p
 
 Multiple JEPs are being worked on in Java to enable the use and proliferation of "value types", now commonly referred to as primitive objects.
 
-* [JEP 401](https://openjdk.java.net/jeps/401) defines the cooncept of a `primitive class` and the boundaries of that in the JVM (we will review this more below)
+* [JEP 401](https://openjdk.java.net/jeps/401) defines the concept of a `primitive class` and the boundaries of that in the JVM (we will review this more below)
 * [JEP 402](https://openjdk.java.net/jeps/402) retrofits the eight JVM primitives (boolean, int, long, etc) as primitive objects, meaning that `int` simply becomes a compile-time alias for the integer primitive class, in turn that means a variety of things, including that methods on `Integer` can be called directly on int, e.g.: `23.compareTo(42)`
 * A pending JEP to implement generics support for primitive objects
 
