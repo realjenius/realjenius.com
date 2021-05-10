@@ -52,15 +52,15 @@ public final class Name {
 In contrast, here is what the same class looks like when compiled with `@JvmRecord`:
 
 ```java
-public final class realjenius.Name extends java.lang.Record {
-  public realjenius.Name(java.lang.String, java.lang.String, java.lang.String);
+public final class Name extends java.lang.Record {
+  public Name(java.lang.String, java.lang.String, java.lang.String);
   public final java.lang.String firstName();
   public final java.lang.String middleName();
   public final java.lang.String lastName();
   public final java.lang.String component1();
   public final java.lang.String component2();
   public final java.lang.String component3();
-  public final realjenius.Name copy(java.lang.String, java.lang.String, java.lang.String);
+  public final Name copy(java.lang.String, java.lang.String, java.lang.String);
   public static Name copy$default(Name, java.lang.String, java.lang.String, java.lang.String, int, java.lang.Object);
   public java.lang.String toString();
   public int hashCode();
@@ -255,7 +255,7 @@ The static helpers on the generated `Price` class know how to perform logic on t
 This can be seen by looking at the generated `javap` output for this class:
 
 ```java
-public final class realjenius.Price {
+public final class Price {
   public static final int dollarAmount-impl(int);
   public static final int centsAmount-impl(int);
   public static java.lang.String toString-impl(int);
