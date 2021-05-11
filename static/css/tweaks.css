@@ -16,6 +16,13 @@ figcaption p {
   margin: 20px;
 }
 
+.highlight pre.chroma {
+  overflow-x: auto;
+}
+
+pre code {
+  white-space: pre;
+}
 .chroma .hl {
   background-color: #555a70;
 }
