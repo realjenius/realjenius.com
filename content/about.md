@@ -6,7 +6,7 @@ comments: false
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently working for [UKG, Inc.](http://ukg.com) (formerly Ultimate Software) as a software architect for multiple projects.
+I am currently working for [UKG, Inc.](http://ukg.com) (formerly Ultimate Software) as a principal software architect for multiple projects.
 
 ### My History
 
