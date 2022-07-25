@@ -1,5 +1,5 @@
 ---
-title: A Framework Laptop an Linux: Two Weeks In
+title: "A Framework Laptop an Linux: Two Weeks In"
 draft: true
 ---
 At the tail-end of 2021, I finally decided my *very* aging Macbook Pro was due to be replaced. The battery was worse than useless, the screen had dead-pixels, and it seemed to get heavier and slower as every day passed. I wanted a lightweight, high-performance, "ultra-book" style platform. I was just left with one choice in my mind: Macbook Air M1 or a Framework Modular Laptop. As the title implies, I decided to go bold, and support a company with a great vision [and some great supporters](). As a result, I now own a Framework, and because I hate Windows, I run Linux. Read on to learn my first experiences.
