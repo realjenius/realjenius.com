@@ -16,7 +16,7 @@ Over the course of my career, I have technically lead a large variety of powerfu
 
 Here’s a mini CV:
 
-* I’ve been developing in Java, or otherwise on the JVM for more than 20 years.
+* I’ve been developing in Java, or otherwise on the JVM for more than 22 years.
 * My expertise is in building high-concurrency, low-latency, fault-tolerant systems.
 * Working in the games industry has given me unique experience in building low-latency systems at significant scale. This has given me valuable knowledge in low-level network, complex clustering problems, and large data management.
 * The games industry also deals with tremendous amounts of data (hundreds of terabytes) all day long, so I have developed a lot of knowledge working with large scale database and distributed technologies.
