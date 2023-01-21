@@ -54,13 +54,14 @@ path.copyToRecursively(
 // ...
 
 fun shouldFailOnError(source: Path, target: Path) { /* ... */ }
+fun shouldSkipOnError(source: Path, target: Path) { /* ... */ }
 ```
 
 In this case we can now provide a Kotlin lambda that decides what to do when an exception is encountered in the copy process. This (as the example indicates) could just mean more granular logging, but it also lets you decide if you should proceed or if you should stop the copy mid-way. Additionally (and perhaps most importantly), this callback starts to help you track what has worked and what hasn't so when the process is done, you can track the percentage of the copy you actually succeeded at completing (assuming, for the moment, it's less than 100%).
 
-The options for an `OnErrorResult` are `TERMINATE` (meaning stop the copy) and `SKIP_SUBTREE` (meaning stop copying this file or directory, and any children it might have).
+The options for an `OnErrorResult` are `TERMINATE` (meaning stop the copy) and `SKIP_SUBTREE` (meaning stop copying this file or directory, and any children it might have) - we can also throw the exception which enables normal application error handling, and may be appropriate in some cases (it's what the default behavior does, for example).
 
-The other API available here is the `copyAction`, which lets you intercept for a given file or directory what you might like to do. This, like `onError`, let's you track the behavior, but also lets you filter and handle weird cases with logic. For example:
+The other lambda available to developers is the `copyAction`, which enables intercepting for a given file or directory what behavior to perform. Like `onError`, this enables tracking the behavior of the copy, but also enables filtering and handling unusual cases with logic. For example:
 
 ```kotlin
 path.copyToRecursively(
@@ -76,9 +77,9 @@ path.copyToRecursively(
 )
 ```
 
-In this case we're looking at the various paths/files in play and making choices on how to proceed. Of course we could also collect the progress in separate data structures to help understand what has been copied or provide other details to the API based on additional details learned from APIs such as `java.nio.file.Files` (e.g. `getPosixFilePermissions`).
+In this case the code is looking at the various paths/files in play and making choices on how to proceed. Of course we could also collect the progress in separate data structures to help understand what has been copied or provide other details to the API based on additional details learned from APIs such as `java.nio.file.Files` (e.g. `getPosixFilePermissions` or something equally granular).
 
-Another aspect of copying which is commonly a problem is the "File exists" scenario; what to do when the give file path is already populated? For this, Kotlin introduces the `overwrite` flag as another optional parameter which enables whether or not the files should be overwritten or skipped if they exist in place. This can help with different scenarios and determining the right "idempotent" way to populate a target from a source:
+Another aspect of copying which is commonly a problem is the "File exists" scenario; what to do when the give file path is already populated? For this, Kotlin introduces the `overwrite` flag as another optional parameter which enables whether or not the files should be overwritten or skipped if they exist in place. This can help with different scenarios and determining the right "idempotent" way to populate a target from a source (especially considering things like retry scenarios when something aborts prematurely):
 
 ```kotlin
 path.copyToRecursively(
@@ -94,4 +95,4 @@ To help round out the API needs, there is also a `deleteRecursively`, which as t
 path.deleteRecursively()
 ```
 
-At this time, this API either completes successfully or fails if anything can't be deleted, just as a recursive Java API might. (It wouldn't surprise me if this API in the future gets callbacks to match the copy variant, as well as behavioral configuration for handling links).
+At this time, this API either completes successfully or fails with an `IOException` if anything can't be deleted, just as a recursive Java API might. As a side note, it wouldn't surprise me if this API also gets callbacks to match the copy variant, as well as behavioral configuration for handling links prior to the removal of the `experimental` annotations.
