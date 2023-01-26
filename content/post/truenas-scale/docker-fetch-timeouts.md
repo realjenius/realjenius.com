@@ -12,7 +12,7 @@ TrueNas Scale has a compelling Helm+Kubernetes-based application hosting solutio
 
 I've been exploring options for self-host replacements of Google Photos. As a result, I recently tried to install LibrePhotos on TrueNas Scale using the excellent [TrueCharts](https://truecharts.org/) chart suite. Unfortunately, LibrePhotos timed out every time I attempted to install it. After looking at the Application Events, I saw this repeatedly:
 
-```
+```bash
 errimagepull rpc error: code = Unknown desc = context deadline exceeded
 ```
 
@@ -24,7 +24,7 @@ To do this, log in to the shell (e.g. through SSH or through `System Settings > 
 
 Once you have the value, simply run it in the shell and wait until it reports completion:
 
-```
+```bash
 docker image pull tccr.io/truecharts/nextcloud-fpm:25.0.2@sha256:59e6d2be5139cdeb030a095fb92b97e01d7d53071dc34b487956065a385d3a32
 
 tccr.io/truecharts/nextcloud-fpm@sha256:59e6d2be5139cdeb030a095fb92b97e01d7d53071dc34b487956065a385d3a32: Pulling from truecharts/nextcloud-fpm
