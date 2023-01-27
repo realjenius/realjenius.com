@@ -10,6 +10,8 @@ This year, I switched to hosting my own installation of [Paperless-ngx](https://
 
 Since about 2015 I was using Evernote as a home for paperless filing via [NoteSlurp]({{< relref "./paperless-noteslurp.md" >}}), which is a bespoke set of tools I wrote to efficiently ingest my scanned documents from Linux. I've been using some form of Evernote (originally their Mac OS application with filesystem sync) since around 2014 for my paperless filing needs, and it served me well for some time. I chose Evernote years ago as their OCR seemed to be unmatched (specifically better than other cloud drive solutions), they had tools for auto-synchronizing as well as published APIs, and there were a variety of powerful organization schemes available with tagging. Evernote did a few things, and did them all well, so it was an easy subscription fee to pay for.
 
+## Evernote Woes
+
 However, in more recent years I've grown to like a lot of things about Evernote less and less:
 
 * The OCR seems to have faltered, and is no longer better than even those things freely available with open-source tools
@@ -18,6 +20,8 @@ However, in more recent years I've grown to like a lot of things about Evernote 
 * They have risen prices on me three times in the last 8 years, and will not stop trying to upsell me with ads for their other tiers, which I have no interest in
 * Their API is stagnant and missing important features to enable my Linux-centric workflow
 * The sheer number of "bespoke" tools I've had to scrap together in NoteSlurp has increased multiple times a year
+
+## A Workflow Refined Over Time
 
 To understand what I was doing and for what I needed a replacement, it might be worth revisiting my Evernote workflow:
 
@@ -32,6 +36,8 @@ To understand what I was doing and for what I needed a replacement, it might be 
 
 This workflow mostly worked and served me well for several years, but as mentioned above it took a lot of work over the years to keep it stable, and I have recently suffered due to odd choices at Evernote itself.
 
+## Exploring New Options
+
 With the release of [TrueNas Scale Bluefin](https://www.truenas.com/docs/scale/scale22.12/), I decided it was time to revisit my home NAS situation, which was really just some extra drives in my desktop Linux machine, and needed some more "official" treatment. Along with that, I decided to check out various purpose-built paperless filing tools. I did some trial installations and experiments with several that could easily be hosted on my new NAS that were recommended by [Awesome Self-Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) - here are my thoughts on each:
 
 * [PaperMerge](https://www.papermerge.com/) - PaperMerge has a lot of potential. The intake pipeline is very rich and the ability to work with so many document types, document merging, document versioning, and others made it very compelling. However, at the time of my review, v2.0 and v2.1 both existed, and 2.1 is a rewrite of 2.0 that has a fundamentally different storage system, and is missing features. In other words - as best as I can tell, in a year this might have been the winner
@@ -40,6 +46,8 @@ With the release of [TrueNas Scale Bluefin](https://www.truenas.com/docs/scale/s
 * [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) - The UI for this is the most efficient for intaking documents, and it matches my "80%" case of my single attachments being "the document". The OCR is very solid, and adding support for Windows-esque document types is a simple case of linking to a few other Docker images (Tika and Gotenberg). The biggest issue at my trial of this project was that the email support *only* could ingest attachments, and could not ingest raw emails as if they were documents themselves
 
 As if reading my mind, a new release of Paperless-ngx became available with e-mail ingestion support about a week after I gave it my first trial installation. As a result, it became the clear winner and I chose to jump right in. After ingesting more than 7000 PDFs, emails, and other documents from my archive, I can honestly say it is an ideal replacement for my previous workflow, and only adds efficiencies.
+
+## What Paperless-ngx Offers
 
 Here are a few highlights of the experience for me:
 
@@ -56,6 +64,8 @@ Here are a few highlights of the experience for me:
 * When "editing" a document (which happens a lot when you are bulk migrating 7000 documents), the suggestions it provides can be quite handy, especially in cases where it may have found 2, 3, or 4 dates that might be the "created" date, and it presents the document on the same screen so you can review it while tagging
 * Bulk updates are quite easy too, and can span multiple pages, so if you find 200+ documents that you can tell it scanned and tagged mostly correctly, you can do a bulk edit to all of them adjusting certain things, and removing the `TODO` tag as appropriate
 * With Tika and Gotenberg it can scan all variety of Windows-garden documents like Word docs, which often come from my childrens' school, for better or worse
+
+## Screenshots
 
 Here are some screenshots to illustrate some of these features:
 
@@ -79,3 +89,9 @@ For those interested in considering Paperless, I highly recommend reviewing thei
 * Over time, refine and improve the various matching rules for tags, document types, and correspondents
 
 The only subtle revision I make is that I organize my physical documents by year, and I keep a filing box in my basement for every year (2017, 2018, 2019, 2020, 2021, 2022), and I start collecting the current year (2023) next to my scanner. When the year transitions, I take the box down, and start a new one, and shred the oldest.
+
+## Summary
+
+Overall this has been an excellent experience to take back control over my own documents, refine my process for filing, and drop some cloud hosting costs for a product I no longer believed in. I highly recommend others explore it, and if there is interest, I'll definitely spend more time showing how to set this up with TrueNas Scale so that it has all the desired bells and whistles.
+
+That said, this didn't completely replace my use of Evernote. I also used it for journaling, research documents, recipe tracking, and more. Each of these got some attention too, so i hope to spend more time talking about replacements in those spaces in the coming days.
