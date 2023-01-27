@@ -1,6 +1,6 @@
 ---
 title: "Paperless-ngx - Adulting in 2023"
-date: 2023-01-24
+date: 2023-01-26
 tags: ["paperless","personal","evernote","paperless-ngx"]
 ---
 
