@@ -2,7 +2,6 @@
 title: "Paperless-ngx - Adulting in 2023"
 date: 2023-01-24
 tags: ["paperless","personal","evernote","paperless-ngx"]
-draft: true
 ---
 
 This year, I switched to hosting my own installation of [Paperless-ngx](https://docs.paperless-ngx.com/), and it has leveled up my paperless adulting life in several ways.
