@@ -3,7 +3,8 @@ title: 'Distilling JRuby: Frames and Backtraces'
 summary: 'Part Four in my "Distilling JRuby" series talks about the techniques for generating frames and backtraces.'
 tags: ["code analysis","java","jruby","distilling-jruby"]
 date: "2010-03-15"
-series: distilling-jruby
+series: 
+  - distilling-jruby
 ---
 
 {{< figure src="/img/articles/jruby/logo.png" class="figureright" >}}

@@ -1,0 +1,42 @@
+[[main]]
+name = "Blog"
+pageRef = "/"
+weight = 10
+[main.params]
+icon = "newspaper"
+
+[[main]]
+name = "About"
+pageRef = "about"
+weight = 20
+[main.params]
+icon = "person-fill"
+
+[[main]]
+name = "Contact"
+pageRef = "contact"
+weight = 30
+[main.params]
+icon = "envelope-at"
+
+[[main]]
+name = "Tags"
+pageRef = "tags"
+weight = 40
+[main.params]
+icon = "tag-fill"
+
+[[main]]
+identifier = "search"
+weight = 99
+[main.params]
+action = "search"
+
+[[footer]]
+identifier = "rss"
+weight = 10
+URL = "/index.xml"
+name = "RSS"
+[footer.params]
+icon = "rss"
+showName = false

@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Libraries: I/O operations"
 date: 2017-08-20
-series: kotlin-libraries
+series: ["kotlin-libraries"]
 tags: ["kotlin","java","kotlin-libraries"]
 ---
 

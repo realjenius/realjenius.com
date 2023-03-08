@@ -3,7 +3,7 @@ title: 'Distilling JRuby: Tracking Scope'
 summary: 'Part Two in my "Distilling JRuby" series talks about how variable scope is tracked inside the JRuby runtime.'
 tags: ["code analysis","java", "jruby", "distilling-jruby"]
 date: 2009-09-25 18:23:00
-series: distilling-jruby
+series: ["distilling-jruby"]
 ---
 
 {{< figure src="/img/articles/jruby/logo.png" class="figureright" >}}

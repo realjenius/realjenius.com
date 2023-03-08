@@ -3,7 +3,7 @@ title: 'The Architecture of Ultima 6: Part 2 - Squeezing Every Last Byte'
 summary: 'Crunching game data into a couple megabytes'
 date: 2020-04-01`
 tags: ["classic-gaming", "ultima6", "kotlin"]
-series: ultima-6-arch
+series: ["ultima-6-arch"]
 draft: true
 ---
 

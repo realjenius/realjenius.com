@@ -3,7 +3,7 @@ title: 'The Architecture of Ultima 6: Part 4 - Understanding LZW'
 summary: 'Saving space with indexed colors'
 date: 2020-04-03
 tags: ["classic-gaming", "ultima6", "kotlin"]
-series: ultima-6-arch
+series: ["ultima-6-arch"]
 draft: true
 ---
 

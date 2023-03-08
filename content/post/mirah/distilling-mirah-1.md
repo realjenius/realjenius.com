@@ -3,7 +3,7 @@ title: 'Distilling Mirah: Type Inference'
 summary: 'I walk through the type inferencing engine in the new JVM language: Mirah'
 tags: ["java","ruby","jruby","mirah","distilling-mirah"]
 date: "2010-10-05T22:38:00-06:00"
-series: distilling-mirah
+series: ["distilling-mirah"]
 ---
 
 Recently, I've been watching the work of a handful of developers on a new programming language: [Mirah](http://www.mirah.org). As a fan of the [Ruby programming language](http://www.ruby-lang.org) and a slave to the Java overlords, Mirah offers instant appeal to me, as it borrows the core Ruby syntax almost verbatim, but creates true Java class files runnable on any Java VM. This decision makes perfect sense, considering the originator of Mirah is [Charlie Nutter](http://blog.headius.com), one of the key developers of JRuby, a language heavily invested in both Ruby and Java. (Mirah actually reuses the JRuby parser at the time of this writing, if that gives you any indicator how similar the syntax is).

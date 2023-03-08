@@ -1,0 +1,20 @@
+languageCode = "en"
+languageName = "English"
+displayName = "EN"
+isoCode = "en"
+weight = 1
+rtl = false
+dateFormat = "January 02, 2006"
+
+title = "RealJenius.com"
+
+[Author]
+    name = "R.J. Lorimer"
+    image = "img/headshot.jpg"
+    bio = "R.J. is a highly respected software development lead and architect, with over twenty years of deep experience in a variety of roles and technologies, and a passion for getting things done quickly, the right way."
+    links = [
+        { email = "rj@realjenius.com" },
+        { mastodon = "https://hachyderm.io/@realjenius" },
+        { github = "https://github.com/realjenius" },
+        { linkedin = "https://linkedin.com/in/rjlorimer" }
+    ]

@@ -1,0 +1,57 @@
+colorScheme = "fire"
+defaultAppearance = "dark" # valid options: light or dark
+autoSwitchAppearance = false
+robots = "all"
+enableSearch = true
+enableCodeCopy = true
+
+mainSections = [ "post" ]
+
+[header]
+layout = "basic"
+# logo = "img/headshot.jpg"
+showTitle = true
+
+[footer]
+showCopyright = true
+showThemeAttribution = true
+showAppearanceSwitcher = true
+showScrollToTop = true
+
+[homepage]
+layout = "profile" # valid options: page, profile, custom
+showRecent = true
+recentLimit = 5
+
+[article]
+showDate = true
+showDateUpdated = false
+showAuthor = true
+showBreadcrumbs = false
+showDraftLabel = true
+showEdit = false
+# editURL = "https://github.com/username/repo/"
+editAppendPath = true
+showHeadingAnchors = true
+showPagination = true
+invertPagination = false
+showReadingTime = true
+showTableOfContents = true
+showTaxonomies = false
+showWordCount = false
+showComments = true
+# sharingLinks = ["facebook", "twitter", "mastodon", "pinterest", "reddit", "linkedin", "email"]
+
+[sitemap]
+excludedKinds = ["taxonomy", "term"]
+
+[list]
+showBreadcrumbs = false
+showSummary = true
+showTableOfContents = true
+showTaxonomies = false
+groupByYear = false
+paginationWidth = 1
+
+[taxonomy]
+showTermCount = true

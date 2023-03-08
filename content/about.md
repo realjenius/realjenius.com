@@ -1,7 +1,7 @@
 ---
 title: About Me
 subtitle: Putting the Jenius in RealJenius
-comments: false
+layout: 'simple'
 ---
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.

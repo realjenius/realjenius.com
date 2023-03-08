@@ -23,9 +23,12 @@ But surely, that's not enough reason to switch hosts. It seems silly to move, ju
 
 Me believing any of these answers is predicated by me "trusting" the author; my web-host. While I have implicitly trusted the intentions of Media Temple over the years I have used their service, I have absolutely no trust for Go Daddy. And the reason is simple: They have shown time and again to have no integrity.
 
-Integrity is a key element in your relationship with your web-host, as you are giving them a lot of trust in the execution and support of your personal and business ventures. Sebastiaan de With has summarized perfectly how GoDaddy has shown they don't have the type of integrity I'm interested in my host having:
+Integrity is a key element in your relationship with your web-host, as you are giving them a lot of trust in the execution and support of your personal and business ventures. Sebastiaan de With (@sdw) has summarized perfectly how GoDaddy has shown they don't have the type of integrity I'm interested in my host having (tweet copied due to recent Twitter foolishness):
 
-{{< tweet 390172367856496640>}}
+> “@Scobleizer: @sdw @mediatemple why switch? What are you looking for that you don't currently have?”
+> 
+> Integrity.
+> ![wikipedia-godaddy.png](/img/articles/site/sdw_tweet_img.png)
 
 And so, with that, I must choose to vote with the only voice I have: my business. Which means I'm looking at the alternative hosts for the first time in many years. I currently run "unmanaged" VPS-style hosting via a DV-Developer at Media Temple, so my interests are specifically in finding a competitive and well-respected alternative in that space. If you are a Grid-Service or DV-Managed user; this list may not be useful for you.
 

@@ -3,7 +3,7 @@ title: 'Distilling JRuby: Method Dispatching 101'
 summary: 'Part One in my "Distilling JRuby" series covers the "basics" in method to method dispatching in JRuby'
 tags: ["code analysis","java","jruby","distilling-jruby"]
 date: "2009-09-16 12:32:00"
-series: distilling-jruby
+series: [ "distilling-jruby" ]
 ---
 
 {{< figure src="/img/articles/jruby/logo.png" class="figureright" >}}

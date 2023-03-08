@@ -2,3 +2,6 @@ sublime-project.sublime-workspace
 _site
 .DS*
 public
+.hugo_build.lock
+.idea
+resources/_gen

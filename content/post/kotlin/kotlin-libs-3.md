@@ -1,7 +1,7 @@
 ---
 title: 'Kotlin Libraries: Concurrency'
 date: 2017-08-28
-series: kotlin-libraries
+series: ["kotlin-libraries"]
 tags: ["kotlin","java","kotlin-libraries"]
 ---
 

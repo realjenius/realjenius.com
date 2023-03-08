@@ -1,48 +1,18 @@
-languageCode = "en-us"
-title = "RealJenius.com"
-theme = "beautifulhugo"
+defaultContentLanguage = "en"
+theme = "congo"
+enableRobotsTXT = true
+paginate = 5
+summaryLength = 0
 metaDataFormat = "yaml"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsOptions = "linenos=inline"
-DefaultContentLanguage = "en"
 disqusShortname = "realjenius"
 
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
 [permalinks]
-  post = "/:year/:month/:day/:filename/"
+post = "/:year/:month/:day/:filename/"
 
-[Params]
-  subtitle = "Hold My Beer, Watch This"
-  logo = "img/headshot.jpg"
-  favicon = "img/favicon.ico"
-  dateFormat = "January 2, 2006"
-  rss = true
-  comments = true
-
-[Author]
-  name = "R.J. Lorimer"
-  email = "rj@realjenius.com"
-  facebook = "realjenius"
-  github = "realjenius"
-  twitter = "realjenius"
-  linkedin = "rjlorimer"
-
-[[menu.main]]
-  name = "Blog"
-  url = ""
-  weight = 1
-
-[[menu.main]]
-  name = "About"
-  url = "about"
-  weight = 2
-
-  [[menu.main]]
-    name = "Contact"
-    url = "contact"
-    weight = 3
-
-[[menu.main]]
-  name = "Tags"
-  url = "tags"
-  weight = 4
+[taxonomies]
+tag = 'tags'
+category = 'categories'
+series = 'series'

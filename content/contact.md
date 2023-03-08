@@ -1,7 +1,7 @@
 ---
 title: Contact Me
 subtitle: Ring-a-ding
-comments: false
+layout: 'simple'
 ---
 
 If you are interested in reaching me, you can always:

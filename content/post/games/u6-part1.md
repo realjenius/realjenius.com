@@ -3,7 +3,7 @@ title: 'The Architecture of Ultima 6: Intro - Revisiting the Past'
 summary: 'Exploring the fascinating architecture of one of the most innovative games of its time'
 date: 2020-03-28
 tags: ["classic-gaming", "ultima6"]
-series: ultima-6-arch
+series: ["ultima-6-arch"]
 draft: true
 ---
 

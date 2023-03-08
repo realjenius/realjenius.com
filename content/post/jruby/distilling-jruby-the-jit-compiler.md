@@ -3,7 +3,7 @@ title: 'Distilling JRuby: The JIT Compiler'
 summary: 'Part Three in my "Distilling JRuby" series talks about a key figure in the performance of JRuby: The JIT Compiler'
 tags: ["code analysis","java","jruby","distilling-jruby"]
 date: "2009-10-06T22:00:00-06:00"
-series: distilling-jruby
+series: ["distilling-jruby"]
 ---
 
 {{< figure src="/img/articles/jruby/logo.png" class="figureright" >}}
