@@ -15,7 +15,7 @@ showTitle = true
 [footer]
 showCopyright = true
 showThemeAttribution = true
-showAppearanceSwitcher = true
+showAppearanceSwitcher = false
 showScrollToTop = true
 
 [homepage]
