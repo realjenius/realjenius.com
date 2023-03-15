@@ -9,7 +9,7 @@ to make a Tetris clone for the terminal using Kotlin... on the JVM.
 
 <!-- more -->
 
-# Background
+## Background
 
 A couple of years ago, I ran across [Lanterna](https://github.com/mabe02/lanterna), which is a Curses-style library, built to run portably on the JVM. I thought this was an interesting library, if a little hard to justify in normal use-cases. Generally speaking, if you're going to build a terminal interface, using Java isn't the first choice if only because of startup performance and initial resident memory use. That said, for long-standing applications running in a headless environment, there seemed to be a potential, however small, for this to be a useful library with which to have some experience.
 
@@ -19,7 +19,7 @@ Given these two motivations and the fact I've always liked Tetris, I got the cra
 
 {{<figure src="/img/articles/ketris/ketris.png" caption="Ketris">}}
 
-# High-Level Structure
+## High-Level Structure
 
 The current project is actually quite simple. It follows a fairly standard "game loop" iteration:
 
@@ -55,7 +55,7 @@ As this illustrates, the various bits of the game "layers" are split into separa
 * `Game` - The high-level Tetris game logic exists in this class, including calculation of scores and game speed (gravity) based on lines collapsed
 * `Board` - The board is managed by the `Game`, and contains current piece and "cell" state for the game, and calculates matches and line scores
 
-# Drawing with Lanterna
+## Drawing with Lanterna
 
 Lanterna is an interesting library, and makes building terminal-based UIs quite straightforward. One of the major benefits of Lanterna is that it can also emulate a terminal using a Swing-based window on any system with a graphical UI. It can make choices of which to use based on your preference:
 
@@ -95,7 +95,7 @@ if (!game.isRunning()) {
 
 Under the covers, the `Screen` uses a "back-buffer + front-buffer" concept, and when drawing to the screen, all changes are made to the back-buffer. To get the screen to update, after rendering the screen must explicitly be told to `refresh()`. This will apply the changes from back-buffer to front-buffer. Lanterna attempts to do calculations on the amount of actual changes between the two matrices of characters on whether it should do a "delta" rendering update or a "full redraw" of the screen; and it does this based on some internal calculations looking for 75% of the UI being changed.
 
-# Lanterna Inputs
+## Lanterna Inputs
 
 The other part of the Lanterna API that can help with building text UIs is input processing, which is fundamentally important for a game like Ketris. To enable this, Lanterna has the concept of an input queue on the screen, and application code can simply opportunistically poll for input, which is perfect for a game loop where the app wants to peek for input opportunistically but not wait. Out of this the application can get a variety of potential values encoded as either a `KeyStroke` or null.
 
@@ -126,7 +126,7 @@ This basically includes the mechanics for:
 
 `KeyType.EOF` is detected when the screen is destroyed, which can happen programmatically (via `close()`) or via external inputs.
 
-# On Clocks and Gravity
+## On Clocks and Gravity
 
 To enable variable game speed but constant input processing and game state processing speed, the clock has a fixed tick rate of ~60 updates per second. From that, the various speeds of the gameplay can be extrapolated. This means that generally the clock simply looks like this basic loop (Note: there are more advanced ways to manage clocks to avoid drift and time under-runs and such, but for a game like this, a simple delta-based clock seemed plenty adequate):
 
@@ -141,7 +141,7 @@ while (!predicate()) {
 
 To simulate pieces moving in the game board, there is a concept of "gravity", where-by a piece has a certain fall rate based on the state of the game (i.e.: level, notably). Gravity in Ketris is modeled as a positive integer, with `1` being the lowest amount of gravity, and `15` being the highest. The fall-rate for a single piece is computed as a percentage of row fallen per-frame, 60 times per second. Every time a frame is advanced, the number of frames a piece has been active is compared against a calculation of how many rows the piece should have dropped in that number of frames, which is based on the velocity table. For each frame, a piece may fall 0 to N places.
 
-# Movement and Collisions
+## Movement and Collisions
 
 One other detail I thought was kind of interesting was the mechanics of piece collisions. To do all of this, there is a data structure called `Board`, which contains the active piece, the "hold" piece that renders as the next piece to come, and the matrix of cells representing each "block" on the board, with each cell being aware of anything that might overlay it.
 
@@ -173,11 +173,11 @@ activePiece = activePiece.rotate(input.rotate).takeUnless { collides(it) } ?: ac
 activePiece = activePiece.move(input.xDelta, 0).takeUnless { collides(it) } ?: activePiece
 ```
 
-# Ghost Piece
+## Ghost Piece
 
 The ghost piece (current target location) is another interesting detail, but really just a variant of the regular movement code. Each time the active piece rotates or translates, the ghost is recalculated, simply moving the `height` down until it collides with a cell.
 
-# Rendering of Cells
+## Rendering of Cells
 
 To help with rendering, each cell keeps track of three separate things:
 
@@ -201,7 +201,7 @@ setCharacter(x, y, char)
 
 As a result, to satisfy the graphics, when moving pieces on the game board, the state of these three things simply needs to be adjusted on the cell each frame based on the mechanics of the game.
 
-# Other Ideas and Next Steps
+## Other Ideas and Next Steps
 
 As it is now, it's a pretty basic implementation of the game mechanics and rendering. Here are some thoughts that occurred to me as directions to take this little toy project:
 
