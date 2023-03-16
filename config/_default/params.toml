@@ -1,6 +1,6 @@
 colorScheme = "fire"
 defaultAppearance = "dark" # valid options: light or dark
-autoSwitchAppearance = false
+autoSwitchAppearance = true
 robots = "all"
 enableSearch = true
 enableCodeCopy = true
@@ -15,7 +15,7 @@ showTitle = true
 [footer]
 showCopyright = true
 showThemeAttribution = true
-showAppearanceSwitcher = false
+showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]
