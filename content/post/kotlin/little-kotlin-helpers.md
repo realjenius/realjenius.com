@@ -49,14 +49,59 @@ exitProcess(123)
 
 ## Concurrency
 
+A big piece of most JVM applications (especially backend apps) is concurrency. While [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) can certainly help build concurrent code, there are often cases where traditional Java concurrency primitives are simply required. Kotlin has a variety of helpers in this space.
 
+### Threads
 
-* kotlin.concurrent.thread(...)
+Creating threads is a common task in the Java world, and is a bit verbose. While often teams will use something like an `ExecutorService` as a pool of threads, sometimes a single thread is the most appropriate tool.
+
+Kotlin has a helper function that simplifies the entire process. Here are some various Java thread creation patterns in Kotlin code using the Java Thread class:
+
+```kotlin
+// Java version
+Thread({ someAsyncWork() }).start()
+// Using Function References
+Thread(::someAsyncWork).start()
+// Configuring name and daemon flag
+Thread(::someAsyncWork, "some-async-thread").apply {
+isDaemon = true
+start()
+}
+```
+
+It's notable that for all of these, `start()` must explicitly be called. Initially, whether something can be configured via the constructor or via setters (i.e. `daemon`) is somewhat arbitrary.
+
+Kotlin supports all of this through a single function with parameters that all have default values which can be overridden:
+
+```kotlin
+// Kotlin
+thread { someAsyncWork() }
+// Configuring name and daemon flag
+thread(name = "some-async-thread", isDaemon = true) { someAsyncWork() }
+// Create without starting
+val thread = thread(name = "some-async-thread", isDaemon = true, start = false) { someAsyncWork() }
+// then later:
+thread.start()
+```
+
+Note that in the Kotlin case, the thread starts by default, and callers have to ask for the thread to not begin running immediately (since that is the less common scenario).
+
+There are other optional parameters such as the context class loader and stack size management, if those are important.
+
+### Locks
+
+TODO below
+
 * kotlin.concurrent.Lock.withLock(action: () -> T)
 * kotlin.concurrent.ReentrantReadWriteLock.read(action: () -> T) and write(action: () -> T)
+
+### Timers
+
 * TODO - timers
 
-# IO Operations
+## IO Operations
+
+
 * kotlin.io.Closeable.use(block: (T) -> R)
 * kotlin.io.Console.print, println, readln, readlnOrNull, 
 * kotlin.io.ByteArray.inputStream()

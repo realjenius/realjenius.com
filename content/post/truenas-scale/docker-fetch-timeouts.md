@@ -4,9 +4,13 @@ date: 2023-01-25
 tags: ["truenas","truenas-scale","docker","self-host"]
 ---
 
-Recently I've been using [TrueNAS Scale](https://www.truenas.com/truenas-scale/) at home, and exploring self-hosting a variety utilities for my personal life. As part of that I've run into at least one case where, despite Google Fiber, I was unable to fetch docker images for deployment in time. Here's an easy way to fix that.
+Recently I've been using [TrueNAS Scale](https://www.truenas.com/truenas-scale/) BlueFin at home, and exploring self-hosting a variety utilities for my personal life. As part of that I've run into at least one case where, despite Google Fiber, I was unable to fetch docker images for deployment in time. Here's an easy way to fix that.
 
 <!--more-->
+
+{{< alert "circle-info" >}}
+This issue is being tracked with [NAS-119847](https://ixsystems.atlassian.net/browse/NAS-119847), and has been resolved in TrueNas Scale `Cobia`, which no longer uses Docker, but instead uses containerd for fetching images.
+{{< /alert >}}
 
 TrueNas Scale has a compelling Helm+Kubernetes-based application hosting solution for things you might want to self-host for personal life improvements. Examples include things like: [Paperless-ngx](https://docs.paperless-ngx.com), [AdGuard](https://adguard.com/en/adguard-home/overview.html), [Plex](https://www.plex.tv/) or [JellyFin](https://jellyfin.org/), [NextCloud](https://nextcloud.com/), and others.
 
