@@ -150,6 +150,8 @@ Initial value: SomeResource@5caf905d
 Post-null-set value: null
 ```
 
+(Note: this does *not* happen if developers use `ThreadLocal::remove` to remove the value, which actually resets the thread local state)
+
 Kotlin provides an alternative via the `getOrSet` function. This function allows for the default value to be computed at the time of calling against the thread local. Additionally, by being correctly type-parameterized, this has the added benefit that (unless your lambda returns null sometimes), the compiler can ensure this function will never return a null value:
 
 ```kotlin
