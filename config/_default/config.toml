@@ -2,6 +2,7 @@ defaultContentLanguage = "en"
 theme = "congo"
 enableRobotsTXT = true
 paginate = 5
+rssLimit = 10
 summaryLength = 0
 metaDataFormat = "yaml"
 disqusShortname = "realjenius"
