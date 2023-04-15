@@ -1,6 +1,6 @@
 ---
 title: "Test"
-draft: true
+draft: false
 date: 2023-03-20
 ---
 
@@ -38,7 +38,7 @@ A(Thread) -- threadLocals --> B(ThreadLocalMap)
 B -- Contains --> C(Array of Entry)
 B -- Grows --> C
 C --key --> D(key: ThreadLocal<*>)
-C -- value --> E(value: *)
+D -- value --> E(value: *)
 subgraph Internals
 B
 C
@@ -51,14 +51,93 @@ The `ThreadLocal` object itself acts as the logical key in the map. The hashcode
 
 Additionally, the thread local map regularly attempts to `expunge` stale entries; i.e.: those that are no longer associated with any valid value. This process is triggered in various flows, such as potential resize scenarios as well as when hash collisions occur.
 
-One of the most notable scenarios where `ThreadLocalMap` is what happens with child threads. There is a special type of thread local called `InheritableThreadLocal` which attempts to carry thread local state from parent threads to child threads. 
+One of the most notable scenarios with `ThreadLocalMap` is what happens with child threads. There is a special type of thread local called `InheritableThreadLocal` which is designed carry thread local state from parent threads to child threads. However, per the specification, once carried into a child thread, changes to the parent thread local value do *not* propagate to the child thread, and vice-versa.
 
+This behavior, combined with the "always mutable" nature of thread locals, results in the relatively inefficient implementation of thread locals, as the child thread has no choice than to eagerly copy over the full thread local state at construction time. Consider this expected behavior:
 
-TODO
+1. Inheritable thread local in Thread `Parent` has value `"test"`
+2. `Child` thread created/forked from `Parent`
+3. `Child` thread has value `"test"`
+4. `Parent` has thread local value re-set to `"test2"`
+5. `Child` still has value `"test"`
+
+To support this, the implementation internally looks like this:
+
+{{< mermaid >}}
+graph TB
+    A(Parent) -- inheritableThreadLocals --> C(ThreadLocalMap)
+    A -- creates --> B(Child)
+    B -- inheritableThreadLocals --> D(ThreadLocalMap)
+    C -- copied to --> D
+    C -- Contains --> E(Array of Entry)
+    D -- Contains --> F(Array of Entry)
+    C -- Grows --> E
+    D -- Grows --> F
+    E -- key --> G(key: ThreadLocal<*>)
+    F -- key --> H(key: ThreadLocal<*>)
+    G -- value --> I(value: *)
+    H -- value --> J(value: *)
+    subgraph Internals
+        C
+        E
+        G
+        I
+    end
+    subgraph Child Internals
+        D
+        F
+        H
+        J
+    end
+{{< /mermaid >}}
+
+In other words, there are two full independent copies of the values stored in two independent heap arrays in the system. Even if the values are treated fully immutably.
+
+When thinking about virtual threads and having ten-thousand, or even one-hundred-thousand virtual threads in memory, this inheritable thread local map copying can create significant memory pressure.
 
 ### ScopedValue
 
+In comparison to thread locals, scoped values are designed with an optimized internal model in mind. The implementation details (at least, as of Java 20) are definitely worth exploring.
+
+With scoped values, the primary mechanisms for holding bound values are the `Carrier` and the `Snapshot`:
+
+* The `ScopedValue<T>` object itself behaves like a map key; a unique pointer to the value as set in other references. This is also where the user-facing API typically resides, much like the `ThreadLocal` object
+* `Carrier` objects are a binding of a value to a scoped value at a point in time. Carriers are modeled as a linked list (or chain) of bindings, so that when a caller says something like `.where(scope1, "xyz").where(scope2, "abc").run { ... }`, both scope1 and scope2 are in the search path for that specific set of carrier bindings. Carriers are not a global binding of values for all scoped values, however, as we'll see shortly
+* `Snapshot` objects are where the carrier objects are saved. Each snapshot really represents a "tier of scoping" in the processing. Like carriers, snapshots are modeled as a chain, so as you nest scoping, snapshots will extend from each other.
+
+All of these descriptions may be confusing, so we can try a diagram combined with code to make it a little easier to understand. Consider this scoped value logic:
+
+```java
 TODO
+```
+
+Here is what this would look like in the modeled object hierarchy that is retained behind the scenes:
+
+{{< mermaid >}}
+graph BT
+A(Snapshot2) -- prev --> B(Snapshot1)
+B(Snapshot1) -- prev --> C(Empty)
+B -- bindings --> F(carrier)
+A -- bindings --> D(carrier)
+F -- prev --> G
+{{< /mermaid >}}
+
+When an execution boundary completes, the snapshot (and all carriers) are popped, and whatever snapshot existed before becomes the "current" snapshot in play (which may be "empty"). Because each snapshot and "carrier chain" is immutable, it may now be apparent how this results in a much more efficient reuse across inherited threads:
+
+* With traditional thread locals, every time a new child thread is created, the inheritable values are copied to the new thread
+* With scoped values, this isn't the case. In fact, the only time in which new objects are created in this model is when scoped values are modified: changing a scoped value or adding additional scoped values using `where` results in new carriers and a new snapshot being created for the duration of that code execution
+
+### Bonus ScopedValue Speedups
+
+There are some other interesting efficiencies built-in to the scoped value implementation that are worth discussing.
+
+* Snapshot
+* Carrier
+* Bindings
+* Bitmask
+* Cache
+* 
+
 
 ## Summary
 
