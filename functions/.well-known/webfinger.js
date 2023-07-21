@@ -1,3 +1,5 @@
-export function onRequest(context) {
-  return new Response("Hello, world!")
+export function onRequestGet(context) {
+
+  const { searchParams } = new URL(context.request.url)
+  searchParams.get('rel')
 }  
