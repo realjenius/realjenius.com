@@ -1,5 +1,5 @@
 export function onRequestGet(context) {
 
   const { searchParams } = new URL(context.request.url)
-  searchParams.get('rel')
+  return searchParams.get('rel')
 }  
