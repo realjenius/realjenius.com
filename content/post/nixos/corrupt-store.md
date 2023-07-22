@@ -56,6 +56,6 @@ So, after running `nix-collect-garbage -d` (which took quite a long time), 24 *G
 
 After *that* was done, I was able to upgrade things again.
 
-## Moral of the Story
+**Moral of the Story**
 
 So, what's the moral of the story? I'd say it's this: when you fundamentally switch your technology stack, even if it works incredibly well at first, maybe learn a bit more deeply about it to ensure you aren't neglecting any important steps. For me that means better understanding the lifecycle of old revisions in the store, and what it means to take good care of my new "indestructible OS" so it stays that way.
