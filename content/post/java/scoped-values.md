@@ -105,38 +105,135 @@ With scoped values, the primary mechanisms for holding bound values are the `Car
 * `Carrier` objects are a binding of a value to a scoped value at a point in time. Carriers are modeled as a linked list (or chain) of bindings, so that when a caller says something like `.where(scope1, "xyz").where(scope2, "abc").run { ... }`, both scope1 and scope2 are in the search path for that specific set of carrier bindings. Carriers are not a global binding of values for all scoped values, however, as we'll see shortly
 * `Snapshot` objects are where the carrier objects are saved. Each snapshot really represents a "tier of scoping" in the processing. Like carriers, snapshots are modeled as a chain, so as you nest scoping, snapshots will extend from each other.
 
-All of these descriptions may be confusing, so we can try a diagram combined with code to make it a little easier to understand. Consider this scoped value logic:
+All of these descriptions may be confusing, so we can try a diagram combined with code to make it a little easier to understand. Revisiting previous examples, consider this scoped value logic:
 
 ```java
-TODO
+// Binding 1
+ScopedValue.where(A, "a1").where(B, "b2")
+  .run(() -> {
+    // Binding 2
+    ScopedValue.where(C, "c3", () -> {
+      // Binding 3
+      ScopedValue.where(A, "a4").where(D, "d5")
+        .run(() -> doSomething(A.get(), B.get(), C.get(), D.get()));
+    });
+  });
+```
+
+As a reminder, at the point of `doSomething()` being invoked, the scopes values would have these values:
+
+```
+A=a4
+B=b2
+C=c3
+D=d5
 ```
 
 Here is what this would look like in the modeled object hierarchy that is retained behind the scenes:
 
 {{< mermaid >}}
-graph BT
-A(Snapshot2) -- prev --> B(Snapshot1)
-B(Snapshot1) -- prev --> C(Empty)
-B -- bindings --> F(carrier)
-A -- bindings --> D(carrier)
-F -- prev --> G
+flowchart TB
+s3>Snapshot 3]
+s2>Snapshot 2]
+s1>Snapshot 1]
+s3c1([carrier: D=d5])
+s3c2([carrier: A=a4])
+s2c1([carrier: C=c3])
+s1c1([carrier: B=b2])
+s1c2([carrier: A=a1])
+s0>Empty]
+s3 -- prev --> s2
+s3 -- bindings --> s3c1
+s3c1 -- prev --> s3c2
+s2 -- prev --> s1
+s2 -- bindings --> s2c1
+s1 -- prev --> s0
+s1 -- bindings --> s1c1
+s1c1 -- prev --> s1c2
 {{< /mermaid >}}
 
-When an execution boundary completes, the snapshot (and all carriers) are popped, and whatever snapshot existed before becomes the "current" snapshot in play (which may be "empty"). Because each snapshot and "carrier chain" is immutable, it may now be apparent how this results in a much more efficient reuse across inherited threads:
+When an execution boundary completes, the snapshot (and all carriers) are "popped", simply by the thread moving back to the `prev` snapshot.
 
-* With traditional thread locals, every time a new child thread is created, the inheritable values are copied to the new thread
-* With scoped values, this isn't the case. In fact, the only time in which new objects are created in this model is when scoped values are modified: changing a scoped value or adding additional scoped values using `where` results in new carriers and a new snapshot being created for the duration of that code execution
+From an implementation perspective, because a `Snapshot` and the associated `Carrier` objects is an immutable data structure, a snapshot can be freely shared across thread boundaries without any risk of corruption nor any need to copy or otherwise secure values for multithreaded reasons.
+
+With traditional thread locals, every time a new child thread is created, the inheritable values are copied to the new thread, but with scoped values it is just a pointer to an immutable snapshot. In fact, the only time in which new objects are created in this model is when scoped values are modified: changing a scoped value or adding additional scoped values using `where` results in new carriers and a new snapshot for the duration of that code block executing.
 
 ### Bonus ScopedValue Speedups
 
-There are some other interesting efficiencies built-in to the scoped value implementation that are worth discussing.
+While this immutable hierarchy is a big benefit for sharing scoped binding across threads, further performance benefits can be (and are) realized. Notably: traversing the snapshot hierarchy to find values is, relatively, slow (as compared to a simple hash-table lookup).
 
-* Snapshot
-* Carrier
-* Bindings
-* Bitmask
-* Cache
-* 
+Using the example above we can revisit how slow it could be, by following a naive traversal for the value for `B` (the first bound value), while within `Snapshot3` (the inner-most binding):
+
+1. Check snapshot 3 carrier 1 for B - **no**
+2. Check snapshot 3 carrier 2 for B - **no**
+3. Check snapshot 2 carrier 1 for B - **no**
+4. Check snapshot 2 carrier 2 for B - **no**
+5. Check snapshot 1 carrier 1 for B - **no**
+6. Finally: check snapshot 1 carrier 2 for B - **yes!**
+
+There are two components in place to optimize this slow traversal. The first is a bitmask for all values. Here is a high-level overview of this bitmask:
+
+* Every `ScopedValue` has a `hash`, which is generated randomly (as of Java 20, via a [Marsaglia xor shift generator](https://en.wikipedia.org/wiki/Xorshift))
+* A `bitmask` is computed for any given ScopedValue, which serves as a fixed-size (though, potentially non-unique) fingerprint for the scoped value
+* Every carrier, when bound, captures the bitmask of the `ScopedValue` for which it is bound. If the carrier has a previous carrier binding, the bitmask on the carrier is bitwise-or'ed with the bitmask of the previous. This additive nature makes a bitmask representing all carrier bindings
+* Similarly, every snapshot has a bitmask equal to its head carrier's bitmask (which may represent several bindings), bitwise-or'ed with any prior snapshot bitmasks
+* When traversing for a binding, the ScopedValue bitmask is compared to the snapshot
+* If the mask is not set, the value is known to not be bound in that snapshot
+* If the mask is set, the snapshot carriers are traversed, checking for a match unless/until the mask does not match
+* If no carrier is found, the previous snapshot is traversed
+* This process repeats until the most recent binding is found, or the mask/binding is not found
+
+In effect, this bitmask acts as a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter), and allows for very efficient "likely" binding discovery, but can have false-positives in the case of bitmask collisions.
+
+Here is a more concrete example of what this might look like using the example from above. I'll use a simplified bit-mask representation for the sake of this diagram, specifically with these bitmasks:
+
+* `A = [1,0,0,1,0,0,0,0]`
+* `B = [0,1,0,0,1,0,0,0]`
+* `C = [0,0,1,0,0,1,0,0]`
+* `D = [0,0,0,0,0,0,1,1]`
+
+As you can see, for this simplified example, all slots are occupied and there are no collisions. The important detail to track here is that, in the case of collisions, the lookup logic will simply fall back to the slower model, however the bit space is ideally large enough and the number of in-use scoped values is ideally small enough that collisions are quite infrequent.
+
+Here is how this bitmask organization would look in the snapshot hierarchy:
+
+{{< mermaid >}}
+flowchart TB
+s3>"Snapshot 3
+[1,1,1,1,1,1,1,1] (A+B+C+D)"]
+s2>"Snapshot 2
+[1,1,1,1,1,1,0,0] (A+B+C)"]
+s1>"Snapshot 1
+[1,1,0,1,1,0,0,0] (A+B)"]
+s3c1(["D=d5
+[0,0,0,0,0,0,1,1] (D)"])
+s3c2(["A=a4
+[1,0,0,1,0,0,0,0] (A)"])
+s2c1(["C=c3
+[0,0,1,0,0,1,0,0] (C)"])
+s1c1(["B=b2
+[1,1,0,1,1,0,0,0] (A+B)"])
+s1c2(["A=a1
+[1,0,0,1,0,0,0,0] (A)"])
+s0>"Empty
+[0,0,0,0,0,0,0,0]"]
+s3 -- prev --> s2
+s3 -- bindings --> s3c1
+s3c1 -- prev --> s3c2
+s2 -- prev --> s1
+s2 -- bindings --> s2c1
+s1 -- prev --> s0
+s1 -- bindings --> s1c1
+s1c1 -- prev --> s1c2
+{{< /mermaid >}}
+
+With this hierarchy it's clear to see that, while in snapshot 3, we can quickly verify that it is likely all the scoped values are set.
+
+The other component that exists to help traversal performance even more is a lazy per-thread cache. Each "thread" carries a special `scopedValueCache` (simply an `Object[]`), which has a pre-determined, constant size. The `ScopedValue` hash is used to further facilitate the use of the cache:
+
+* When storing a value in the cache, attempt a primary slot location or a secondary slot location, computed off of the hash
+* If the primary slot is available,
+* For the given hash calculate a primary slot where the scoped value might reside in the cache, and check that location
+* If the value is not found, calculate a secondary slot where the value might reside
 
 
 ## Summary
