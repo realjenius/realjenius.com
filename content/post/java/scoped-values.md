@@ -196,7 +196,7 @@ The JEP discusses briefly the nature of the thread local implementation, but let
 Thread locals are stored directly on each thread as a `ThreadLocalMap`, which is an array-backed map. The map is very basic and meant to be specifically tuned for the use-cases with thread locals:
 
 {{< mermaid >}}
-graph LR
+graph TD
 A(Thread) -- threadLocals --> B(ThreadLocalMap) 
 B -- Contains --> C(Array of Entry)
 B -- Grows --> C
@@ -417,4 +417,4 @@ Per the documentation on scoped values themselves, this is all optimized around 
 
 ## Summary
 
-Scoped values are a welcome edition to Java that provides a high-efficiency thread-local value alternative for a future where there is more virtual thread use, but that also has a much more constrained immutable API that eliminates a whole host of possible bugs due to developer error. 
+Scoped values are a welcome edition to Java that provide a high-efficiency thread-local value alternative for a future where there is more virtual thread use, but that also has a much more constrained immutable API that eliminates a whole host of possible bugs due to developer error. 
