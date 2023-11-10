@@ -6,17 +6,17 @@ layout: 'simple'
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently working for [UKG, Inc.](http://ukg.com) (formerly Ultimate Software) as a principal software architect for multiple projects.
+I am currently working for  [AtomicJar](https://atomicjar.com) as principal platform engineer for the ecosystem behind TestContainers Cloud.
 
 ### My History
 
-Prior to working for UKG, I spent eight years immersed in the high-energy (and never boring) gaming industry, first working for Electrotank as *Director of Platform Engineering*, then working for Mind Pirate as the *Cloud Whisperer*, and most recently working for [High 5 Games](http://www.high5games.com) as their *Director of Server Development*.
+Prior to working for AtomicJar I worked for nearly six years at [UKG, Inc.](http://ukg.com) (formerly Ultimate Software) as a *Principal Software Architect* for several projects. And prior to that, I spent eight years immersed in the high-energy (and never boring) gaming industry, first working for Electrotank as *Director of Platform Engineering*, then working for Mind Pirate as the *Cloud Whisperer*, and most recently working for [High 5 Games](http://www.high5games.com) as their *Director of Server Development*.
 
 Over the course of my career, I have technically lead a large variety of powerful teams.
 
 Here’s a mini CV:
 
-* I’ve been developing in Java, or otherwise on the JVM for more than 22 years.
+* I’ve been developing in Java, or otherwise on the JVM for more than 23 years.
 * My expertise is in building high-concurrency, low-latency, fault-tolerant systems.
 * Working in the games industry has given me unique experience in building low-latency systems at significant scale. This has given me valuable knowledge in low-level network, complex clustering problems, and large data management.
 * The games industry also deals with tremendous amounts of data (hundreds of terabytes) all day long, so I have developed a lot of knowledge working with large scale database and distributed technologies.
