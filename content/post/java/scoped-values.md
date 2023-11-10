@@ -324,7 +324,7 @@ From an implementation perspective, because a `Snapshot` and the associated `Car
 
 With traditional thread locals, every time a new child thread is created, the inheritable values are copied to the new thread, but with scoped values it is just a pointer to an immutable snapshot; a "previous" structure in the hierarchy. In fact, the only time in which new objects are created in this model is when new scope executions occur. Changing a scoped value or adding additional scoped values using `where` results in new carriers and a new snapshot for the duration of that code block executing.
 
-### Bonus ScopedValue Speedups
+### Fast Lookups
 
 While this immutable hierarchy is a big benefit for sharing scoped binding across threads, further performance benefits are built in to help with this work at a large scale. Notably: traversing the snapshot hierarchy to find values is relatively slow (as compared to a simple hash-table lookup).
 
