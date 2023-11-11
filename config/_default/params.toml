@@ -1,4 +1,4 @@
-colorScheme = "fire"
+colorScheme = "ocean"
 defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
 robots = "all"
