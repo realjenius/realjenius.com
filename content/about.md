@@ -6,7 +6,7 @@ layout: 'simple'
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently working for  [AtomicJar](https://atomicjar.com) as principal platform engineer for the ecosystem behind TestContainers Cloud.
+I am currently working for  [AtomicJar](https://atomicjar.com) as principal platform engineer for the ecosystem behind [Testcontainers Cloud](https://testcontainers.com/cloud/). TCC is an amazing way to run your container-based tests without running containers. Let us worry about the servers and docker security so you can worry about your application.
 
 ### My History
 
