@@ -5,7 +5,7 @@ tags: ["java", "wayland", "linux"]
 date: 2023-12-15
 ---
 
-[Project Wakefield](https://wiki.openjdk.org/display/wakefield) is the effort to rebuild support the [Wayland](https://wayland.freedesktop.org/) display server in the JDK, allowing Java-based desktop apps to be native Wayland clients. This project has moved from an interesting effort with some momentum, to a far more important project than ever before.
+[Project Wakefield](https://wiki.openjdk.org/display/wakefield) is the effort to build support for the [Wayland](https://wayland.freedesktop.org/) display server in the JDK, allowing Java-based desktop apps to be native Wayland clients. This project has moved from an interesting effort with some momentum, to a far more important project than ever before.
 
 <!--more-->
 
