@@ -6,11 +6,11 @@ layout: 'simple'
 
 Hello! My name is R.J. Lorimer, and I'm a professional software developer.
 
-I am currently working for  [AtomicJar](https://atomicjar.com) as principal platform engineer for the ecosystem behind [Testcontainers Cloud](https://testcontainers.com/cloud/). TCC is an amazing way to run your container-based tests without running containers. Let us worry about the servers and docker security so you can worry about your application.
+I am currently working for [Docker](https://docker.com) (formerly the startup AtomicJar) as principal engineer and tech lead for [Testcontainers Cloud](https://testcontainers.com/cloud/). TCC is an amazing way to run your container-based tests without running containers. Let us worry about the servers and docker security so you can worry about your application.
 
 ### My History
 
-Prior to working for AtomicJar I worked for nearly six years at [UKG, Inc.](http://ukg.com) (formerly Ultimate Software) as a *Principal Software Architect* for several projects. And prior to that, I spent eight years immersed in the high-energy (and never boring) gaming industry, first working for Electrotank as *Director of Platform Engineering*, then working for Mind Pirate as the *Cloud Whisperer*, and most recently working for [High 5 Games](http://www.high5games.com) as their *Director of Server Development*.
+Prior to working for Docker and AtomicJar I worked for nearly six years at [UKG, Inc.](http://ukg.com) (formerly Ultimate Software) as a *Principal Software Architect* for several projects. And prior to that, I spent eight years immersed in the high-energy (and never boring) gaming industry, first working for Electrotank as *Director of Platform Engineering*, then working for Mind Pirate as the *Cloud Whisperer*, and most recently working for [High 5 Games](http://www.high5games.com) as their *Director of Server Development*.
 
 Over the course of my career, I have technically lead a large variety of powerful teams.
 
