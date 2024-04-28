@@ -5,3 +5,4 @@ public
 .hugo_build.lock
 .idea
 resources/_gen
+.direnv
