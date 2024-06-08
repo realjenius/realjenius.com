@@ -2,28 +2,35 @@
 title: "Evolving Arrays in Java"
 draft: true
 ---
+
 Java has long had a duality with both arrays and lists. Array have existed in Java since 1.0, and are in many ways the logical evolution of a `std::array` from C++. They:
 
 * Define the size up-front
 * Define the type with the array
 * Build language constructs to navigate the array safely
 
-In many ways, Java arrays are a huge improvement over prior art: they force homogeneity in the carried values, they completely prevent buffer overruns, there is full reflective language support for understanding their nature, and they are still space efficient. But, compared to the power of the collections API, arrays are awful for a variety of reasons:
+At the time Java arrays were a distillation of all the improvements in prior-art: they force homogeneity in the carried values, they completely prevent overruns, there is full reflective language support for understanding their nature, and they largely preserve memory space efficiency (aside from object header space). But, compared to the power of the collections API, arrays are tough to code with for a variety of reasons:
 
 1. They can't grow
-2. They are not thread-safe
+2. They are not inherently thread-safe
 3. There is no concept of encapsulation
-4. They have no high-level functionality - anything you want to do to array requires utility functions like `Arrays.toString()`
+4. They have no natural object API; anything you want to do to array requires utility functions like `Arrays.toString()`
 
-It's important to keep in mind that Java arrays, with their reified types and pointer-like behavior. pre-date the Java collections API by a two full years. Vectors, the first growable alternative to arrays, came out with Java 1.0, but they were more expensive wrappers around arrays that could only hold heap objects, and also brought along threading penalties; as a result developers avoided them... a lot.
+## From the Beginning
+
+It's important to keep in mind that Java arrays were in `1.0` - and as such, they pre-date the Java collections API by a two full years. Vectors, the first growable alternative to arrays, came out with Java 1.0, but they were more expensive wrappers around arrays that could only hold heap objects, and also brought along threading penalties; they were often used to help with coding convenience, but there were definite tradeoffs.
 
 With Java 1.2, the proper `java.util` collections objects arrived, including `List`, `Map`, and `Set` - and with them, a variety of default implementations. `Vector` was now the less-favorable counterpart to `ArrayList` (or even `LinkedList`), and collection API interface adoption quickly grew.
 
-Unfortunately, while they had a number of benefits, there were still gaps with lists compared to arrays. A few big ones remained. Lists:
+Unfortunately, while they had a number of benefits, there were still gaps with lists compared to arrays. Lists:
 
 1. ...are untyped boxes of objects - you couldn't tell what was in them, and your code was littered with casts
 2. ...can't hold primitive values - due to their heap-based nature, a List could only hold objects allocated by the Java heap
-3. ...don't organize their values contiguously in memory like arrays - due to their heap-based nature, you lose this immediately. For years in the embedded and small-system space, it was a huge hinderance that Java memory handling was so coarsely defined. This has interestingly renewed itself as a problem with CPU cache coherence as well as optimizing for deep CPU pipelines with vector opcodes, where keeping values close together can have a super-linear impact on performance
+3. ...don't organize their values contiguously in memory like arrays - due to their heap-based nature, the only thing in memory contiguously are references (pointers) to values on the heap; so by being bound purely to heap objects you lose this benefit immediately.
+
+{{< alert "lightbulb" >}}
+For years in the embedded and small-system space, the lack of memory conciseness in Java arrays and general coarseness with which Java memory could be managed was a significant hinderance to adoption. Interestingly, in more recent years this has renewed itself as a challenge in spaces where Java is being tuned to best use every bit of processing power. Struggling with CPU cache coherence and optimizing for deep CPU pipelines with vector opcodes, where keeping values close together can have a super-linear impact on performance
+{{< /alert >}}
 
 So, with Java 1.2 you had these two choices:
 
@@ -38,7 +45,7 @@ valuesList.add(Integer.valueOf(3));
 
 It's no surprise that, when primitives came up, lists were often not the first choice.
 
-With Java 1.5 and generics, we finally typed collections. All arguments about type-erasure aside (I still argue it was the right choice, even if it has had gaps), this solved the "untyped" argument for most developers, even if it took years to get people to use it in their production code. We also got boxing and unboxing which made things a lost less scary when dealing with primitive types. These days, we can now at least get to this:
+With Java 1.5 and generics, we finally were given typed collections. All arguments about type-erasure aside (I still argue it was the right choice, even if it has had growing pains), this solved the "untyped" argument for most developers, even if it took years to get people to use it in their production code. We also got boxing and unboxing which made things a lot less verbose when dealing with primitive types. These days, we can now at least get to this:
 
 ```java
 int[] values = { 1, 2, 3 };
@@ -46,17 +53,27 @@ int[] values = { 1, 2, 3 };
 List<Integer> valuesList = List.of(1, 2, 3);
 ```
 
-Of course, while these are much closer, there is still a big difference in how these are stored in memory. For critical sections in some systems, arrays are still king.
+Much better syntax! Of course, there is still a big difference in how these are stored in memory. For critical sections in some systems, arrays (or other unsafe memory trickery) still reign supreme.
 
-With [Project Valhalla](https://openjdk.org/projects/valhalla/) we are finally getting deep runtime and language solutions to solve the ability to treat primitives like objects. This has been an incredibly complex undertaking, now traveling over **ten full years** of iteration. Similarly, [Panama](https://openjdk.org/projects/panama/) has opened the door to better bridges to contiguous memory management and leveraging the native infrastructure. The hope is, with the right syntax and libraries, a `List<int>` will finally be possible in Java right next to an `int[]` - with all the benefits of the List API.
+With [Project Valhalla](https://openjdk.org/projects/valhalla/) we are finally getting deep runtime and language solutions to solve the ability to treat primitives like objects. This has been an incredibly complex undertaking, now taking over **ten full years** of iteration. The hope is, with the right syntax and libraries, a `List<int>` will finally be possible in Java right next to an `int[]` - with all the benefits of the List API.
 
-So thankfully, we are seeing better ways to organize data contiguously in memory that doesn't require the hard choice between arrays, lists, and `Unsafe`. But, for those paying attention, it's been **28 years** since Java 1.0. Arrays have a bit of a head-start on all of these projects that are still in-flight. Also, it's worth remembering that while `List` is a better API, our favorite implementations still rely on Java arrays under the covers, so even if we finally want to mostly use the collections API counterparts, arrays are still a fundamental part of Java.
+Similarly, [Project Panama](https://openjdk.org/projects/panama/) is vastly improving the native bridges from Java to the underlying infrastrudcture. For some very specific memory management scenarios, this is another tool that is coming. 
 
-There are a lot of features of the List API that are more convenient than arrays. However, it's not really fair to judge arrays by this measure. A more fundamental truth is that this isn't really a feature of `List` per-se - more-so the API abstraction that comes with it. Arrays, due to their intrinstic nature as a Java type, don't have the ability to change their implementation for `get` (i.e. `var x = array[i]`) and `set` (i.e. `array[i] = x`) for individual positions - the Java language spec defines this pretty succinctly. This limits a variety of feature variations, as arrays can only behave like arrays, not like a linked list or a copy-on-write list.
+So thankfully, we are seeing better ways to organize data contiguously in memory that doesn't require the hard choice between arrays, lists, and `Unsafe`. But, for those paying attention, it's been **28 years** since Java 1.0. Arrays have a bit of a head-start on all of these projects that are still in-flight. Also, it's worth remembering that while `List` is a more expressive API, most collections in Java use arrays under the covers **somewhere**, so even if we finally are able to mostly use the collections API arrays are and will always be a fundamental part of Java.
 
-{{< alert >}}
-Many, many languages have made different choices with array-like types: Scala, Kotlin, C#, Swift, etc. Each chosen to make this abstraction more flexible - and this challenge Java and similar systems languages have faced is much the reason why.
-{{< /alert >}}
+## The Nature of Java Arrays
+
+Up to this point it almost sounds like I'm describing arrays as a less successful equivalent to the collections API. And admittedly, there are a lot of features of the List API that are more convenient than arrays. However, it's not really fair to judge arrays by this measure.
+
+More fundamentally, the power of List is the API abstraction that comes with it being an object. Arrays, due to their intrinstic nature as a Java type, really behave like a Java primitive type; similar to `int`. They don't have the ability to change their implementation for `get` (i.e. `var x = array[i]`) and `set` (i.e. `array[i] = x`) for individual positions, they don't have methods, and they have unique quirks like the immutable property `.length`.
+
+The unique nature of Java arrays has been revisited by many languages, which have made different choices with array representations (and primitive-like types) since; for example both Kotlin and Scala leverage their compiler and language differences to make the distinction far less difficult to deal with.
+
+This historical perspective is important when we talk about the future of arrays in Java, as
+
+## Into the Future
+
+Accepting that arrays 
 
 # Freezing Arrays
 
