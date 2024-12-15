@@ -1,7 +1,7 @@
 ---
 title: 'The Architecture of Ultima 6: Part 3 - Parsing Indexed Palettes'
 summary: 'VGA Colors and '
-date: 2020-04-02`
+date: 2020-04-02
 tags: ["classic-gaming", "ultima6", "kotlin"]
 series: ["ultima-6-arch"]
 draft: true
