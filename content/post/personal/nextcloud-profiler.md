@@ -46,7 +46,7 @@ Once this is done, the profiler will be enabled in the Nextcloud UI. The profile
 
 Immediately you can see that something is running *837* queries in this case. (Spoiler, for this case it's the [Cookbook App](https://apps.nextcloud.com/apps/cookbook), and I'm ok with that as it is only when loading the actual cookbook page, and I have lots of recipes needing data).
 
-After looking at the data you can likely find where most of the time/queries/whatever was spend, and then after disabling the offending app, you may suddenly find page loads to be much faster:
+After looking at the data you can likely find where most of the time/queries/whatever was spent, and then after disabling the offending app, you may suddenly find page loads to be much faster:
 
 ![Profile Flame Graph - Better](/img/articles/nextcloud/nextcloud_profiler_2.png "Better Profile Flame Graph")
 
