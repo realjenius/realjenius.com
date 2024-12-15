@@ -1,6 +1,6 @@
 ---
 title: "Project Valhalla: The Epic Refactor to Elegance"
-summary: "Project Valhalla, the road to value types in Java, is finally on the horizon, and it's time to learn more about the latest state"
+summary: "Project Valhalla, the road to value types in Java, is finally on the horizon, and it's time to learn more about the latest state."
 tags: ["java","jvm"]
 date: 2024-12-15
 ---
