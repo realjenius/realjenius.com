@@ -69,11 +69,11 @@ More fundamentally, the power of List is the API abstraction that comes with it 
 
 The unique nature of Java arrays has been revisited by many languages, which have made different choices with array representations (and primitive-like types) since; for example both Kotlin and Scala leverage their compiler and language differences to make the distinction far less difficult to deal with.
 
-This historical perspective is important when we talk about the future of arrays in Java, as
+This historical perspective is important when we talk about the future of arrays in Java; so much of the choices of the past guide our future direction.
 
 ## Into the Future
 
-Accepting that arrays 
+
 
 # Freezing Arrays
 
