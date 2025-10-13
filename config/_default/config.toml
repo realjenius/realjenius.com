@@ -1,19 +1,22 @@
 defaultContentLanguage = "en"
 theme = "congo"
 enableRobotsTXT = true
-paginate = 5
+pagination.pagerSize = 5
 rssLimit = 10
 summaryLength = 0
 metaDataFormat = "yaml"
-disqusShortname = "realjenius"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
 [permalinks]
-post = "/:year/:month/:day/:filename/"
+post = "/:year/:month/:day/:contentbasename/"
 
 [taxonomies]
 tag = 'tags'
 category = 'categories'
 series = 'series'
+
+[services]
+  [services.disqus]
+    shortname = 'realjenius'
